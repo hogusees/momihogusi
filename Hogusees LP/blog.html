@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog - ほぐし処 HoguSeeS</title>
+    <meta name="description" content="ほぐし処 HoguSeeSのブログ一覧ページです。最新情報やお知らせを掲載しています。">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .blog-list {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            padding: 2rem;
+        }
+        .blog-list h2 {
+            text-align: center;
+            color: #8B4513;
+            margin-bottom: 2rem;
+        }
+        .blog-article {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+        .blog-article:last-child {
+            border-bottom: none;
+        }
+        .blog-date {
+            color: #8B4513;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .blog-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .blog-body {
+            color: #4a4a4a;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0 0 0;
+            color: #D2691E;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            color: #8B4513;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ほぐし処 HoguSeeS</h1>
+                    <p class="subtitle">武豊町の隠れ家癒し処</p>
+                </div>
+                <div class="header-contact">
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:0569-84-2515">0569-84-2515</a>
+                    </div>
+                    <a href="https://line.me/R/ti/p/@hogusees" class="reserve-btn" target="_blank">
+                        <i class="fab fa-line"></i>
+                        予約はこちら
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main style="margin-top:120px;">
+        <div class="blog-list">
+            <h2>blog</h2>
+            <div class="blog-article">
+                <span id="blog-date" class="blog-date"></span>
+                <div id="blog-title" class="blog-title"></div>
+                <div id="blog-content" class="blog-body"></div>
+            </div>
+        </div>
+        <div style="text-align:center;">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> トップページに戻る</a>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ほぐし処 HoguSeeS</h3>
+                    <p>武豊町の隠れ家癒し処</p>
+                    <p>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
+                    <p>TEL: <a href="tel:0569-84-2515">0569-84-2515</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>メニュー</h4>
+                    <ul>
+                        <li><a href="index.html#menu">もみほぐし</a></li>
+                        <li><a href="index.html#menu">オイルリンパマッサージ</a></li>
+                        <li><a href="index.html#menu">足つぼマッサージ</a></li>
+                        <li><a href="index.html#menu">タイ古式ストレッチ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <div class="social-links">
+                        <a href="https://line.me/R/ti/p/@hogusees" target="_blank" class="social-link">
+                            <i class="fab fa-line"></i>
+                            LINEで予約
+                        </a>
+                        <a href="#" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="privacy.html">プライバシーポリシー</a>
+                    <a href="terms.html">利用規約</a>
+                </div>
+                <p>&copy; 2024 ほぐし処 HoguSeeS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+    function getQueryParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    const blogId = getQueryParam('id');
+    if (blogId) {
+      fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${blogId}`, {
+        headers: { 'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn' }
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('blog-title').textContent = data.title;
+        document.getElementById('blog-date').textContent = data.publishedAt ? data.publishedAt.substr(0,10).replace(/-/g, "/") : '';
+        document.getElementById('blog-content').innerHTML = data.content; // HTML形式の場合
+      });
+    }
+    </script>
+</body>
+</html> 
