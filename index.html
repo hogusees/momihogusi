@@ -426,39 +426,4 @@
 
     <script src="script.js"></script>
     <script>
-    fetch('https://hogusees-blog.microcms.io/api/v1/blogs?limit=5', {
-      headers: { 'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn' }
-    })
-    .then(res => res.json())
-    .then(data => {
-      const html = data.contents.map(item => `
-        <div class="blog-card">
-          <div class="blog-date">${item.publishedAt ? item.publishedAt.substr(0,10).replace(/-/g, "/") : ''}</div>
-          <a href="blog.html?id=${item.id}" target="_blank" class="blog-title">${item.title}</a>
-          <div class="blog-content">${item.content ? item.content.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 40) + '…' : ''}</div>
-        </div>
-      `).join('');
-      document.getElementById('blog-list').innerHTML = html;
-    });
-    </script>
-    <script>
-    function getQueryParam(name) {
-      const url = new URL(window.location.href);
-      return url.searchParams.get(name);
-    }
-
-    const blogId = getQueryParam('id');
-    if (blogId) {
-      fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${blogId}`, {
-        headers: { 'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn' }
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('blog-title').textContent = data.title;
-        document.getElementById('blog-date').textContent = data.publishedAt ? data.publishedAt.substr(0,10).replace(/-/g, "/") : '';
-        document.getElementById('blog-content').innerHTML = data.content; // HTML形式の場合
-      });
-    }
-    </script>
-</body>
-</html> 
+   
