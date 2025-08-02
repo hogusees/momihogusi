@@ -19,11 +19,11 @@ body {
     padding: 0 20px;
 }
 
-/* ヘッダー - 横幅問題を解決 */
+/* ヘッダー - モバイル版最適化 */
 .header {
     background: linear-gradient(135deg, #8B4513, #A0522D);
     color: white;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,35 +38,37 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     width: 100%;
 }
 
 .logo h1 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.1rem;
     color: white;
     display: block;
+    line-height: 1.2;
 }
 
 .logo .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     opacity: 0.9;
     color: white;
     display: block;
+    line-height: 1.1;
 }
 
 .header-contact {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .phone {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
 }
 
 .phone a {
@@ -74,18 +76,20 @@ body {
     text-decoration: none;
     font-weight: 500;
     display: inline;
+    font-size: 0.9rem;
 }
 
 .reserve-btn {
     background: #D2691E;
     color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
     font-weight: 500;
+    font-size: 0.8rem;
     transition: background-color 0.3s;
 }
 
@@ -96,16 +100,19 @@ body {
 .nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.8rem;
     transition: opacity 0.3s;
     display: inline;
+    padding: 0.2rem 0.4rem;
 }
 
 .nav a:hover {
@@ -881,7 +888,7 @@ section {
     }
 }
 
-/* レスポンシブデザイン - 横幅問題を解決 */
+/* レスポンシブデザイン - モバイル版最適化 */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
@@ -890,6 +897,7 @@ section {
     
     body {
         font-size: 0.97rem;
+        padding-top: 100px;
     }
     
     .menu-table {
@@ -897,47 +905,48 @@ section {
     }
     
     .header {
-        padding: 0.8rem 0;
+        padding: 0.6rem 0;
         width: 100%;
         left: 0;
         right: 0;
     }
     
     .header-content {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
+        flex-direction: row;
+        gap: 0.4rem;
+        text-align: left;
+        margin-bottom: 0.4rem;
         width: 100%;
     }
     
     .logo h1 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: white;
         display: block;
     }
     
     .logo .subtitle {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         color: white;
         display: block;
     }
     
     .reserve-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
         color: white;
         display: flex;
     }
     
     .nav ul {
-        gap: 1rem;
+        gap: 0.8rem;
         flex-wrap: wrap;
     }
     
     .nav a {
         color: white;
         display: inline;
+        font-size: 0.75rem;
     }
     
     .hero-content h2 {
@@ -974,7 +983,7 @@ section {
     }
 }
 
-/* モバイル専用 - 横幅と文字表示を確実に解決 */
+/* モバイル専用 - 横幅と文字表示を完全解決 */
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
@@ -984,7 +993,7 @@ section {
     
     body {
         font-size: 0.9rem;
-        padding-top: 120px;
+        padding-top: 90px;
         width: 100%;
         overflow-x: hidden;
     }
@@ -1014,7 +1023,7 @@ section {
         line-height: 1.2;
     }
     
-    /* ヘッダー - 横幅問題と文字表示を完全解決 */
+    /* ヘッダー - モバイル版最適化 */
     .header {
         padding: 0.5rem 0;
         display: block;
@@ -1102,6 +1111,7 @@ section {
         visibility: visible;
         opacity: 1;
         color: white;
+        font-size: 0.75rem;
     }
     
     .reserve-btn {
@@ -1185,8 +1195,12 @@ section {
         max-width: 100%;
     }
     
+    body {
+        padding-top: 85px;
+    }
+    
     .header {
-        padding: 0.3rem 0;
+        padding: 0.4rem 0;
         width: 100%;
     }
     
@@ -1218,6 +1232,7 @@ section {
     
     .phone a {
         color: white;
+        font-size: 0.7rem;
     }
     
     .reserve-btn {
@@ -1250,8 +1265,12 @@ section {
         max-width: 100%;
     }
     
+    body {
+        padding-top: 80px;
+    }
+    
     .header {
-        padding: 0.2rem 0;
+        padding: 0.3rem 0;
         width: 100%;
     }
     
@@ -1283,6 +1302,7 @@ section {
     
     .phone a {
         color: white;
+        font-size: 0.65rem;
     }
     
     .reserve-btn {
