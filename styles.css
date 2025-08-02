@@ -19,16 +19,19 @@ body {
     padding: 0 20px;
 }
 
-/* ヘッダー - シンプルで確実な設定 */
+/* ヘッダー - 横幅問題を解決 */
 .header {
     background: linear-gradient(135deg, #8B4513, #A0522D);
     color: white;
     padding: 1rem 0;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 .header-content {
@@ -36,6 +39,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .logo h1 {
@@ -43,12 +47,14 @@ body {
     font-weight: 700;
     margin-bottom: 0.2rem;
     color: white;
+    display: block;
 }
 
 .logo .subtitle {
     font-size: 0.9rem;
     opacity: 0.9;
     color: white;
+    display: block;
 }
 
 .header-contact {
@@ -67,6 +73,7 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    display: inline;
 }
 
 .reserve-btn {
@@ -98,6 +105,7 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s;
+    display: inline;
 }
 
 .nav a:hover {
@@ -873,10 +881,11 @@ section {
     }
 }
 
-/* レスポンシブデザイン - シンプルで確実 */
+/* レスポンシブデザイン - 横幅問題を解決 */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
+        max-width: 100%;
     }
     
     body {
@@ -889,6 +898,9 @@ section {
     
     .header {
         padding: 0.8rem 0;
+        width: 100%;
+        left: 0;
+        right: 0;
     }
     
     .header-content {
@@ -896,24 +908,36 @@ section {
         gap: 0.5rem;
         text-align: center;
         margin-bottom: 0.5rem;
+        width: 100%;
     }
     
     .logo h1 {
         font-size: 1.4rem;
+        color: white;
+        display: block;
     }
     
     .logo .subtitle {
         font-size: 0.8rem;
+        color: white;
+        display: block;
     }
     
     .reserve-btn {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
+        color: white;
+        display: flex;
     }
     
     .nav ul {
         gap: 1rem;
         flex-wrap: wrap;
+    }
+    
+    .nav a {
+        color: white;
+        display: inline;
     }
     
     .hero-content h2 {
@@ -950,16 +974,19 @@ section {
     }
 }
 
-/* モバイル専用 - ヘッダーを確実に表示 */
+/* モバイル専用 - 横幅と文字表示を確実に解決 */
 @media (max-width: 480px) {
     .container {
         padding: 0 10px;
-        max-width: 98vw;
+        max-width: 100%;
+        width: 100%;
     }
     
     body {
         font-size: 0.9rem;
-        padding-top: 120px; /* 固定ヘッダーの高さ分 */
+        padding-top: 120px;
+        width: 100%;
+        overflow-x: hidden;
     }
     
     .menu-table {
@@ -987,7 +1014,7 @@ section {
         line-height: 1.2;
     }
     
-    /* ヘッダー - モバイル版で確実に表示 */
+    /* ヘッダー - 横幅問題と文字表示を完全解決 */
     .header {
         padding: 0.5rem 0;
         display: block;
@@ -995,9 +1022,19 @@ section {
         opacity: 1;
         position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
+        max-width: 100%;
         z-index: 1000;
         background: linear-gradient(135deg, #8B4513, #A0522D);
+        overflow: hidden;
+    }
+    
+    .header .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 10px;
     }
     
     .header-content {
@@ -1011,12 +1048,15 @@ section {
         margin-bottom: 0.3rem;
         visibility: visible;
         opacity: 1;
+        width: 100%;
+        max-width: 100%;
     }
     
     .logo {
         display: block;
         visibility: visible;
         opacity: 1;
+        color: white;
     }
     
     .logo h1 {
@@ -1140,22 +1180,31 @@ section {
 
 /* さらに小さい画面用 */
 @media (max-width: 375px) {
+    .container {
+        padding: 0 8px;
+        max-width: 100%;
+    }
+    
     .header {
         padding: 0.3rem 0;
+        width: 100%;
     }
     
     .header-content {
         gap: 0.2rem;
         padding: 0.2rem 0;
         margin-bottom: 0.2rem;
+        width: 100%;
     }
     
     .logo h1 {
         font-size: 0.9rem;
+        color: white;
     }
     
     .logo .subtitle {
         font-size: 0.6rem;
+        color: white;
     }
     
     .header-contact {
@@ -1167,10 +1216,15 @@ section {
         font-size: 0.7rem;
     }
     
+    .phone a {
+        color: white;
+    }
+    
     .reserve-btn {
         padding: 0.2rem 0.4rem;
         font-size: 0.65rem;
         min-width: 70px;
+        color: white;
     }
     
     .nav {
@@ -1186,30 +1240,36 @@ section {
     .nav a {
         font-size: 0.6rem;
         padding: 0.1rem 0.2rem;
+        color: white;
     }
 }
 
 @media (max-width: 320px) {
     .container {
-        padding: 0 8px;
+        padding: 0 5px;
+        max-width: 100%;
     }
     
     .header {
         padding: 0.2rem 0;
+        width: 100%;
     }
     
     .header-content {
         gap: 0.15rem;
         padding: 0.15rem 0;
         margin-bottom: 0.15rem;
+        width: 100%;
     }
     
     .logo h1 {
         font-size: 0.8rem;
+        color: white;
     }
     
     .logo .subtitle {
         font-size: 0.55rem;
+        color: white;
     }
     
     .header-contact {
@@ -1221,10 +1281,15 @@ section {
         font-size: 0.65rem;
     }
     
+    .phone a {
+        color: white;
+    }
+    
     .reserve-btn {
         padding: 0.15rem 0.3rem;
         font-size: 0.6rem;
         min-width: 60px;
+        color: white;
     }
     
     .nav {
@@ -1240,6 +1305,7 @@ section {
     .nav a {
         font-size: 0.55rem;
         padding: 0.08rem 0.15rem;
+        color: white;
     }
 }
 
