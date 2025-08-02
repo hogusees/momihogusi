@@ -992,7 +992,63 @@ section {
     }
     
     .features {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .feature {
+        padding: 0.8rem;
+    }
+    
+    .feature i {
+        font-size: 1.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .feature h4 {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    /* さらに小さい画面での調整 */
+    @media (max-width: 375px) {
+        .features {
+            gap: 0.6rem;
+        }
+        
+        .feature {
+            padding: 0.6rem;
+        }
+        
+        .feature i {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .feature h4 {
+            font-size: 0.7rem;
+            margin-bottom: 0.3rem;
+        }
+    }
+    
+    @media (max-width: 320px) {
+        .features {
+            gap: 0.5rem;
+        }
+        
+        .feature {
+            padding: 0.5rem;
+        }
+        
+        .feature i {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .feature h4 {
+            font-size: 0.65rem;
+            margin-bottom: 0.2rem;
+        }
     }
     
     .footer-bottom {
