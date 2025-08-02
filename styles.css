@@ -132,6 +132,7 @@ body {
     text-align: center;
     color: white;
     padding-top: 80px;
+    min-height: 300px; /* 最小高さを設定して文字が隠れないように */
 }
 
 .hero-content h2 {
@@ -139,6 +140,10 @@ body {
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.2;
+}
+
+.hero-content h2 br {
+    display: none; /* デフォルトでは改行を非表示 */
 }
 
 .hero-content p {
@@ -955,6 +960,15 @@ section {
     .hero-content h2 {
         font-size: 1.4rem;
         line-height: 1.1;
+        margin-bottom: 0.3rem;
+    }
+    
+    .hero-content h2 br {
+        display: none; /* モバイル版では改行を非表示にして1行で表示 */
+    }
+    
+    .hero {
+        min-height: 250px; /* モバイル版での最小高さ */
     }
     
     .about-content {
@@ -1009,6 +1023,15 @@ section {
     .hero-content h2 {
         font-size: 1.2rem;
         line-height: 1.1;
+        margin-bottom: 0.2rem;
+    }
+    
+    .hero-content h2 br {
+        display: none; /* 小さい画面でも改行を非表示にして1行で表示 */
+    }
+    
+    .hero {
+        min-height: 200px; /* 小さい画面での最小高さ */
     }
     
     .section-title {
