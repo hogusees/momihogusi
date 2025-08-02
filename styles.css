@@ -673,10 +673,20 @@ section {
         padding-top: 120px;
     }
 
-    /* ヘッダー専用の調整（480px以下） */
+    /* ヘッダー専用の調整（480px以下） - より強力な指定 */
     .header {
-        padding: 0.4rem 0;
-        min-height: auto;
+        padding: 0.4rem 0 !important;
+        min-height: auto !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
+    }
+    
+    .header .container {
         display: block !important;
         visibility: visible !important;
     }
@@ -691,11 +701,13 @@ section {
         justify-content: space-between !important;
         margin-bottom: 0.3rem !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .logo {
         display: block !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .logo h1 {
@@ -704,6 +716,8 @@ section {
         line-height: 1.1 !important;
         display: block !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
     }
     
     .logo .subtitle {
@@ -711,6 +725,8 @@ section {
         line-height: 1.1 !important;
         display: block !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
     }
     
     .header-contact {
@@ -720,6 +736,7 @@ section {
         align-items: flex-end !important;
         min-width: 80px !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .phone {
@@ -728,11 +745,14 @@ section {
         white-space: nowrap !important;
         display: flex !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .phone a {
         display: inline !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
     }
     
     .reserve-btn {
@@ -744,6 +764,8 @@ section {
         white-space: nowrap !important;
         display: flex !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
     }
     
     .nav {
@@ -751,6 +773,7 @@ section {
         padding: 0.2rem 0 !important;
         display: block !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .nav ul {
@@ -760,6 +783,7 @@ section {
         flex-wrap: wrap !important;
         padding: 0 5px !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
     
     .nav a {
@@ -767,6 +791,41 @@ section {
         padding: 0.15rem 0.3rem !important;
         display: inline !important;
         visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
+    }
+    
+    /* デバッグ用 - ヘッダー要素の強制表示 */
+    .header * {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .header-content * {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .logo * {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
+    }
+    
+    .header-contact * {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .nav * {
+        display: inherit !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        color: white !important;
     }
 }
 
