@@ -667,14 +667,22 @@ section {
     h1, h2, h3 {
         line-height: 1.2;
     }
+    
+    /* ヘッダーが固定位置のため、メインコンテンツにパディングを追加 */
+    body {
+        padding-top: 120px;
+    }
 
     /* ヘッダー専用の調整（480px以下） */
     .header {
         padding: 0.4rem 0;
         min-height: auto;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .header-content {
+        display: flex !important;
         flex-direction: row !important;
         gap: 0.3rem !important;
         align-items: center !important;
@@ -682,30 +690,49 @@ section {
         padding: 0.3rem 0 !important;
         justify-content: space-between !important;
         margin-bottom: 0.3rem !important;
+        visibility: visible !important;
+    }
+    
+    .logo {
+        display: block !important;
+        visibility: visible !important;
     }
     
     .logo h1 {
         font-size: 1rem !important;
         margin-bottom: 0.05rem !important;
         line-height: 1.1 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .logo .subtitle {
         font-size: 0.7rem !important;
         line-height: 1.1 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .header-contact {
+        display: flex !important;
         flex-direction: column !important;
         gap: 0.2rem !important;
         align-items: flex-end !important;
         min-width: 80px !important;
+        visibility: visible !important;
     }
     
     .phone {
         font-size: 0.75rem !important;
         text-align: right !important;
         white-space: nowrap !important;
+        display: flex !important;
+        visibility: visible !important;
+    }
+    
+    .phone a {
+        display: inline !important;
+        visibility: visible !important;
     }
     
     .reserve-btn {
@@ -715,23 +742,31 @@ section {
         min-width: 80px !important;
         text-align: center !important;
         white-space: nowrap !important;
+        display: flex !important;
+        visibility: visible !important;
     }
     
     .nav {
         margin-top: 0.2rem !important;
         padding: 0.2rem 0 !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .nav ul {
+        display: flex !important;
         gap: 0.2rem !important;
         justify-content: center !important;
         flex-wrap: wrap !important;
         padding: 0 5px !important;
+        visibility: visible !important;
     }
     
     .nav a {
         font-size: 0.65rem !important;
         padding: 0.15rem 0.3rem !important;
+        display: inline !important;
+        visibility: visible !important;
     }
 }
 
