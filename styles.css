@@ -311,15 +311,19 @@ section {
     margin-bottom: 0.5rem;
     color: #4a4a4a;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .staff-info h3 .furigana,
 .staff-info p .furigana {
     font-size: 0.7rem;
     color: #666;
-    display: block;
-    margin-top: 0.2rem;
-    text-align: center;
+    display: inline;
+    margin-left: 0.3rem;
 }
 
 .staff-info p {
@@ -327,11 +331,15 @@ section {
     line-height: 1.6;
 }
 
-.staff-info p strong:first-child {
+.staff-info h3 .experience {
     font-size: 0.9rem;
     color: #888;
-    display: block;
-    margin-bottom: 0.3rem;
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+.staff-info p strong:first-child {
+    display: none; /* 施術歴をh3に移動したため非表示 */
 }
 
 .staff-info p {
@@ -1492,12 +1500,21 @@ section {
     .staff-member .staff-info h3 {
         font-size: 1.3rem;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        flex-wrap: wrap;
     }
     
     .staff-member .staff-info h3 .furigana {
         font-size: 0.6rem;
-        margin-top: 0.15rem;
-        text-align: center;
+        margin-left: 0.2rem;
+    }
+    
+    .staff-member .staff-info h3 .experience {
+        font-size: 0.8rem;
+        margin-left: 0.4rem;
     }
     
     .staff-member .staff-info p {
@@ -1520,12 +1537,21 @@ section {
     .staff-member .staff-info h3 {
         font-size: 1.2rem;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        flex-wrap: wrap;
     }
     
     .staff-member .staff-info h3 .furigana {
         font-size: 0.55rem;
-        margin-top: 0.1rem;
-        text-align: center;
+        margin-left: 0.15rem;
+    }
+    
+    .staff-member .staff-info h3 .experience {
+        font-size: 0.75rem;
+        margin-left: 0.3rem;
     }
     
     .staff-member .staff-info p {
@@ -1546,12 +1572,21 @@ section {
     .staff-member .staff-info h3 {
         font-size: 1.1rem;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.15rem;
+        flex-wrap: wrap;
     }
     
     .staff-member .staff-info h3 .furigana {
         font-size: 0.5rem;
-        margin-top: 0.1rem;
-        text-align: center;
+        margin-left: 0.1rem;
+    }
+    
+    .staff-member .staff-info h3 .experience {
+        font-size: 0.7rem;
+        margin-left: 0.25rem;
     }
     
     .staff-member .staff-info p {
@@ -1572,12 +1607,21 @@ section {
     .staff-member .staff-info h3 {
         font-size: 1rem;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.1rem;
+        flex-wrap: wrap;
     }
     
     .staff-member .staff-info h3 .furigana {
         font-size: 0.45rem;
-        margin-top: 0.1rem;
-        text-align: center;
+        margin-left: 0.1rem;
+    }
+    
+    .staff-member .staff-info h3 .experience {
+        font-size: 0.65rem;
+        margin-left: 0.2rem;
     }
     
     .staff-member .staff-info p {
