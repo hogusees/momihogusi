@@ -937,3 +937,45 @@ section {
         margin-bottom: 1rem;
     }
 }
+/* スタッフ紹介のモバイル対応強化 */
+@media (max-width: 480px) {
+  .staff-member {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .staff-member .staff-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .staff-member .staff-info p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .staff-member .staff-info p strong {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .staff-member {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .staff-member .staff-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .staff-member .staff-info p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  
+  .staff-member .staff-info p strong {
+    font-size: 0.85rem;
+  }
+}
