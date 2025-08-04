@@ -294,8 +294,8 @@ section {
 }
 
 .staff-image .image-placeholder {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background: #D2691E;
     border-radius: 50%;
     margin: 0 auto 1rem;
@@ -303,7 +303,7 @@ section {
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .staff-info h3 {
@@ -992,9 +992,9 @@ section {
     }
     
     .staff-image .image-placeholder {
-        width: 120px;
-        height: 120px;
-        font-size: 2.5rem;
+        width: 160px;
+        height: 160px;
+        font-size: 3.5rem;
     }
     
     .access-content {
