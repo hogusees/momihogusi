@@ -3,7 +3,7 @@ const CMS_CONFIG = {
     // ここにAPIキーを設定してください
     API_KEY: 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
     // microCMS APIエンドポイント
-    API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/articles',
+    API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/blogs',
     // 取得する投稿数
     POSTS_PER_PAGE: 5
 };
@@ -18,6 +18,10 @@ async function loadInfoData() {
         // ローディング表示
         infoList.innerHTML = '<div class="info-loading"><p>情報を読み込み中...</p></div>';
         
+        // デバッグ用：APIエンドポイントをコンソールに表示
+        console.log('API Endpoint:', CMS_CONFIG.API_ENDPOINT);
+        console.log('API Key:', CMS_CONFIG.API_KEY);
+        
         // APIからデータを取得
         const response = await fetch(`${CMS_CONFIG.API_ENDPOINT}?limit=${CMS_CONFIG.POSTS_PER_PAGE}&orders=-publishedAt`, {
             headers: {
@@ -27,7 +31,9 @@ async function loadInfoData() {
         });
         
         if (!response.ok) {
-            throw new Error('APIリクエストに失敗しました');
+            console.error('Response status:', response.status);
+            console.error('Response text:', await response.text());
+            throw new Error(`APIリクエストに失敗しました: ${response.status}`);
         }
         
         const data = await response.json();
