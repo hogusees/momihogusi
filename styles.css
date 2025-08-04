@@ -313,6 +313,9 @@ section {
     text-align: center;
     line-height: 1.4;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
 }
 
 .staff-info p {
@@ -1550,6 +1553,10 @@ section {
         font-size: 1.3rem;
         text-align: center;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        line-height: 1.2;
     }
     
     .staff-member .staff-info p {
@@ -1566,6 +1573,10 @@ section {
         font-size: 1.2rem;
         text-align: center;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        line-height: 1.2;
     }
     
     .staff-member .staff-info p {
@@ -1582,6 +1593,10 @@ section {
         font-size: 1.1rem;
         text-align: center;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        line-height: 1.2;
     }
     
     .staff-member .staff-info p {
@@ -1598,6 +1613,10 @@ section {
         font-size: 1rem;
         text-align: center;
         white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: keep-all;
+        line-height: 1.2;
     }
     
     .staff-member .staff-info p {
