@@ -1509,6 +1509,51 @@ section {
     }
 }
 
+/* 追加料金のレスポンシブ */
+.additional-charges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.charge-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .additional-charges {
+        gap: 0.3rem;
+    }
+    
+    .charge-row {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .charge-row {
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .charge-row {
+        gap: 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .charge-row {
+        gap: 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
 /* ソーシャルリンクのレスポンシブ */
 @media (max-width: 768px) {
     .social-links {
