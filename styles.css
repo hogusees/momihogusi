@@ -699,6 +699,18 @@ section {
     font-size: 0.7rem;
 }
 
+/* ローディング表示 */
+.info-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.info-loading p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
 /* 情報セクション */
 .information {
     background: #f9f9f9;
