@@ -105,8 +105,18 @@ function displayInfoData(posts) {
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', function() {
-    // ヘッダーのスタイルを強制適用
+    // ヘッダーのスタイルを強制適用（即座に）
     forceHeaderStyles();
+    
+    // 少し遅延してから再度適用（他のスクリプトの干渉を防ぐため）
+    setTimeout(function() {
+        forceHeaderStyles();
+    }, 100);
+    
+    // さらに遅延してから最終適用
+    setTimeout(function() {
+        forceHeaderStyles();
+    }, 500);
     
     // infoセクションのデータを読み込み
     loadInfoData();
@@ -155,7 +165,8 @@ function forceHeaderStyles() {
             display: flex !important;
             align-items: center !important;
             gap: 0.8rem !important;
-            flex-wrap: wrap !important;
+            flex-wrap: nowrap !important;
+            flex-direction: row !important;
             justify-content: flex-end !important;
             min-width: auto !important;
         `;
