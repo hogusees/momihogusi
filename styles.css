@@ -1681,20 +1681,24 @@ section {
 
 /* 最新情報セクションのレスポンシブ */
 @media (max-width: 768px) {
+    .info {
+        padding: 2rem 0;
+    }
+    
     .info-content {
         max-width: 100%;
         padding: 0 1rem;
     }
     
     .info-list {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
     
     .info-item {
         flex-direction: column;
-        gap: 0.8rem;
-        margin-bottom: 1.2rem;
-        padding-bottom: 1.2rem;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
     }
     
     .info-date {
@@ -1705,12 +1709,12 @@ section {
     
     .info-text h3 {
         font-size: 1rem;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.3rem;
     }
     
     .info-text p {
         font-size: 0.85rem;
-        margin-bottom: 0.4rem;
+        margin-bottom: 0.3rem;
     }
     
     .read-more {
@@ -1720,16 +1724,16 @@ section {
 
 @media (max-width: 480px) {
     .info {
-        padding: 2rem 0;
+        padding: 1.5rem 0;
     }
     
     .info-list {
-        padding: 1rem;
+        padding: 0.8rem;
     }
     
     .info-item {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.8rem;
     }
     
     .info-date {
@@ -1739,10 +1743,12 @@ section {
     
     .info-text h3 {
         font-size: 0.95rem;
+        margin-bottom: 0.2rem;
     }
     
     .info-text p {
         font-size: 0.8rem;
+        margin-bottom: 0.2rem;
     }
     
     .read-more {
@@ -1751,12 +1757,21 @@ section {
 }
 
 @media (max-width: 375px) {
+    .info {
+        padding: 1.2rem 0;
+    }
+    
     .info-content {
         padding: 0 0.5rem;
     }
     
     .info-list {
-        padding: 0.8rem;
+        padding: 0.6rem;
+    }
+    
+    .info-item {
+        margin-bottom: 0.6rem;
+        padding-bottom: 0.6rem;
     }
     
     .info-date {
@@ -1766,10 +1781,12 @@ section {
     
     .info-text h3 {
         font-size: 0.9rem;
+        margin-bottom: 0.15rem;
     }
     
     .info-text p {
         font-size: 0.75rem;
+        margin-bottom: 0.15rem;
     }
 }
 
