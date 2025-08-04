@@ -173,10 +173,10 @@ body {
 
 /* セクションタイトル */
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     color: #4a4a4a;
     position: relative;
 }
@@ -210,9 +210,10 @@ section {
 }
 
 .about-text h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
     color: #4a4a4a;
+    line-height: 1.4;
 }
 
 .about-text p {
@@ -1044,8 +1045,8 @@ section {
     }
     
     .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 1.8rem;
     }
     
     .menu-table {
@@ -1218,8 +1219,8 @@ section {
     }
     
     .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 1.3rem;
     }
     
     .menu-table {
@@ -1259,8 +1260,8 @@ section {
     /* 小さい画面での追加調整 */
     @media (max-width: 375px) {
         .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
         }
         
         .about-text h3 {
