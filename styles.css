@@ -41,6 +41,7 @@ body {
     align-items: center;
     margin-bottom: 0.5rem;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .logo h1 {
@@ -64,6 +65,8 @@ body {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .phone {
@@ -1078,6 +1081,7 @@ section {
         text-align: left;
         margin-bottom: 0.4rem;
         width: 100%;
+        flex-wrap: wrap;
     }
     
     .logo h1 {
@@ -1385,21 +1389,24 @@ section {
     
     .header-contact {
         display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        align-items: flex-end;
-        min-width: 80px;
+        flex-direction: row;
+        gap: 0.3rem;
+        align-items: center;
+        min-width: auto;
         visibility: visible;
         opacity: 1;
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
     
     .phone {
         font-size: 0.75rem;
-        text-align: right;
+        text-align: center;
         white-space: nowrap;
         display: flex;
         visibility: visible;
         opacity: 1;
+        align-items: center;
     }
     
     .phone a {
@@ -1414,13 +1421,14 @@ section {
         padding: 0.25rem 0.5rem;
         font-size: 0.7rem;
         width: auto;
-        min-width: 80px;
+        min-width: 70px;
         text-align: center;
         white-space: nowrap;
         display: flex;
         visibility: visible;
         opacity: 1;
         color: white;
+        align-items: center;
     }
     
     .nav {
@@ -1518,8 +1526,9 @@ section {
     }
     
     .header-contact {
-        gap: 0.15rem;
-        min-width: 70px;
+        gap: 0.2rem;
+        min-width: auto;
+        flex-wrap: wrap;
     }
     
     .phone {
@@ -1534,7 +1543,7 @@ section {
     .reserve-btn {
         padding: 0.2rem 0.4rem;
         font-size: 0.65rem;
-        min-width: 70px;
+        min-width: 60px;
         color: white;
     }
     
@@ -1588,8 +1597,9 @@ section {
     }
     
     .header-contact {
-        gap: 0.1rem;
-        min-width: 60px;
+        gap: 0.15rem;
+        min-width: auto;
+        flex-wrap: wrap;
     }
     
     .phone {
@@ -1604,7 +1614,7 @@ section {
     .reserve-btn {
         padding: 0.15rem 0.3rem;
         font-size: 0.6rem;
-        min-width: 60px;
+        min-width: 50px;
         color: white;
     }
     
