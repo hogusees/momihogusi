@@ -525,23 +525,56 @@ section {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    gap: 0.5rem;
+    padding: 0.8rem 1.2rem;
     background: #D2691E;
     color: white;
-    border-radius: 50%;
+    border-radius: 25px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    min-width: 140px;
+    box-shadow: 0 2px 8px rgba(210, 105, 30, 0.3);
 }
 
 .social-link:hover {
     background: #CD853F;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.4);
+}
+
+.social-link i {
+    font-size: 1.2rem;
+}
+
+.social-link span {
+    white-space: nowrap;
+}
+
+.line-link {
+    background: #00B900;
+}
+
+.line-link:hover {
+    background: #009900;
+    box-shadow: 0 4px 12px rgba(0, 185, 0, 0.4);
+}
+
+.instagram-link {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-link:hover {
+    background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #f09433 100%);
+    box-shadow: 0 4px 12px rgba(220, 39, 67, 0.4);
 }
 
 .footer-bottom {
@@ -1470,6 +1503,44 @@ section {
         font-size: 0.55rem;
         padding: 0.08rem 0.15rem;
         color: white;
+    }
+}
+
+/* ソーシャルリンクのレスポンシブ */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 0.8rem;
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        min-width: 120px;
+    }
+    
+    .social-link i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        gap: 0.6rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+        min-width: 100px;
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .social-link i {
+        font-size: 0.9rem;
     }
 }
 
