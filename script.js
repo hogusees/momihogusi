@@ -1,119 +1,137 @@
-// microCMSとの連携
-document.addEventListener('DOMContentLoaded', function() {
-    // microCMSのAPIキーとエンドポイント（実際の値に置き換えてください）
-    const MICROCMS_API_KEY = 'YOUR_API_KEY';
-    const MICROCMS_ENDPOINT = 'YOUR_ENDPOINT';
+// CMS連携設定
+const CMS_CONFIG = {
+    // ここにAPIキーを設定してください
+    API_KEY: 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+    // microCMS APIエンドポイント
+    API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/articles',
+    // 取得する投稿数
+    POSTS_PER_PAGE: 5
+};
+
+// infoセクションのデータを取得・表示
+async function loadInfoData() {
+    const infoList = document.getElementById('info-list');
     
-    // 最新情報を取得して表示
-    loadLatestInfo();
+    if (!infoList) return;
     
-    function loadLatestInfo() {
-        // 実際のmicroCMS APIを使用する場合は以下のコードを有効化
-        /*
-        fetch(`${MICROCMS_ENDPOINT}/api/v1/articles?limit=3&orders=-publishedAt`, {
-            headers: {
-                'X-API-KEY': MICROCMS_API_KEY
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            displayLatestInfo(data.contents);
-        })
-        .catch(error => {
-            console.error('Error loading latest info:', error);
-            // エラー時はデフォルトの内容を表示
-            displayDefaultInfo();
-        });
-        */
+    try {
+        // ローディング表示
+        infoList.innerHTML = '<div class="info-loading"><p>情報を読み込み中...</p></div>';
         
-        // 開発用：デフォルトの内容を表示
-        displayDefaultInfo();
+        // APIからデータを取得
+        const response = await fetch(`${CMS_CONFIG.API_ENDPOINT}?limit=${CMS_CONFIG.POSTS_PER_PAGE}&orders=-publishedAt`, {
+            headers: {
+                'X-API-KEY': CMS_CONFIG.API_KEY,
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error('APIリクエストに失敗しました');
+        }
+        
+        const data = await response.json();
+        
+        // データを表示
+        displayInfoData(data.contents);
+        
+    } catch (error) {
+        console.error('データ取得エラー:', error);
+        // エラー時の表示
+        infoList.innerHTML = `
+            <div class="info-item">
+                <div class="info-date">最新情報</div>
+                <div class="info-text">
+                    <h3>情報の読み込みに失敗しました</h3>
+                    <p>しばらく時間をおいてから再度お試しください。</p>
+                    <a href="#" class="read-more">更新する</a>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// 取得したデータをHTMLに表示
+function displayInfoData(posts) {
+    const infoList = document.getElementById('info-list');
+    
+    if (!posts || posts.length === 0) {
+        infoList.innerHTML = `
+            <div class="info-item">
+                <div class="info-date">最新情報</div>
+                <div class="info-text">
+                    <h3>現在お知らせはありません</h3>
+                    <p>新しい情報が更新されましたら、こちらに表示されます。</p>
+                </div>
+            </div>
+        `;
+        return;
     }
     
-    function displayLatestInfo(articles) {
-        const infoList = document.querySelector('.info-list');
-        if (!infoList) return;
+    const infoHTML = posts.map(article => {
+        const date = new Date(article.publishedAt || article.createdAt).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        }).replace(/\//g, '.');
         
-        infoList.innerHTML = '';
+        // タイトルとコンテンツを取得
+        const title = article.title || 'タイトルなし';
+        const content = article.content || article.excerpt || '内容なし';
         
-        articles.forEach(article => {
-            const infoItem = document.createElement('div');
-            infoItem.className = 'info-item';
-            
-            // 日付のフォーマット
-            const date = new Date(article.publishedAt || article.createdAt);
-            const formattedDate = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
-            
-            // 最初の1文のみを取得（句点で区切る）
-            const firstSentence = article.content ? article.content.split('。')[0] + '。' : '';
-            
-            infoItem.innerHTML = `
-                <div class="info-date">${formattedDate}</div>
+        // HTMLタグを除去してテキストのみ取得（最初の1文のみ）
+        const plainContent = content.replace(/<[^>]*>/g, '').split('。')[0] + '。';
+        
+        return `
+            <div class="info-item">
+                <div class="info-date">${date}</div>
                 <div class="info-text">
-                    <h3>${article.title}</h3>
-                    <p>${firstSentence}</p>
+                    <h3>${title}</h3>
+                    <p>${plainContent}</p>
                     <a href="${article.url || '#'}" class="read-more" target="_blank">続きを読む</a>
                 </div>
-            `;
-            
-            infoList.appendChild(infoItem);
-        });
-    }
+            </div>
+        `;
+    }).join('');
     
-    function displayDefaultInfo() {
-        // デフォルトの内容は既にHTMLに含まれているため、
-        // 特別な処理は不要です
-        console.log('Default info displayed');
-    }
+    infoList.innerHTML = infoHTML;
+}
+
+// ページ読み込み時に実行
+document.addEventListener('DOMContentLoaded', function() {
+    // infoセクションのデータを読み込み
+    loadInfoData();
+    
+    // その他の初期化処理
+    initializeScrollToTop();
 });
 
-// スムーススクロール
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+// スクロールトップボタンの初期化
+function initializeScrollToTop() {
+    // スクロールトップボタンが存在する場合の処理
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
-    });
-});
-
-// スクロールトップボタン
-window.addEventListener('scroll', function() {
-    const scrollTop = document.createElement('button');
-    scrollTop.innerHTML = '↑';
-    scrollTop.className = 'scroll-top';
-    scrollTop.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        background: #D2691E;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1000;
-        display: ${window.scrollY > 300 ? 'block' : 'none'};
-        transition: all 0.3s ease;
-    `;
-    
-    scrollTop.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
         });
-    });
-    
-    // 既存のボタンを削除して新しいボタンを追加
-    const existingButton = document.querySelector('.scroll-top');
-    if (existingButton) {
-        existingButton.remove();
     }
-    document.body.appendChild(scrollTop);
-});
+}
+
+// 手動でデータを更新する関数
+function refreshInfoData() {
+    loadInfoData();
+}
+
+// グローバル関数として公開（必要に応じて）
+window.refreshInfoData = refreshInfoData;
