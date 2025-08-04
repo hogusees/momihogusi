@@ -307,42 +307,16 @@ section {
 }
 
 .staff-info h3 {
-    font-size: 1.5rem !important;
-    margin-bottom: 0.5rem !important;
-    color: #4a4a4a !important;
-    text-align: center !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.5rem !important;
-    flex-wrap: wrap !important;
-    white-space: nowrap !important;
-}
-
-.staff-info h3 .furigana,
-.staff-info p .furigana {
-    font-size: 0.7rem !important;
-    color: #666 !important;
-    display: inline !important;
-    margin-left: 0.3rem !important;
-    font-weight: normal !important;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 1.4;
 }
 
 .staff-info p {
     color: #666;
     line-height: 1.6;
-}
-
-.staff-info h3 .experience {
-    font-size: 0.7rem !important;
-    color: #666 !important;
-    display: inline !important;
-    margin-left: 0.3rem !important;
-    font-weight: normal !important;
-}
-
-.staff-info p strong:first-child {
-    display: none; /* 施術歴をh3に移動したため非表示 */
 }
 
 .staff-info p {
