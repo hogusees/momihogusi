@@ -5,7 +5,7 @@ const CMS_CONFIG = {
     // microCMS APIエンドポイント
     API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/blogs',
     // 取得する投稿数
-    POSTS_PER_PAGE: 5
+    POSTS_PER_PAGE: 3
 };
 
 // infoセクションのデータを取得・表示
