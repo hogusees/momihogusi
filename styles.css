@@ -68,6 +68,7 @@ body {
             flex-wrap: nowrap !important;
             justify-content: flex-end !important;
             flex-direction: row !important;
+            min-width: auto !important;
         }
 
 .phone {
@@ -1396,7 +1397,7 @@ section {
         min-width: auto !important;
         visibility: visible !important;
         opacity: 1 !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
         justify-content: flex-end !important;
     }
     
@@ -1529,7 +1530,7 @@ section {
     .header-contact {
         gap: 0.2rem !important;
         min-width: auto !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
     }
     
     .phone {
@@ -1600,7 +1601,7 @@ section {
     .header-contact {
         gap: 0.15rem !important;
         min-width: auto !important;
-        flex-wrap: wrap !important;
+        flex-wrap: nowrap !important;
     }
     
     .phone {
