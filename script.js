@@ -105,12 +105,37 @@ function displayInfoData(posts) {
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', function() {
+    // ハンバーガーメニューの初期化
+    initializeHamburgerMenu();
+    
     // infoセクションのデータを読み込み
     loadInfoData();
     
     // その他の初期化処理
     initializeScrollToTop();
 });
+
+// ハンバーガーメニューの初期化
+function initializeHamburgerMenu() {
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // メニューリンクをクリックした時にメニューを閉じる
+        const menuLinks = navMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+}
 
 
 
