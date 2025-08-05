@@ -30,9 +30,11 @@ body {
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     z-index: 1000 !important;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
 }
 
 .header-content {
@@ -41,7 +43,9 @@ body {
     align-items: center !important;
     margin-bottom: 0.5rem !important;
     width: 100% !important;
+    max-width: 100% !important;
     flex-wrap: wrap !important;
+    box-sizing: border-box !important;
 }
 
 .logo h1 {
@@ -69,6 +73,8 @@ body {
             justify-content: flex-end !important;
             flex-direction: row !important;
             min-width: auto !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
         }
 
 .phone {
@@ -1138,9 +1144,12 @@ section {
     
     .header {
         padding: 0.6rem 0;
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         left: 0;
         right: 0;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
     }
     
     .header-content {
@@ -1149,10 +1158,13 @@ section {
         text-align: left !important;
         margin-bottom: 0.4rem !important;
         width: 100% !important;
+        max-width: 100% !important;
         flex-wrap: nowrap !important;
         justify-content: space-between !important;
         align-items: center !important;
         position: relative !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     
     /* ロゴ部分の幅を制限 */
@@ -1161,6 +1173,7 @@ section {
         max-width: 50% !important;
         min-width: 0 !important;
         overflow: hidden !important;
+        box-sizing: border-box !important;
     }
     
     /* ヘッダーコンタクト部分の幅を制限 */
@@ -1170,6 +1183,7 @@ section {
         min-width: 0 !important;
         overflow: visible !important;
         position: relative !important;
+        box-sizing: border-box !important;
     }
     
     .logo h1 {
@@ -1459,17 +1473,20 @@ section {
         top: 0;
         left: 0;
         right: 0;
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
         z-index: 1000;
         background: linear-gradient(135deg, #8B4513, #A0522D);
-        overflow: hidden;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
     }
     
     .header .container {
-        max-width: 100%;
-        width: 100%;
-        padding: 0 10px;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     
     .header-content {
@@ -1483,8 +1500,10 @@ section {
         margin-bottom: 0.3rem;
         visibility: visible;
         opacity: 1;
-        width: 100%;
-        max-width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
     }
     
     .logo {
@@ -2044,5 +2063,123 @@ section {
     
     .staff-member .staff-info p {
         font-size: 0.75rem;
+    }
+} 
+
+/* モバイル版ヘッダー崩れ防止 - 最終的な修正 */
+@media (max-width: 768px) {
+    /* ヘッダーの幅制御を最優先で適用 */
+    .header,
+    .header *,
+    .header .container,
+    .header .header-content,
+    .header .logo,
+    .header .header-contact {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* ヘッダー全体の制御 */
+    .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        z-index: 1000 !important;
+    }
+    
+    /* コンテナの制御 */
+    .header .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* ヘッダーコンテンツの制御 */
+    .header-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        flex-wrap: wrap !important;
+    }
+    
+    /* ロゴの制御 */
+    .logo {
+        max-width: 60% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+    }
+    
+    .logo h1,
+    .logo .subtitle {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+    
+    /* ヘッダーコンタクトの制御 */
+    .header-contact {
+        max-width: 40% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .phone a,
+    .reserve-btn {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+
+/* より小さい画面での追加制御 */
+@media (max-width: 480px) {
+    .header,
+    .header *,
+    .header .container,
+    .header .header-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    .logo {
+        max-width: 50% !important;
+    }
+    
+    .header-contact {
+        max-width: 50% !important;
+    }
+}
+
+/* 最小画面での制御 */
+@media (max-width: 375px) {
+    .header,
+    .header *,
+    .header .container,
+    .header .header-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    .logo {
+        max-width: 45% !important;
+    }
+    
+    .header-contact {
+        max-width: 55% !important;
     }
 } 
