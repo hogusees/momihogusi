@@ -113,7 +113,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // その他の初期化処理
     initializeScrollToTop();
+    
+    // 画像の読み込み最適化
+    optimizeImageLoading();
 });
+
+// 画像の読み込み最適化
+function optimizeImageLoading() {
+    // 画像の遅延読み込みを有効化
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+            }
+        });
+    }
+}
 
 // ハンバーガーメニューの初期化
 function initializeHamburgerMenu() {
