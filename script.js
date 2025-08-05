@@ -105,19 +105,6 @@ function displayInfoData(posts) {
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', function() {
-    // ヘッダーのスタイルを強制適用（即座に）
-    forceHeaderStyles();
-    
-    // 少し遅延してから再度適用（他のスクリプトの干渉を防ぐため）
-    setTimeout(function() {
-        forceHeaderStyles();
-    }, 100);
-    
-    // さらに遅延してから最終適用
-    setTimeout(function() {
-        forceHeaderStyles();
-    }, 500);
-    
     // infoセクションのデータを読み込み
     loadInfoData();
     
@@ -125,81 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollToTop();
 });
 
-// ヘッダーのスタイルを強制適用する関数
-function forceHeaderStyles() {
-    const header = document.querySelector('.header');
-    const headerContent = document.querySelector('.header-content');
-    const headerContact = document.querySelector('.header-contact');
-    const phone = document.querySelector('.phone');
-    const reserveBtn = document.querySelector('.reserve-btn');
-    
-    if (header) {
-        header.style.cssText = `
-            background: linear-gradient(135deg, #8B4513, #A0522D) !important;
-            color: white !important;
-            padding: 0.8rem 0 !important;
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            width: 100% !important;
-            z-index: 1000 !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
-            overflow: hidden !important;
-        `;
-    }
-    
-    if (headerContent) {
-        headerContent.style.cssText = `
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            margin-bottom: 0.5rem !important;
-            width: 100% !important;
-            flex-wrap: wrap !important;
-        `;
-    }
-    
-    if (headerContact) {
-        headerContact.style.cssText = `
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.8rem !important;
-            flex-wrap: nowrap !important;
-            flex-direction: row !important;
-            justify-content: flex-end !important;
-            min-width: auto !important;
-        `;
-    }
-    
-    if (phone) {
-        phone.style.cssText = `
-            font-size: 0.75rem !important;
-            text-align: center !important;
-            white-space: nowrap !important;
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            align-items: center !important;
-        `;
-    }
-    
-    if (reserveBtn) {
-        reserveBtn.style.cssText = `
-            padding: 0.25rem 0.5rem !important;
-            font-size: 0.7rem !important;
-            width: auto !important;
-            min-width: 70px !important;
-            text-align: center !important;
-            white-space: nowrap !important;
-            display: flex !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            color: white !important;
-            align-items: center !important;
-        `;
-    }
-}
+
 
 // スクロールトップボタンの初期化
 function initializeScrollToTop() {
