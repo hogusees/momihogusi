@@ -75,6 +75,8 @@ body {
             min-width: auto !important;
             max-width: 100% !important;
             box-sizing: border-box !important;
+            overflow: hidden !important;
+            flex-shrink: 1 !important;
         }
 
 .phone {
@@ -103,6 +105,11 @@ body {
     font-weight: 500;
     font-size: 0.8rem;
     transition: background-color 0.3s;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
 }
 
 .reserve-btn:hover {
@@ -1725,6 +1732,85 @@ section {
         overflow: hidden !important;
     }
     
+    /* ヘッダー全体の強制制御 */
+    .header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        z-index: 1000 !important;
+    }
+    
+    /* コンテナの強制制御 */
+    .header .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+    
+    /* ヘッダーコンテンツの強制制御 */
+    .header-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        flex-wrap: wrap !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+    
+    /* ロゴの強制制御 */
+    .logo {
+        max-width: 60% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        flex-shrink: 1 !important;
+    }
+    
+    .logo h1,
+    .logo .subtitle {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
+    }
+    
+    /* ヘッダーコンタクトの強制制御 */
+    .header-contact {
+        max-width: 40% !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        flex-wrap: nowrap !important;
+        flex-shrink: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .phone a,
+    .reserve-btn {
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 80px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .reserve-btn {
+        max-width: 100px !important;
+        min-width: 60px !important;
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0.6rem !important;
+    }
+    
     /* ヘッダー全体の制御 */
     .header {
         position: fixed !important;
@@ -1783,6 +1869,15 @@ section {
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
+        max-width: 80px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .reserve-btn {
+        max-width: 100px !important;
+        min-width: 60px !important;
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0.6rem !important;
     }
 }
 
@@ -1804,6 +1899,14 @@ section {
     
     .header-contact {
         max-width: 50% !important;
+        overflow: hidden !important;
+    }
+    
+    .reserve-btn {
+        max-width: 80px !important;
+        min-width: 50px !important;
+        font-size: 0.65rem !important;
+        padding: 0.25rem 0.5rem !important;
     }
 }
 
@@ -1825,5 +1928,13 @@ section {
     
     .header-contact {
         max-width: 55% !important;
+        overflow: hidden !important;
+    }
+    
+    .reserve-btn {
+        max-width: 70px !important;
+        min-width: 45px !important;
+        font-size: 0.6rem !important;
+        padding: 0.2rem 0.4rem !important;
     }
 } 
