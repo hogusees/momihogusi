@@ -1144,14 +1144,15 @@ section {
     /* ロゴ部分の幅を制限 */
     .logo {
         flex: 0 0 auto !important;
-        max-width: 60% !important;
+        max-width: 55% !important;
         min-width: 0 !important;
+        overflow: hidden !important;
     }
     
     /* ヘッダーコンタクト部分の幅を制限 */
     .header-contact {
         flex: 0 0 auto !important;
-        max-width: 40% !important;
+        max-width: 45% !important;
         min-width: 0 !important;
         overflow: hidden !important;
     }
@@ -1503,11 +1504,12 @@ section {
         opacity: 1 !important;
         flex-wrap: nowrap !important;
         justify-content: flex-end !important;
-        max-width: 50% !important;
+        max-width: 40% !important;
+        overflow: hidden !important;
     }
     
     .phone {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
         text-align: center !important;
         white-space: nowrap !important;
         display: flex !important;
@@ -1522,15 +1524,15 @@ section {
         visibility: visible !important;
         opacity: 1 !important;
         color: white !important;
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
         text-decoration: none !important;
     }
     
     .reserve-btn {
-        padding: 0.2rem 0.4rem !important;
-        font-size: 0.65rem !important;
+        padding: 0.15rem 0.3rem !important;
+        font-size: 0.6rem !important;
         width: auto !important;
-        min-width: 60px !important;
+        min-width: 50px !important;
         text-align: center !important;
         white-space: nowrap !important;
         display: flex !important;
