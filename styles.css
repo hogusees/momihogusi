@@ -163,6 +163,19 @@ body {
     bottom: 0;
 }
 
+/* 画像の読み込み最適化 */
+img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
 .nav a {
     color: white;
     text-decoration: none;
@@ -182,6 +195,7 @@ body {
     background: url('header-bg.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 33vh;
     display: flex;
     align-items: center;
