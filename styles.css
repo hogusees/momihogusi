@@ -1761,6 +1761,21 @@ section {
 @media (max-width: 768px) {
     body {
         padding-top: 100px;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .header {
@@ -1775,6 +1790,7 @@ section {
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         overflow: hidden;
         box-sizing: border-box;
+        margin: 0;
     }
 
     .header .container {
@@ -1783,6 +1799,7 @@ section {
         padding: 0 15px;
         box-sizing: border-box;
         overflow: hidden;
+        margin: 0;
     }
 
     .header-content {
@@ -1796,6 +1813,8 @@ section {
         box-sizing: border-box;
         overflow: hidden;
         gap: 0.3rem;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .logo {
@@ -1965,12 +1984,38 @@ section {
 
 /* より小さい画面での追加制御 */
 @media (max-width: 480px) {
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
     .header .container {
         padding: 0 10px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .header-content {
         gap: 0.2rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .logo {
@@ -1994,12 +2039,38 @@ section {
 
 /* より小さい画面での追加制御 */
 @media (max-width: 375px) {
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 8px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
     .header .container {
         padding: 0 8px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .header-content {
         gap: 0.15rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .logo {
@@ -2023,16 +2094,45 @@ section {
 
 /* 超小さい画面での制御 */
 @media (max-width: 320px) {
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5px;
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
     .header {
         padding: 0.25rem 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .header .container {
         padding: 0 5px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
     }
 
     .header-content {
         gap: 0.1rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .logo {
