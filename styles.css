@@ -111,7 +111,7 @@ body {
     justify-content: flex-end;
     flex-direction: row;
     min-width: 0;
-    max-width: 40%;
+    max-width: 45%;
     box-sizing: border-box;
     overflow: hidden;
     flex-shrink: 0;
@@ -121,7 +121,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    max-width: 60px;
+    max-width: 80px;
     min-width: 0;
     overflow: hidden;
     flex-shrink: 1;
@@ -151,8 +151,8 @@ body {
     font-weight: 500;
     font-size: 0.8rem;
     transition: background-color 0.3s;
-    max-width: 120px;
-    min-width: 80px;
+    max-width: 140px;
+    min-width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1893,7 +1893,7 @@ section {
         overflow: visible;
         white-space: nowrap;
         display: inline-block;
-        min-width: 85px;
+        min-width: 60px;
         text-align: center;
         line-height: 1.2;
     }
@@ -1912,7 +1912,7 @@ section {
         overflow: visible;
         white-space: nowrap;
         display: inline-block;
-        min-width: 110px;
+        min-width: 70px;
         text-align: center;
         line-height: 1.2;
     }
@@ -2060,15 +2060,15 @@ section {
     }
 
     .reserve-btn {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.6rem;
-        min-width: 100px;
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 60px;
     }
 
     .phone a {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.6rem;
-        min-width: 80px;
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 50px;
     }
 }
 
@@ -2106,13 +2106,13 @@ section {
     .reserve-btn {
         font-size: 0.6rem;
         padding: 0.25rem 0.5rem;
-        min-width: 95px;
+        min-width: 60px;
     }
 
     .phone a {
         font-size: 0.6rem;
         padding: 0.25rem 0.5rem;
-        min-width: 75px;
+        min-width: 50px;
     }
 }
 
@@ -2136,7 +2136,6 @@ section {
     }
 
     .header {
-        padding: 0.25rem 0;
         width: 100%;
         max-width: 100%;
         margin: 0;
@@ -2178,13 +2177,13 @@ section {
     .reserve-btn {
         font-size: 0.55rem;
         padding: 0.2rem 0.4rem;
-        min-width: 90px;
+        min-width: 55px;
     }
 
     .phone a {
         font-size: 0.55rem;
         padding: 0.2rem 0.4rem;
-        min-width: 70px;
+        min-width: 45px;
     }
 }
 
