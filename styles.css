@@ -1177,315 +1177,6 @@ section {
     }
 }
 
-/* レスポンシブデザイン - モバイル版最適化 */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-        max-width: 100%;
-    }
-    
-    body {
-        font-size: 0.97rem;
-        padding-top: 110px;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 1.8rem;
-    }
-    
-    .menu-table {
-        font-size: 0.9rem;
-    }
-    
-    /* モバイル用ナビゲーション */
-    .nav-toggle {
-        display: block !important;
-    }
-    
-    .nav-menu {
-        display: none !important;
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        background: linear-gradient(135deg, #8B4513, #A0522D) !important;
-        flex-direction: column !important;
-        padding: 1rem !important;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
-        z-index: 1001 !important;
-        width: 100% !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .nav-menu.active {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-    
-    .nav-menu li {
-        margin: 0.5rem 0;
-    }
-    
-    .nav-menu a {
-        display: block;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-    }
-    
-    .nav ul {
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-    
-    .nav a {
-        color: white;
-        display: inline;
-        font-size: 0.75rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.4rem;
-        line-height: 1.1;
-        margin-bottom: 0.3rem;
-    }
-    
-    .hero-content h2 br {
-        display: none; /* モバイル版では改行を非表示にして1行で表示 */
-    }
-    
-    .hero {
-        min-height: 250px; /* モバイル版での最小高さ */
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .features {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-    }
-    
-    .staff-member {
-        margin-bottom: 2rem;
-    }
-    
-    .staff-image .image-placeholder {
-        width: 160px;
-        height: 160px;
-        font-size: 3.5rem;
-    }
-    
-    .access-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .features {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem;
-    }
-    
-    .feature {
-        padding: 0.8rem;
-    }
-    
-    .feature i {
-        font-size: 1.8rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    .feature h4 {
-        font-size: 0.8rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    /* さらに小さい画面での調整 */
-    @media (max-width: 375px) {
-        .features {
-            gap: 0.6rem;
-        }
-        
-        .feature {
-            padding: 0.6rem;
-        }
-        
-        .feature i {
-            font-size: 1.6rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .feature h4 {
-            font-size: 0.7rem;
-            margin-bottom: 0.3rem;
-        }
-    }
-    
-    @media (max-width: 320px) {
-        .features {
-            gap: 0.5rem;
-        }
-        
-        .feature {
-            padding: 0.5rem;
-        }
-        
-        .feature i {
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-        }
-        
-        .feature h4 {
-            font-size: 0.65rem;
-            margin-bottom: 0.2rem;
-        }
-    }
-    
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-
-/* モバイル専用 - 横幅と文字表示を完全解決 */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-        max-width: 100%;
-        width: 100%;
-    }
-    
-    body {
-        font-size: 0.9rem;
-        padding-top: 100px;
-        width: 100%;
-        overflow-x: hidden;
-    }
-    
-    .section-title {
-        font-size: 1.4rem;
-        margin-bottom: 1.3rem;
-    }
-    
-    .menu-table {
-        font-size: 0.9rem;
-    }
-    
-    .hero-content h2 {
-        font-size: 1.2rem;
-        line-height: 1.1;
-        margin-bottom: 0.2rem;
-    }
-    
-    .hero-content h2 br {
-        display: none; /* 小さい画面でも改行を非表示にして1行で表示 */
-    }
-    
-    .hero {
-        min-height: 200px; /* 小さい画面での最小高さ */
-    }
-    
-    .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 2rem;
-    }
-    
-    .about-text h3 {
-        font-size: 1rem;
-        margin-bottom: 0.8rem;
-    }
-    
-    .about-text p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 0.8rem;
-    }
-    
-    /* 小さい画面での追加調整 */
-    @media (max-width: 375px) {
-        .section-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .about-text h3 {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .about-text p {
-            font-size: 0.8rem;
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-        }
-    }
-    
-    @media (max-width: 320px) {
-        .section-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-        }
-        
-        .about-text h3 {
-            font-size: 0.8rem;
-            margin-bottom: 0.4rem;
-        }
-        
-        .about-text p {
-            font-size: 0.75rem;
-            line-height: 1.3;
-            margin-bottom: 0.4rem;
-        }
-    }
-    
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
-    
-    h1, h2, h3 {
-        line-height: 1.2;
-    }
-    
-    /* ヘッダー関連のスタイルは削除 - 新しいスタイルに統一 */
-}
-
-/* さらに小さい画面用 */
-@media (max-width: 375px) {
-    .container {
-        padding: 0 8px;
-        max-width: 100%;
-    }
-    
-    body {
-        padding-top: 95px;
-    }
-    
-    /* ヘッダー関連のスタイルは削除 - 新しいスタイルに統一 */
-}
-
-@media (max-width: 320px) {
-    .container {
-        padding: 0 5px;
-        max-width: 100%;
-    }
-    
-    body {
-        padding-top: 90px;
-    }
-    
-    /* ヘッダー関連のスタイルは削除 - 新しいスタイルに統一 */
-}
-
 /* 追加料金のレスポンシブ */
 .additional-charges {
     display: flex;
@@ -1766,7 +1457,7 @@ section {
     }
 } 
 
-/* モバイル版ヘッダー修正 - 整理版 */
+/* 重複したメディアクエリを削除し、正しいヘッダースタイルを適用 */
 @media (max-width: 768px) {
     body {
         padding-top: 100px;
@@ -1919,37 +1610,45 @@ section {
 
     .nav-toggle {
         display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        color: white;
+        z-index: 1002;
     }
 
     .nav-menu {
+        display: none;
         position: fixed;
-        top: 100%;
+        top: 0;
         left: 0;
         width: 100%;
-        background: linear-gradient(135deg, #8B4513, #A0522D);
-        padding: 1rem 0;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
+        height: 100vh;
+        background: rgba(0,0,0,0.95);
         z-index: 1001;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        display: none;
+        padding-top: 80px;
+        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .nav-menu.active {
-        transform: translateY(0);
         display: block;
     }
 
     .nav-menu li {
-        display: block;
+        margin: 1rem 0;
+        text-align: center;
     }
 
     .nav-menu a {
-        display: block;
-        padding: 0.8rem 2rem;
         color: white;
         text-decoration: none;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: block;
+        padding: 1rem;
+        transition: color 0.3s ease;
     }
 
     .nav ul {
@@ -1962,8 +1661,7 @@ section {
 
     .hero-content h2 {
         font-size: 1.8rem;
-        line-height: 1.3;
-        margin-bottom: 1rem;
+        line-height: 1.2;
     }
 
     .hero-content h2 br {
@@ -1976,70 +1674,125 @@ section {
 
     .about-content {
         flex-direction: column;
+        gap: 2rem;
     }
 
     .features {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .staff-member {
         flex-direction: column;
+        text-align: center;
     }
 
     .staff-image .image-placeholder {
-        width: 100%;
-        height: 200px;
-        margin-bottom: 1rem;
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 1rem;
     }
 
     .access-content {
         flex-direction: column;
+        gap: 2rem;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .feature i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     .footer-bottom {
         flex-direction: column;
-        text-align: center;
         gap: 1rem;
+        text-align: center;
     }
 }
 
-/* より小さい画面での追加制御 */
 @media (max-width: 480px) {
-    body {
-        padding-top: 90px;
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
+    .container {
+        padding: 0 10px;
     }
 
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 10px;
-        margin: 0;
-        box-sizing: border-box;
-        overflow: hidden;
+    body {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .menu-table {
+        font-size: 0.8rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
+    .hero-content h2 br {
+        display: block;
+    }
+
+    .hero {
+        padding: 2.5rem 0;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .about-text h3 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+
+    .about-text p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    h1, h2, h3 {
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
     }
 
     .header .container {
-        width: 100%;
-        max-width: 100%;
         padding: 0 10px;
-        box-sizing: border-box;
-        overflow: hidden;
-        margin: 0;
     }
 
     .header-content {
-        gap: 0.3rem;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        margin-left: 0;
-        margin-right: 0;
+        gap: 0.4rem;
     }
 
     .logo {
@@ -2048,42 +1801,38 @@ section {
 
     .header-contact {
         max-width: 52%;
-        gap: 0.3rem;
-    }
-
-    .logo h1 {
-        font-size: 0.9rem;
-    }
-
-    .logo .subtitle {
-        font-size: 0.6rem;
     }
 
     .reserve-btn {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.5rem;
-        min-width: 60px;
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+        min-width: 65px;
     }
 
     .phone a {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.5rem;
-        min-width: 50px;
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+        min-width: 55px;
     }
+}
 }
 
 @media (max-width: 375px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    body {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
     .header .container {
         padding: 0 8px;
     }
-    
+
     .header-content {
-        gap: 0.2rem;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        margin-left: 0;
-        margin-right: 0;
+        gap: 0.3rem;
     }
 
     .logo {
@@ -2092,15 +1841,14 @@ section {
 
     .header-contact {
         max-width: 55%;
-        gap: 0.2rem;
     }
 
     .logo h1 {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     .logo .subtitle {
-        font-size: 0.55rem;
+        font-size: 0.65rem;
     }
 
     .reserve-btn {
@@ -2117,44 +1865,21 @@ section {
 }
 
 @media (max-width: 320px) {
-    body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
     .container {
-        width: 100%;
-        max-width: 100%;
         padding: 0 5px;
-        margin: 0;
-        box-sizing: border-box;
-        overflow: hidden;
     }
 
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
+    body {
+        font-size: 0.8rem;
+        line-height: 1.3;
     }
 
     .header .container {
         padding: 0 5px;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
     }
 
     .header-content {
-        gap: 0.15rem;
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        margin-left: 0;
-        margin-right: 0;
+        gap: 0.2rem;
     }
 
     .logo {
@@ -2163,15 +1888,14 @@ section {
 
     .header-contact {
         max-width: 58%;
-        gap: 0.15rem;
     }
 
     .logo h1 {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     .logo .subtitle {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
     }
 
     .reserve-btn {
@@ -2186,159 +1910,3 @@ section {
         min-width: 45px;
     }
 }
-
-/* モバイル版の余白完全除去 - 最終調整 */
-@media (max-width: 768px) {
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-        position: relative;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0 15px;
-        overflow: hidden;
-        position: relative;
-    }
-    
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        position: relative;
-        left: 0;
-        right: 0;
-    }
-    
-    .header .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        position: relative;
-        left: 0;
-        right: 0;
-    }
-    
-    .header-content {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        position: relative;
-        left: 0;
-        right: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0 10px;
-        overflow: hidden;
-    }
-    
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header-content {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-}
-
-@media (max-width: 375px) {
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0 8px;
-        overflow: hidden;
-    }
-    
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header-content {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-}
-
-@media (max-width: 320px) {
-    html, body {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        padding: 0 5px;
-        overflow: hidden;
-    }
-    
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header .container {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .header-content {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-    }
-} 
