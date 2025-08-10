@@ -30,11 +30,11 @@ body {
     overflow: hidden;
 }
 
-/* ヘッダー - 完全に書き直し */
+/* ヘッダー - モダンで洗練されたデザイン */
 .header {
-    background: linear-gradient(135deg, #8B4513, #A0522D);
+    background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
     color: white;
-    padding: 0.8rem 0;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -42,9 +42,11 @@ body {
     width: 100%;
     max-width: 100%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     overflow: hidden;
     box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .header .container {
@@ -65,7 +67,8 @@ body {
     flex-wrap: wrap;
     box-sizing: border-box;
     overflow: hidden;
-    gap: 0.5rem;
+    gap: 1rem;
+    position: relative;
 }
 
 .logo {
@@ -77,9 +80,9 @@ body {
 }
 
 .logo h1 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.1rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
     color: white;
     display: block;
     line-height: 1.2;
@@ -88,16 +91,20 @@ body {
     white-space: normal;
     max-width: 100%;
     overflow: hidden;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
 }
 
 .logo .subtitle {
-    font-size: 0.8rem;
-    opacity: 0.9;
+    font-size: 0.9rem;
+    opacity: 0.95;
     color: white;
     display: block;
     line-height: 1.1;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     white-space: normal;
     max-width: 100%;
     overflow: hidden;
@@ -140,28 +147,34 @@ body {
 }
 
 .reserve-btn {
-    background: #D2691E;
+    background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
     color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    font-weight: 500;
-    font-size: 0.8rem;
-    transition: background-color 0.3s;
-    max-width: 140px;
-    min-width: 100px;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 150px;
+    min-width: 110px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-shrink: 0;
     box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .reserve-btn:hover {
-    background: #CD853F;
+    background: linear-gradient(135deg, #F7931E 0%, #FF6B35 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,107,53,0.5);
+    border-color: rgba(255,255,255,0.3);
 }
 
 .nav ul {
@@ -235,11 +248,13 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0,0,0,0.95);
+    background: linear-gradient(135deg, rgba(139,69,19,0.98) 0%, rgba(160,82,45,0.95) 100%);
+    backdrop-filter: blur(10px);
     z-index: 1001;
     padding-top: 80px;
     box-sizing: border-box;
     overflow: hidden;
+    animation: slideIn 0.3s ease-out;
 }
 
 .nav-menu.active {
@@ -262,7 +277,21 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #D2691E;
+    color: #FF6B35;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+}
+
+/* アニメーション */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* 画像の読み込み最適化 */
