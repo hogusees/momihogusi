@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ほぐし処 HoguSeeS - 武豊町の隠れ家癒し処</title>
+    <meta name="description" content="愛知県知多郡武豊町の隠れ家癒し処。もみほぐし、オイルリンパマッサージ、足つぼマッサージ、タイ古式ストレッチで心身の疲れを癒します。">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- モバイル版ヘッダー崩れ防止 - 直接スタイル -->
+    <style>
+        /* 強制リセット */
+        * {
+            box-sizing: border-box !important;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                width: 100vw !important;
+                max-width: 100vw !important;
+                min-width: 100vw !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                margin: 0 !important;
+                padding: 0.5rem 0 !important;
+            }
+            .header .container {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                margin: 0 !important;
+                padding: 0 10px !important;
+            }
+            .header-content {
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                flex-wrap: nowrap !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                gap: 0.5rem !important;
+            }
+            .logo {
+                max-width: 55% !important;
+                min-width: 0 !important;
+                overflow: hidden !important;
+                flex-shrink: 1 !important;
+                flex-grow: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .header-contact {
+                max-width: 45% !important;
+                min-width: 0 !important;
+                overflow: hidden !important;
+                flex-shrink: 0 !important;
+                flex-grow: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.3rem !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .reserve-btn {
+                max-width: 80px !important;
+                min-width: 60px !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                flex-shrink: 0 !important;
+                flex-grow: 0 !important;
+                margin: 0 !important;
+                padding: 0.3rem 0.5rem !important;
+                font-size: 0.6rem !important;
+            }
+            .phone {
+                max-width: 40px !important;
+                min-width: 0 !important;
+                overflow: hidden !important;
+                flex-shrink: 1 !important;
+            }
+            .phone a {
+                font-size: 0.6rem !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo { max-width: 50% !important; }
+            .header-contact { max-width: 50% !important; }
+            .reserve-btn { max-width: 70px !important; min-width: 50px !important; font-size: 0.55rem !important; }
+        }
+        @media (max-width: 375px) {
+            .logo { max-width: 45% !important; }
+            .header-contact { max-width: 55% !important; }
+            .reserve-btn { max-width: 60px !important; min-width: 45px !important; font-size: 0.5rem !important; }
+        }
+        @media (max-width: 320px) {
+            .logo { max-width: 40% !important; }
+            .header-contact { max-width: 60% !important; }
+            .reserve-btn { max-width: 50px !important; min-width: 40px !important; font-size: 0.45rem !important; }
+        }
+    </style>
+    
+    <!-- 重要な画像のプリロード -->
+    <link rel="preload" as="image" href="header-bg.jpg">
+    <link rel="preload" as="image" href="haruka-momi.jpg">
+
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ほぐし処 HoguSeeS</h1>
+                    <p class="subtitle">武豊町の隠れ家癒し処 ほぐしーず</p>
+                </div>
+                <div class="header-contact">
+                    <div class="phone">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:0569-84-2515" class="phone-text">電話</a>
+                    </div>
+                    <a href="https://line.me/R/ti/p/@hogusees" class="reserve-btn" target="_blank">
+                        <i class="fab fa-line"></i>
+                        <span class="reserve-text">予約</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#info">info</a></li>
+                    <li><a href="#about">店舗紹介</a></li>
+                    <li><a href="#menu">メニュー・料金</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインビジュアル -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>心身の疲れを癒す<br>武豊町の隠れ家</h2>
+                <p>日々の疲れを優しくほぐし、心も体もリフレッシュ</p>
+                <a href="https://line.me/R/ti/p/@hogusees" class="cta-btn" target="_blank">
+                    <i class="fab fa-line"></i>
+                    今すぐ予約する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- info -->
+    <section id="info" class="info">
+        <div class="container">
+            <h2 class="section-title" style="font-size: 1.8rem;">info</h2>
+            <div class="info-content">
+                <div class="info-list" id="info-list">
+                    <!-- CMSから取得したデータがここに表示されます -->
+                    <div class="info-loading">
+                        <p>情報を読み込み中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 店舗紹介 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" style="font-size: 1.8rem;">店舗紹介</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 style="font-size: 1.4rem;">愛知県知多郡・武豊町の<br>リラクゼーションサロン「ほぐしーず」</h3>
+                    <p style="font-size: 0.9rem;">愛知県知多半島・武豊町のリラクゼーションサロン「ほぐし処 HoguSeeS」は、完全個室の落ち着いた空間で心身の癒しをご提供します。肩こり・腰痛・慢性的な疲労にお悩みの方に最適なもみほぐし、オイルトリートメント、足つぼ、ストレッチなど多彩なメニューを用意し、一人ひとりのお悩みに丁寧に対応いたします。</p>
+                    <p>個室ならではのプライベートなひと時で、日々のストレスや疲れを根本からリセット。知多半島内でも口コミ評価の高い施術と、通いやすい立地（知多武豊駅より徒歩3分）・駐車場完備で、リラックスと回復の時間を約束します。10分から120分まで、お好みの時間でお選びいただけます。</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-spa"></i>
+                            <h4>癒しの空間</h4>
+                            <p style="text-align:center;">
+                                落ち着いた<br>雰囲気で<br>リラックス<br>
+                                <span style="font-size:0.9em; color:#8B4513;">個室完備</span><br>
+                                <span style="font-size:0.8em; color:#666;">知多半島・武豊町</span>
+                            </p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-hands"></i>
+                            <h4>熟練スタッフ</h4>
+                            <p style="text-align:center;">経験豊富な<br>施術者<br>
+                            <span style="font-size:0.8em; color:#666;">肩こり・腰痛対応</span></p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <h4>柔軟な時間</h4>
+                            <p>10分〜120分で選択可能<br>
+                            <span style="font-size:0.8em; color:#666;">駐車場完備</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="haruka-momi.jpg" alt="店舗内観" loading="lazy" style="width: 70%; height: 400px; object-fit: cover; border-radius: 15px; background: none !important; background-color: transparent !important; background-image: none !important; object-position: center top; display: block; margin: 0 auto;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 店舗画像3つ横並び（大きめの枠） -->
+    <div class="shop-images-row" style="display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap;">
+      <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
+        <img src="lamp.jpg" alt="店舗画像1" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
+        <img src="tenpo2.jpg" alt="店舗画像2" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+      <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
+        <img src="tenpo3.jpg" alt="店舗画像3" loading="lazy" style="width:100%; height:100%; object-fit:cover;" />
+      </div>
+    </div>
+
+    <!-- スタッフ紹介 -->
+    <section id="staff" class="staff">
+        <div class="container">
+            <h2 class="section-title">スタッフ紹介</h2>
+            <div class="staff-content">
+                <!-- 1人目 -->
+                <div class="staff-member">
+                    <div class="staff-image">
+                        <img src="tanaka_haruka.jpg.jpg" alt="田中春香" loading="lazy" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                    </div>
+                    <div class="staff-info">
+                        <h3>店長 田中春香 <span class="experience">施術歴7年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、タイ古式整体ストレッチ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>子育てに奮闘しながら仕事が趣味です！<br>
+                        <strong>接客のモットー：</strong>お客様に合った力加減、体調の具合にあわせ力いっぱい施術させていただきます！</p>
+                    </div>
+                </div>
+                <!-- 2人目 -->
+                <div class="staff-member">
+                    <div class="staff-image">
+                        <img src="kishigami_ayaka.jpg" alt="岸上亜弥香" loading="lazy" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                    </div>
+                    <div class="staff-info">
+                        <h3>岸上亜弥香 <span class="experience">施術歴3年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>お菓子作り、色々な掃除をすること<br>
+                        <strong>接客のモットー：</strong>とにかく心身ともに楽になってほしいです。なかなか不器用な性格ですが、私なりの精一杯で施術と接客を提供したいです</p>
+                    </div>
+                </div>
+                <!-- 3人目 -->
+                <div class="staff-member">
+                    <div class="staff-image">
+                        <img src="chie.jpg" alt="Chie" loading="lazy" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                    </div>
+                    <div class="staff-info">
+                        <h3>Chie <span class="experience">施術歴3年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>ワンちゃんとネコちゃんのお世話を基本しています！<br>
+                        <strong>資格・受賞歴：</strong>准看護師・レイキヒーリング・クォンタムタッチヒーリングレベル１アクセスバーズ・優整体師<br>
+                        <strong>接客のモットー：</strong>お客様に合った施術を心がけ、自分自身で持っている知識を生かして行っていきます。アロマオイルリンパマッサージ・足つぼなどを得意分野にしています</p>
+                    </div>
+                </div>
+                <!-- 4人目 -->
+                <div class="staff-member">
+                    <div class="staff-image">
+                        <img src="amano.jpg" alt="天野" loading="lazy" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                    </div>
+                    <div class="staff-info">
+                        <h3>天野 <span class="experience">施術歴5年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、タイ古式整体ストレッチ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>人のいい所、悪い所を見抜く！<br>
+                        <strong>接客のモットー：</strong>真心こめて施術します。真面目が取り柄の天野です</p>
+                    </div>
+                </div>
+                <!-- 5人目 -->
+                <div class="staff-member">
+                    <div class="staff-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <div class="staff-info">
+                        <h3>ちか <span class="experience">施術歴1年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>ダンス講師、生成AI講師<br>
+                        <strong>接客のモットー：</strong>お客様のご要望に応えられる施術を心がけています。長年フィットネス業界に携わっているので、足りない筋肉の鍛え方、姿勢改善などお答えいたします！</p>
+                    </div>
+                </div>
+                <!-- 6人目 -->
+                <!-- 澤田亜希子の枠を削除 -->
+            </div>
+            <!-- 店舗画像3つ横並び（大きめの枠） -->
+            <div class="shop-images-row" style="display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap;">
+              <!-- 店舗画像は削除 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- メニュー・料金 -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">料金表</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+                <!-- もみほぐし -->
+                <div style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px;">
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">もみほぐし</h3>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10分 <span>1,100</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20分 <span>1,650</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30分 <span>2,200</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40分 <span>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50分 <span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60分 <span style='color:#d32f2f; font-weight:bold;'>3,850</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">70分 <span>4,400</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">80分 <span>4,950</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">90分 <span style='color:#d32f2f; font-weight:bold;'>5,500</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">100分 <span>6,050</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">110分 <span>6,600</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">120分 <span>7,150</span></li>
+                    </ul>
+                </div>
+                <!-- オイルリンパトリートメント -->
+                <div style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px;">
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem; font-size:0.85em; white-space:nowrap;">オイルリンパトリートメント</h3>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <!-- 60分 -->
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:0.97em; font-weight:bold; color:#8B4513; text-align:center;'>
+                            <span style='flex:1;'></span>
+                            <span style='flex:1;'>女性</span>
+                            <span style='flex:1;'>男性</span>
+                          </div>
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>60分</span>
+                            <span style='flex:1;'>4,850</span>
+                            <span style='flex:1;'>6,350</span>
+                          </div>
+                        </li>
+                        <!-- 70分以降 -->
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>70分</span>
+                            <span style='flex:1;'>5,400</span>
+                            <span style='flex:1;'>6,900</span>
+                          </div>
+                        </li>
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>80分</span>
+                            <span style='flex:1;'>5,950</span>
+                            <span style='flex:1;'>7,450</span>
+                          </div>
+                        </li>
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>90分</span>
+                            <span style='flex:1; color:#d32f2f; font-weight:bold;'>6,500</span>
+                            <span style='flex:1; color:#d32f2f; font-weight:bold;'>8,000</span>
+                          </div>
+                        </li>
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>100分</span>
+                            <span style='flex:1;'>7,050</span>
+                            <span style='flex:1;'>8,550</span>
+                          </div>
+                        </li>
+                        <li style="padding:6px 0; border-bottom:1px solid #eee;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>110分</span>
+                            <span style='flex:1;'>7,600</span>
+                            <span style='flex:1;'>9,100</span>
+                          </div>
+                        </li>
+                        <li style="padding:6px 0;">
+                          <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
+                            <span style='flex:1;'>120分</span>
+                            <span style='flex:1;'>8,150</span>
+                            <span style='flex:1;'>9,650</span>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- タイ古式 -->
+                <div style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px;">
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem; font-size:1.05em;">タイ古式整体ストレッチ</h3>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10分 <span>1,100</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20分 <span>1,650</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30分 <span style='color:#d32f2f; font-weight:bold;'>2,200</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40分 <span>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50分 <span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60分 <span>3,850</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">70分 <span>4,400</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">80分 <span>4,950</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">90分 <span>5,500</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">100分 <span>6,050</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">110分 <span>6,600</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">120分 <span>7,150</span></li>
+                    </ul>
+                </div>
+                <!-- 足つぼ -->
+                <div style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px;">
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">足つぼ</h3>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30分 <span style='color:#d32f2f; font-weight:bold;'>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40分 <span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50分 <span>3,850</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">60分 <span>4,400</span></li>
+                    </ul>
+                </div>
+                <!-- ドライヘッドスパ -->
+                <div style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px;">
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">ドライヘッドスパ</h3>
+                    <ul style="list-style:none; padding:0; margin:0;">
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10分 <span>1,100</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20分 <span>2,200</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">30分 <span>3,300</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top:1em; font-size:1em; color:#8B4513; text-align:center;" class="additional-charges">
+                <div class="charge-row">
+                    <span style="margin-right:1.5em;">個人指名：+220</span>
+                    <span style="margin-right:1.5em;">男女指名：+110</span>
+                </div>
+                <div class="charge-row">
+                    <span>ネックオイル：+550</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- アクセス -->
+    <section id="access" class="access">
+        <div class="container">
+            <h2 class="section-title">アクセス</h2>
+            <div class="access-content">
+                <div class="access-info">
+                    <h3>店舗情報</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>住所</strong>
+                            <p>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>電話番号</strong>
+                            <p><a href="tel:0569-84-2515">0569-84-2515</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>営業時間</strong>
+                            <p>10:00〜22:00（最終受付21:00）</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        <div>
+                            <strong>定休日</strong>
+                            <p>不定休（事前にご確認ください）</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3274.2423633353646!2d136.91258907440613!3d34.85013702518231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60048f597442d57d%3A0xbf88c6a66bfabff4!2z44G744G744GI44G_6JGs56WtIOatpuixiuacrOW6l--8iOiRrOWEgOOBruebuOirh-eqk-WPo--8iQ!5e0!3m2!1sja!2sjp!4v1752757552479!5m2!1sja!2sjp" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ほぐし処 HoguSeeS</h3>
+                    <p>武豊町の隠れ家癒し処</p>
+                    <p>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
+                    <p>TEL: <a href="tel:0569-84-2515">0569-84-2515</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>メニュー</h4>
+                    <ul>
+                        <li><a href="#menu">もみほぐし</a></li>
+                        <li><a href="#menu">オイルリンパマッサージ</a></li>
+                        <li><a href="#menu">足つぼマッサージ</a></li>
+                        <li><a href="#menu">タイ古式ストレッチ</a></li>
+                        <li><a href="#menu">ドライヘッドスパ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <div class="social-links">
+                        <a href="https://line.me/R/ti/p/@hogusees" target="_blank" class="social-link line-link">
+                            <i class="fab fa-line"></i>
+                            <span>LINEで予約</span>
+                        </a>
+                        <a href="https://www.instagram.com/hogusees?igsh=MTVmdHo3bXViNzBrMg==" target="_blank" class="social-link instagram-link">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="privacy.html">プライバシーポリシー</a>
+                    <a href="terms.html">利用規約</a>
+                </div>
+                <p>&copy; 2024 ほぐし処 HoguSeeS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
