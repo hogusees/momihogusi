@@ -442,8 +442,8 @@
             const title = document.getElementById('postTitle').value;
             const createdAt = new Date().toISOString();
             
-            // 記事IDを生成（script.jsと同じ方法）
-            const articleId = btoa(title + createdAt).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10);
+            // 記事IDを生成（日本語対応）
+            const articleId = encodeURIComponent(title + createdAt).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10) || 'article_' + Date.now().toString().substring(-6);
             
             const postData = {
                 id: articleId,

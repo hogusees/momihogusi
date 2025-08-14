@@ -124,8 +124,8 @@ function displayInfoData(posts) {
         const categoryText = article.category ? getCategoryText(article.category) : '';
         const categoryBadge = categoryText ? `<span class="info-category">${categoryText}</span>` : '';
         
-        // 記事IDを生成（タイムスタンプベース）
-        const articleId = article.id || btoa(article.title + (article.createdAt || article.publishedAt)).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10);
+        // 記事IDを生成（日本語対応）
+        const articleId = article.id || encodeURIComponent(article.title + (article.createdAt || article.publishedAt)).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10) || 'article_' + Date.now().toString().substring(-6);
         
         return `
             <div class="info-item">
