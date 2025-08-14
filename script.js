@@ -166,7 +166,35 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 画像読み込み最適化
     optimizeImageLoading();
+    
+    // 管理画面からの更新通知を監視
+    setupBlogUpdateListener();
 });
+
+// 管理画面からの更新通知を監視する機能
+function setupBlogUpdateListener() {
+    // 方法1: BroadcastChannelで通知を受信
+    if (typeof BroadcastChannel !== 'undefined') {
+        const channel = new BroadcastChannel('hogusees_updates');
+        channel.addEventListener('message', (event) => {
+            if (event.data.type === 'blog_updated') {
+                console.log('ブログ更新通知を受信しました');
+                refreshInfoData();
+            }
+        });
+    }
+    
+    // 方法2: localStorageの変更を監視
+    let lastBlogUpdate = localStorage.getItem('blogUpdated') || '0';
+    setInterval(() => {
+        const currentUpdate = localStorage.getItem('blogUpdated') || '0';
+        if (currentUpdate !== lastBlogUpdate) {
+            console.log('ブログ更新を検出しました');
+            lastBlogUpdate = currentUpdate;
+            refreshInfoData();
+        }
+    }, 1000); // 1秒ごとにチェック
+}
 
 // ハンバーガーメニューの初期化
 function initializeHamburgerMenu() {
@@ -330,3 +358,12 @@ function optimizeImageLoading() {
         }
     });
 }
+
+// 外部から呼び出し可能な更新関数（管理画面から利用）
+function refreshInfoData() {
+    console.log('Info data refresh requested');
+    loadInfoData();
+}
+
+// グローバルに公開（管理画面から呼び出し可能にする）
+window.refreshInfoData = refreshInfoData;

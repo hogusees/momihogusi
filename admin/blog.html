@@ -476,13 +476,23 @@
             // 成功メッセージ
             alert('ブログ記事が投稿されました！LPの最新情報にも反映されます。');
             
-            // LPの最新情報を更新（別ウィンドウで開いている場合）
+            // LPの最新情報を更新（複数の方法で試行）
             try {
+                // 方法1: 別ウィンドウで開いている場合
                 if (window.opener && !window.opener.closed) {
                     window.opener.refreshInfoData && window.opener.refreshInfoData();
                 }
+                
+                // 方法2: 同じタブでLPを開いている場合（localStorage使用）
+                localStorage.setItem('blogUpdated', Date.now().toString());
+                
+                // 方法3: メインサイトのタブに更新を通知
+                if (typeof BroadcastChannel !== 'undefined') {
+                    const channel = new BroadcastChannel('hogusees_updates');
+                    channel.postMessage({ type: 'blog_updated' });
+                }
             } catch (e) {
-                console.log('LPの自動更新をスキップしました');
+                console.log('LPの自動更新処理でエラー:', e);
             }
         }
 
