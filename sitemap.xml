@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- メインページ -->
+  <url>
+    <loc>https://hogusees.com/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hogusees.com/header-bg.jpg</image:loc>
+      <image:title>ほぐし処HoguSeeS - 武豊町の完全個室リラクゼーションサロン</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hogusees.com/haruka-momi.jpg</image:loc>
+      <image:title>ほぐし処HoguSeeS店内施術風景</image:title>
+    </image:image>
+  </url>
+
+  <!-- 店舗情報セクション -->
+  <url>
+    <loc>https://hogusees.com/#info</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 店舗紹介セクション -->
+  <url>
+    <loc>https://hogusees.com/#about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- スタッフ紹介セクション -->
+  <url>
+    <loc>https://hogusees.com/#staff</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://hogusees.com/tanaka_haruka.jpg.jpg</image:loc>
+      <image:title>田中春香 - 店長・施術歴7年</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hogusees.com/kishigami_ayaka.jpg</image:loc>
+      <image:title>岸上亜弥香 - セラピスト・施術歴3年</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hogusees.com/chie.jpg</image:loc>
+      <image:title>Chie - セラピスト・准看護師</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hogusees.com/amano.jpg</image:loc>
+      <image:title>天野 - セラピスト・施術歴5年</image:title>
+    </image:image>
+  </url>
+
+  <!-- 料金・メニューセクション -->
+  <url>
+    <loc>https://hogusees.com/#menu</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- アクセス情報セクション -->
+  <url>
+    <loc>https://hogusees.com/#access</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- その他のページ -->
+  <url>
+    <loc>https://hogusees.com/privacy.html</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://hogusees.com/terms.html</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://hogusees.com/staff.html</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://hogusees.com/blog.html</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# 許可するファイル
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.gif
+Allow: *.webp
+Allow: *.svg
+
+# 重要でないディレクトリの除外
+Disallow: /admin/
+Disallow: /test/
+Disallow: /temp/
+
+# サイトマップの場所
+Sitemap: https://hogusees.com/sitemap.xml
+
+# クロール頻度の調整
+Crawl-delay: 1

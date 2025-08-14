@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="blog-title">記事詳細 | ほぐし処HoguSeeS - 武豊駅徒歩3分のもみほぐし専門店</title>
+    <!-- Cache Buster: 20250813c -->
+    <meta name="description" id="blog-description" content="ほぐし処HoguSeeS（ほぐしどころほぐしーず）のブログ記事詳細ページです。">
+    <meta name="keywords" content="ほぐし処,HoguSeeS,ほぐしーず,武豊町,マッサージ,もみほぐし,肩こり,腰痛,整体,半田市,常滑市,美浜町">
+    
+    <!-- OGP -->
+    <meta property="og:title" id="og-title" content="記事詳細 | ほぐし処HoguSeeS">
+    <meta property="og:description" id="og-description" content="ほぐし処HoguSeeS（ほぐしどころほぐしーず）のブログ記事詳細ページです。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="og-url" content="">
+    <meta property="og:image" content="header-bg.jpg">
+    <meta property="og:site_name" content="ほぐし処HoguSeeS">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitter-title" content="記事詳細 | ほぐし処HoguSeeS">
+    <meta name="twitter:description" id="twitter-description" content="ほぐし処HoguSeeS（ほぐしどころほぐしーず）のブログ記事詳細ページです。">
+    <meta name="twitter:image" content="header-bg.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="styles.css?v=20250813c">
+    
+    <!-- 詳細ページ専用スタイル -->
+    <style>
+        /* ブログ詳細ページ専用スタイル */
+        .blog-detail-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .breadcrumb a {
+            color: #8B4513;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: #5d2f0a;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: #999;
+        }
+        
+        .blog-header {
+            margin-bottom: 2rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .blog-category {
+            background: #8B4513;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .blog-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .blog-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.4rem;
+            color: #8B4513;
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8B4513;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.2rem;
+            color: #8B4513;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .blog-content ul,
+        .blog-content ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .btn-back {
+            background: #8B4513;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-back:hover {
+            background: #5d2f0a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .btn-home {
+            background: transparent;
+            color: #8B4513;
+            padding: 0.8rem 2rem;
+            border: 2px solid #8B4513;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-home:hover {
+            background: #8B4513;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 3rem;
+            color: #d32f2f;
+            background: #ffebee;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .blog-detail-container {
+                margin: 1rem;
+                padding: 1.5rem 1rem;
+            }
+            
+            .blog-title {
+                font-size: 1.5rem;
+            }
+            
+            .blog-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-back,
+            .btn-home {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ほぐし処<br><span class="logo-highlight">HoguSeeS</span></h1>
+                    <p class="subtitle">武豊駅徒歩3分のもみほぐし専門店</p>
+                </div>
+                
+                <nav class="nav">
+                    <div class="nav-menu">
+                        <a href="index_new.html">ホーム</a>
+                        <a href="index_new.html#info">最新情報</a>
+                        <a href="index_new.html#menu">メニュー</a>
+                        <a href="index_new.html#staff">スタッフ</a>
+                        <a href="index_new.html#access">アクセス</a>
+                    </div>
+                </nav>
+                
+                <div class="header-contact">
+                    <a href="tel:0569-73-9168" class="phone-text">
+                        <i class="fas fa-phone"></i>
+                        0569-73-9168
+                    </a>
+                    <a href="https://line.me/R/ti/p/@hoguzi" class="reserve-btn" target="_blank" rel="noopener">
+                        <i class="fab fa-line"></i>
+                        ご予約
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="blog-detail-container">
+            <div id="loading" class="loading">
+                <p>記事を読み込み中...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                <h2>記事が見つかりません</h2>
+                <p>指定された記事が存在しないか、削除された可能性があります。</p>
+            </div>
+            
+            <div id="blog-detail" style="display: none;">
+                <!-- パンくずリスト -->
+                <nav class="breadcrumb">
+                    <a href="index_new.html">ホーム</a>
+                    <span>›</span>
+                    <a href="index_new.html#info">最新情報</a>
+                    <span>›</span>
+                    <span id="breadcrumb-title">記事詳細</span>
+                </nav>
+                
+                <!-- ブログヘッダー -->
+                <div class="blog-header">
+                    <div class="blog-meta">
+                        <span class="blog-date" id="article-date">2024.01.17</span>
+                        <span class="blog-category" id="article-category">お知らせ</span>
+                    </div>
+                    <h1 class="blog-title" id="article-title">記事タイトル</h1>
+                </div>
+                
+                <!-- ブログ本文 -->
+                <div class="blog-content" id="article-content">
+                    <p>記事内容を読み込み中...</p>
+                </div>
+                
+                <!-- アクション -->
+                <div class="blog-actions">
+                    <a href="index_new.html#info" class="btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                        最新情報に戻る
+                    </a>
+                    <a href="index_new.html" class="btn-home">
+                        <i class="fas fa-home"></i>
+                        ホームに戻る
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>ほぐし処 HoguSeeS</h3>
+                    <p>武豊駅徒歩3分のもみほぐし専門店</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>営業時間:</strong> 10:00～21:00（最終受付 20:00）</p>
+                    <p><strong>定休日:</strong> 不定休</p>
+                    <p><strong>TEL:</strong> 0569-73-9168</p>
+                    <p><strong>住所:</strong> 〒470-2343 愛知県知多郡武豊町字山起70-1 ほほえみビル3階</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ほぐし処 HoguSeeS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    
+    <!-- ブログ詳細ページスクリプト -->
+    <script>
+        // URLパラメータから記事IDを取得
+        function getArticleIdFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }
+        
+        // カテゴリー名のマッピング
+        function getCategoryText(category) {
+            const categoryMap = {
+                'massage': 'マッサージ',
+                'health': '健康情報',
+                'selfcare': 'セルフケア',
+                'store': '店舗情報',
+                'staff': 'スタッフ'
+            };
+            return categoryMap[category] || category || 'お知らせ';
+        }
+        
+        // 記事データを取得して表示
+        function loadArticleDetail() {
+            const articleId = getArticleIdFromUrl();
+            
+            if (!articleId) {
+                showError();
+                return;
+            }
+            
+            try {
+                // localStorage からブログ記事を取得
+                const blogPosts = localStorage.getItem('blogPosts');
+                if (!blogPosts) {
+                    showError();
+                    return;
+                }
+                
+                const posts = JSON.parse(blogPosts);
+                const article = posts.find(post => post.id === articleId);
+                
+                if (!article) {
+                    showError();
+                    return;
+                }
+                
+                // 記事を表示
+                displayArticle(article);
+                
+            } catch (error) {
+                console.error('記事の読み込みエラー:', error);
+                showError();
+            }
+        }
+        
+        // 記事を表示
+        function displayArticle(article) {
+            // ローディングを非表示
+            document.getElementById('loading').style.display = 'none';
+            
+            // 日付フォーマット
+            const date = new Date(article.createdAt || article.publishedAt).toLocaleDateString('ja-JP', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).replace(/\//g, '.');
+            
+            // カテゴリー
+            const categoryText = getCategoryText(article.category);
+            
+            // タイトル
+            const title = article.title || 'タイトルなし';
+            
+            // 本文（HTMLタグをそのまま表示）
+            let content = article.content || article.summary || '内容なし';
+            
+            // メタ情報を更新
+            updateMetaTags(title, content);
+            
+            // DOM要素を更新
+            document.getElementById('article-date').textContent = date;
+            document.getElementById('article-category').textContent = categoryText;
+            document.getElementById('article-title').textContent = title;
+            document.getElementById('breadcrumb-title').textContent = title.length > 30 ? title.substring(0, 30) + '...' : title;
+            document.getElementById('article-content').innerHTML = content;
+            
+            // 詳細セクションを表示
+            document.getElementById('blog-detail').style.display = 'block';
+        }
+        
+        // メタタグを更新
+        function updateMetaTags(title, content) {
+            // プレーンテキストに変換（概要用）
+            const plainContent = content.replace(/<[^>]*>/g, '').substring(0, 160);
+            const fullTitle = `${title} | ほぐし処HoguSeeS - 武豊駅徒歩3分のもみほぐし専門店`;
+            
+            // title
+            document.title = fullTitle;
+            document.getElementById('blog-title').setAttribute('content', fullTitle);
+            
+            // description
+            document.getElementById('blog-description').setAttribute('content', plainContent);
+            
+            // OGP
+            document.getElementById('og-title').setAttribute('content', fullTitle);
+            document.getElementById('og-description').setAttribute('content', plainContent);
+            document.getElementById('og-url').setAttribute('content', window.location.href);
+            
+            // Twitter Card
+            document.getElementById('twitter-title').setAttribute('content', fullTitle);
+            document.getElementById('twitter-description').setAttribute('content', plainContent);
+        }
+        
+        // エラー表示
+        function showError() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+        }
+        
+        // ページ読み込み時に実行
+        document.addEventListener('DOMContentLoaded', function() {
+            loadArticleDetail();
+        });
+        
+        // アクセストラッキング
+        function trackBlogView() {
+            try {
+                const today = new Date().toISOString().split('T')[0];
+                const storageKey = `analytics_${today}`;
+                
+                let todayData = localStorage.getItem(storageKey);
+                if (todayData) {
+                    todayData = JSON.parse(todayData);
+                } else {
+                    todayData = {
+                        visitors: 0,
+                        clicks: 0,
+                        phoneCalls: 0,
+                        seoRank: Math.floor(Math.random() * 8) + 3
+                    };
+                }
+                
+                todayData.visitors++;
+                localStorage.setItem(storageKey, JSON.stringify(todayData));
+            } catch (error) {
+                console.error('Tracking error:', error);
+            }
+        }
+        
+        // ページ読み込み時にアクセスをトラッキング
+        window.addEventListener('load', trackBlogView);
+    </script>
+</body>
+</html>

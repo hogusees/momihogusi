@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ブログ管理 - ほぐし処 HoguSeeS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #8B4513;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .header-nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #8B4513;
+            padding-bottom: 0.5rem;
+        }
+
+        .blog-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8B4513;
+        }
+
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #8B4513;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #A0522D;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+        .seo-tips {
+            background: #e8f5e8;
+            border: 1px solid #b8daff;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .seo-tips h4 {
+            color: #004085;
+            margin-bottom: 0.5rem;
+        }
+
+        .keyword-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .keyword-tag {
+            background: #8B4513;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: #A0522D;
+        }
+
+        .posts-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .post-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.3rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .character-count {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: right;
+            margin-top: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-nav {
+                flex-wrap: wrap;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .post-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .post-actions {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>ブログ管理 - ほぐし処 HoguSeeS</h1>
+            <nav class="header-nav">
+                <a href="index.html"><i class="fas fa-tachometer-alt"></i> ダッシュボード</a>
+                <a href="blog.html"><i class="fas fa-edit"></i> ブログ管理</a>
+                <a href="../index_new.html" target="_blank"><i class="fas fa-external-link-alt"></i> サイト確認</a>
+                <span class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> ログアウト</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- 新規投稿フォーム -->
+        <div class="section">
+            <h2 class="section-title">新規ブログ投稿</h2>
+            
+            <!-- SEO推奨事項 -->
+            <div class="seo-tips">
+                <h4><i class="fas fa-lightbulb"></i> SEO推奨キーワード</h4>
+                <p>今週のトレンドキーワードをタイトルや本文に含めることで検索されやすくなります。</p>
+                <div class="keyword-suggestions" id="keywordSuggestions">
+                    <!-- JavaScriptで動的生成 -->
+                </div>
+            </div>
+            
+            <form class="blog-form" onsubmit="saveBlogPost(event)">
+                <div class="form-group">
+                    <label for="postTitle">タイトル *</label>
+                    <input type="text" id="postTitle" required placeholder="例: デスクワークの肩こりを解消する3つの方法">
+                    <div class="character-count">
+                        <span id="titleCount">0</span>/60文字（SEO推奨: 30-60文字）
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postContent">本文 *</label>
+                    <textarea id="postContent" required placeholder="記事の内容を書いてください..."></textarea>
+                    <div class="character-count">
+                        <span id="contentCount">0</span>文字
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postSummary">概要</label>
+                    <textarea id="postSummary" placeholder="記事の要約を書いてください（検索結果に表示されます）"></textarea>
+                    <div class="character-count">
+                        <span id="summaryCount">0</span>/160文字（SEO推奨: 120-160文字）
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="postCategory">カテゴリ</label>
+                    <select id="postCategory">
+                        <option value="massage">マッサージ技術</option>
+                        <option value="health">健康情報</option>
+                        <option value="selfcare">セルフケア</option>
+                        <option value="store">店舗情報</option>
+                        <option value="staff">スタッフブログ</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="postTags">タグ（カンマ区切り）</label>
+                    <input type="text" id="postTags" placeholder="肩こり, デスクワーク, 武豊町">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="saveDraft()">
+                        <i class="fas fa-save"></i> 下書き保存
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> 投稿する
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 既存の投稿一覧 -->
+        <div class="section">
+            <h2 class="section-title">投稿済み記事</h2>
+            <div class="posts-list" id="postsList">
+                <!-- JavaScriptで動的生成 -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 認証チェック
+        function checkAuth() {
+            const adminAuth = localStorage.getItem('adminAuth');
+            if (adminAuth !== 'true') {
+                window.location.href = 'login.html';
+                return false;
+            }
+            return true;
+        }
+
+        // ログアウト
+        function logout() {
+            localStorage.removeItem('adminAuth');
+            localStorage.removeItem('loginTime');
+            window.location.href = 'login.html';
+        }
+
+        // 文字数カウント
+        function setupCharacterCount() {
+            const titleInput = document.getElementById('postTitle');
+            const summaryInput = document.getElementById('postSummary');
+            const contentInput = document.getElementById('postContent');
+
+            titleInput.addEventListener('input', () => {
+                document.getElementById('titleCount').textContent = titleInput.value.length;
+            });
+
+            summaryInput.addEventListener('input', () => {
+                document.getElementById('summaryCount').textContent = summaryInput.value.length;
+            });
+
+            contentInput.addEventListener('input', () => {
+                document.getElementById('contentCount').textContent = contentInput.value.length;
+            });
+        }
+
+        // SEOキーワード提案の読み込み
+        function loadKeywordSuggestions() {
+            const keywords = [
+                '武豊町 マッサージ',
+                '肩こり 解消',
+                'デスクワーク 疲れ',
+                '腰痛 改善',
+                'リラクゼーション',
+                '知多半島',
+                'セルフケア',
+                'ストレス解消',
+                '冷え性 改善',
+                '美浜町 常滑市'
+            ];
+
+            const container = document.getElementById('keywordSuggestions');
+            container.innerHTML = keywords.map(keyword => 
+                `<span class="keyword-tag" onclick="insertKeyword('${keyword}')">${keyword}</span>`
+            ).join('');
+        }
+
+        // キーワードをタイトルに挿入
+        function insertKeyword(keyword) {
+            const titleInput = document.getElementById('postTitle');
+            const currentValue = titleInput.value;
+            
+            if (!currentValue.includes(keyword)) {
+                titleInput.value = currentValue ? `${currentValue} ${keyword}` : keyword;
+                titleInput.dispatchEvent(new Event('input'));
+            }
+        }
+
+        // ブログ投稿の保存
+        function saveBlogPost(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('postTitle').value;
+            const createdAt = new Date().toISOString();
+            
+            // 記事IDを生成（script.jsと同じ方法）
+            const articleId = btoa(title + createdAt).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10);
+            
+            const postData = {
+                id: articleId,
+                title: title,
+                summary: document.getElementById('postSummary').value,
+                content: document.getElementById('postContent').value,
+                category: document.getElementById('postCategory').value,
+                tags: document.getElementById('postTags').value.split(',').map(tag => tag.trim()),
+                status: 'published',
+                createdAt: createdAt,
+                author: 'ほぐし処スタッフ'
+            };
+
+            // ローカルストレージに保存（実際の実装ではAPIに送信）
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            posts.unshift(postData);
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+            // フォームをリセット
+            document.querySelector('.blog-form').reset();
+            
+            // 文字数カウンターもリセット
+            document.getElementById('titleCount').textContent = '0';
+            document.getElementById('summaryCount').textContent = '0';
+            document.getElementById('contentCount').textContent = '0';
+
+            // 投稿一覧を更新
+            loadPostsList();
+
+            // 成功メッセージ
+            alert('ブログ記事が投稿されました！LPの最新情報にも反映されます。');
+            
+            // LPの最新情報を更新（別ウィンドウで開いている場合）
+            try {
+                if (window.opener && !window.opener.closed) {
+                    window.opener.refreshInfoData && window.opener.refreshInfoData();
+                }
+            } catch (e) {
+                console.log('LPの自動更新をスキップしました');
+            }
+        }
+
+        // 下書き保存
+        function saveDraft() {
+            const draftData = {
+                id: 'draft_' + Date.now(),
+                title: document.getElementById('postTitle').value,
+                summary: document.getElementById('postSummary').value,
+                content: document.getElementById('postContent').value,
+                category: document.getElementById('postCategory').value,
+                tags: document.getElementById('postTags').value.split(',').map(tag => tag.trim()),
+                status: 'draft',
+                createdAt: new Date().toISOString(),
+                author: 'ほぐし処スタッフ'
+            };
+
+            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+            drafts.unshift(draftData);
+            localStorage.setItem('blogDrafts', JSON.stringify(drafts));
+
+            alert('下書きが保存されました！');
+        }
+
+        // 投稿一覧の読み込み
+        function loadPostsList() {
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+            const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            const container = document.getElementById('postsList');
+            
+            if (allPosts.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #666;">まだ記事がありません。最初の記事を投稿してみましょう！</p>';
+                return;
+            }
+
+            container.innerHTML = allPosts.map(post => `
+                <div class="post-item">
+                    <div class="post-header">
+                        <div>
+                            <div class="post-title">${post.title}</div>
+                            <div class="post-meta">
+                                ${new Date(post.createdAt).toLocaleDateString('ja-JP')} | 
+                                ${post.status === 'published' ? '公開中' : '下書き'} | 
+                                ${post.category}
+                            </div>
+                        </div>
+                        <div class="post-actions">
+                            <button class="btn btn-sm btn-secondary" onclick="editPost('${post.id}')">
+                                <i class="fas fa-edit"></i> 編集
+                            </button>
+                            <button class="btn btn-sm btn-danger" onclick="deletePost('${post.id}')">
+                                <i class="fas fa-trash"></i> 削除
+                            </button>
+                        </div>
+                    </div>
+                    ${post.summary ? `<p style="color: #666; margin-top: 0.5rem;">${post.summary}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // 記事編集
+        function editPost(postId) {
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+            const post = [...posts, ...drafts].find(p => p.id === postId);
+
+            if (post) {
+                document.getElementById('postTitle').value = post.title;
+                document.getElementById('postSummary').value = post.summary || '';
+                document.getElementById('postContent').value = post.content;
+                document.getElementById('postCategory').value = post.category;
+                document.getElementById('postTags').value = post.tags.join(', ');
+
+                // 文字数カウンターを更新
+                document.getElementById('titleCount').textContent = post.title.length;
+                document.getElementById('summaryCount').textContent = (post.summary || '').length;
+                document.getElementById('contentCount').textContent = post.content.length;
+
+                // 元の記事を削除
+                deletePost(postId, false);
+
+                alert('記事を編集モードで読み込みました。修正後に再度投稿してください。');
+            }
+        }
+
+        // 記事削除
+        function deletePost(postId, showConfirm = true) {
+            if (showConfirm && !confirm('この記事を削除しますか？')) {
+                return;
+            }
+
+            // 公開済み記事から削除
+            let posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            posts = posts.filter(p => p.id !== postId);
+            localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+            // 下書きからも削除
+            let drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+            drafts = drafts.filter(p => p.id !== postId);
+            localStorage.setItem('blogDrafts', JSON.stringify(drafts));
+
+            loadPostsList();
+
+            if (showConfirm) {
+                alert('記事が削除されました。');
+            }
+        }
+
+        // サンプルデータの初期化
+        function initializeSamplePosts() {
+            const samplePosts = [
+                {
+                    id: 'sample_1',
+                    title: 'デスクワークによる肩こりの原因と対策',
+                    summary: '長時間のパソコン作業で起こる肩こりの原因と、簡単にできる予防・改善方法をご紹介します。',
+                    content: 'デスクワークによる肩こりは現代人の悩みの一つです。武豊町のほぐし処HoguSeeSでは、多くのお客様が肩こりの改善を求めていらっしゃいます...',
+                    category: 'health',
+                    tags: ['肩こり', 'デスクワーク', '武豊町', 'マッサージ'],
+                    status: 'published',
+                    createdAt: new Date(Date.now() - 86400000).toISOString(),
+                    author: 'ほぐし処スタッフ'
+                },
+                {
+                    id: 'sample_2',
+                    title: '冬の冷え性改善に効果的なマッサージ方法',
+                    summary: '寒い季節に気になる手足の冷えを改善するセルフマッサージ方法をお教えします。',
+                    content: '冬になると多くの方が悩まされる冷え性。血行を改善するマッサージで体を温めましょう...',
+                    category: 'selfcare',
+                    tags: ['冷え性', '血行改善', 'セルフケア', '冬'],
+                    status: 'published',
+                    createdAt: new Date(Date.now() - 172800000).toISOString(),
+                    author: 'ほぐし処スタッフ'
+                }
+            ];
+
+            localStorage.setItem('blogPosts', JSON.stringify(samplePosts));
+        }
+
+        // ページ読み込み時の処理
+        window.addEventListener('load', function() {
+            if (checkAuth()) {
+                setupCharacterCount();
+                loadKeywordSuggestions();
+                
+                // サンプルデータがない場合は初期化
+                const existingPosts = localStorage.getItem('blogPosts');
+                if (!existingPosts) {
+                    initializeSamplePosts();
+                }
+                
+                loadPostsList();
+            }
+        });
+    </script>
+</body>
+</html>

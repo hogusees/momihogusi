@@ -75,7 +75,7 @@ body {
     flex: 1;
     min-width: 0;
     max-width: 60%;
-    overflow: hidden;
+    overflow: visible;  /* PC版でロゴを表示 */
     box-sizing: border-box;
 }
 
@@ -90,7 +90,7 @@ body {
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;  /* PC版でロゴテキストを表示 */
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     letter-spacing: 0.5px;
 }
@@ -107,7 +107,7 @@ body {
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     white-space: normal;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;  /* PC版でサブタイトルを表示 */
 }
 
 .header-contact {
@@ -327,14 +327,13 @@ img[loading="lazy"].loaded {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 33vh;
+    height: 28vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    padding-top: 80px;
-    min-height: 300px; /* 最小高さを設定して文字が隠れないように */
+    min-height: 250px; /* 最小高さを設定して文字が隠れないように */
 }
 
 .hero-content h2 {
@@ -375,12 +374,13 @@ img[loading="lazy"].loaded {
 
 /* セクションタイトル */
 .section-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-align: center;
     margin-bottom: 2.5rem;
     color: #4a4a4a;
     position: relative;
+    line-height: 1.4;
 }
 
 .section-title::after {
@@ -1526,49 +1526,44 @@ section {
     }
 } 
 
-/* 重複したメディアクエリを削除し、正しいヘッダースタイルを適用 */
+/* モバイル版ヘッダー - 完全修正版 */
 @media (max-width: 768px) {
     body {
-        padding-top: 100px;
-        width: 100%;
-        max-width: 100%;
+        padding-top: 130px; /* ヘッダー高さに合わせて調整 */
         overflow-x: hidden;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
     }
 
     .container {
-        width: 100%;
-        max-width: 100%;
         padding: 0 15px;
-        margin: 0;
-        box-sizing: border-box;
-        overflow: hidden;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+
+    .section-title br:first-of-type::before {
+        content: "";
+        font-weight: 300;
+        font-size: 0.9rem;
     }
 
     .header {
-        padding: 0.5rem 0;
+        padding: 1.2rem 0;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         width: 100%;
-        max-width: 100%;
         z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        overflow: hidden;
-        box-sizing: border-box;
-        margin: 0;
+        background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
     .header .container {
-        width: 100%;
-        max-width: 100%;
         padding: 0 15px;
-        box-sizing: border-box;
-        overflow: hidden;
-        margin: 0;
     }
 
     .header-content {
@@ -1576,115 +1571,147 @@ section {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 0.3rem;
-        width: 100%;
-        max-width: 100%;
-        flex-wrap: nowrap;
-        box-sizing: border-box;
-        overflow: hidden;
-        gap: 0.5rem;
-        margin-left: 0;
-        margin-right: 0;
+        gap: 1rem;
+        width: 100% !important;
+        overflow: visible !important;
+        position: relative;
     }
 
     .logo {
         flex: 1;
+        max-width: 60%;
         min-width: 0;
-        max-width: 50%;
-        overflow: hidden;
+        overflow: visible !important; /* PC版のoverflowを上書き */
         box-sizing: border-box;
     }
 
     .logo h1 {
-        font-size: 1.1rem;
-        font-weight: 700;
+        font-size: 1.2rem;
+        font-weight: 800;
         margin-bottom: 0.05rem;
-        color: white;
-        display: block;
-        line-height: 1.1;
+        color: white !important;
+        display: block !important;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        letter-spacing: 0.5px;
+        overflow: visible !important; /* 重要：テキストを表示させる */
+        max-width: none !important;
+        white-space: normal !important;
         word-wrap: break-word;
         overflow-wrap: break-word;
-        white-space: normal;
-        max-width: 100%;
-        overflow: hidden;
     }
 
     .logo .subtitle {
         font-size: 0.7rem;
-        opacity: 0.9;
-        color: white;
-        display: block;
+        opacity: 0.95;
+        color: white !important;
+        display: block !important;
         line-height: 1.1;
+        font-weight: 500;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        overflow: visible !important; /* 重要：テキストを表示させる */
+        max-width: none !important;
+        white-space: normal !important;
         word-wrap: break-word;
         overflow-wrap: break-word;
-        white-space: normal;
-        max-width: 100%;
-        overflow: hidden;
     }
 
     .header-contact {
         display: flex;
         align-items: center;
         gap: 0.5rem;
+        max-width: 40%;
         flex-shrink: 0;
-        box-sizing: border-box;
-        overflow: hidden;
-        max-width: 50%;
     }
 
     .phone {
         display: flex;
         align-items: center;
         gap: 0.3rem;
-        box-sizing: border-box;
-        overflow: hidden;
-        flex-shrink: 0;
     }
 
     .phone a {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        text-decoration: none;
         color: white;
-        background: rgba(255,255,255,0.1);
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-        overflow: visible;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.8rem;
         white-space: nowrap;
-        display: inline-block;
-        min-width: 60px;
-        text-align: center;
-        line-height: 1.2;
     }
 
     .reserve-btn {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-        border-radius: 4px;
-        text-decoration: none;
+        background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
         color: white;
-        background: #FF6B35;
-        border: 1px solid #FF6B35;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
         font-weight: 600;
-        transition: all 0.3s ease;
-        box-sizing: border-box;
-        overflow: visible;
+        font-size: 0.8rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         white-space: nowrap;
-        display: inline-block;
-        min-width: 70px;
-        text-align: center;
-        line-height: 1.2;
+        box-shadow: 0 3px 12px rgba(255,107,53,0.3);
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .reserve-btn:hover {
+        background: linear-gradient(135deg, #F7931E 0%, #FF6B35 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 5px 16px rgba(255,107,53,0.5);
+    }
+
+    .nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav ul {
+        display: none !important;
     }
 
     .nav-toggle {
-        display: block;
+        display: block !important;
         background: none;
         border: none;
         cursor: pointer;
         padding: 0.5rem;
-        color: white;
+        color: white !important;
         z-index: 1002;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger {
+        display: block !important;
+        width: 20px;
+        height: 2px;
+        background: white !important;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: white !important;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before {
+        top: -6px;
+    }
+
+    .hamburger::after {
+        bottom: -6px;
     }
 
     .nav-menu {
@@ -1694,11 +1721,11 @@ section {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: rgba(0,0,0,0.95);
+        background: linear-gradient(135deg, rgba(139,69,19,0.98) 0%, rgba(160,82,45,0.95) 100%);
+        backdrop-filter: blur(10px);
         z-index: 1001;
-        padding-top: 80px;
-        box-sizing: border-box;
-        overflow: hidden;
+        padding-top: 120px;
+        animation: slideIn 0.3s ease-out;
     }
 
     .nav-menu.active {
@@ -1717,19 +1744,12 @@ section {
         font-weight: 500;
         display: block;
         padding: 1rem;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .nav-menu a:hover {
-        color: #D2691E;
-    }
-
-    .nav ul {
-        display: none;
-    }
-
-    .nav a {
-        display: none;
+        color: #FF6B35;
+        transform: translateX(10px);
     }
 
     .hero-content h2 {
@@ -1742,7 +1762,8 @@ section {
     }
 
     .hero {
-        padding: 3rem 0;
+        padding: 0 0 2.5rem 0;
+        margin-top: -20px;
     }
 
     .about-content {
@@ -1806,6 +1827,7 @@ section {
     body {
         font-size: 0.9rem;
         line-height: 1.5;
+        padding-top: 110px;
     }
 
     .section-title {
@@ -1827,7 +1849,22 @@ section {
     }
 
     .hero {
-        padding: 2.5rem 0;
+        padding: 0 0 2rem 0;
+        margin-top: -20px;
+    }
+    
+    /* モバイルタップ領域の強化 */
+    .header-contact a, .nav-menu a {
+        min-height: 52px;
+        min-width: 52px;
+        padding: 10px 14px;
+    }
+    
+    /* タッチフィードバック改善 */
+    .header-contact a:active, .nav-menu a:active {
+        background-color: rgba(139, 69, 19, 0.1);
+        transform: scale(0.98);
+        transition: all 0.1s ease;
     }
 
     .about-text h3 {
@@ -1865,34 +1902,39 @@ section {
         margin-bottom: 0.8rem;
     }
 
+    /* ヘッダー調整 - 480px */
+    .header {
+        padding: 0.8rem 0;
+    }
+
     .header .container {
         padding: 0 10px;
     }
 
-    .header-content {
-        gap: 0.4rem;
+    .logo h1 {
+        font-size: 1.2rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
-    .logo {
-        max-width: 48%;
-    }
-
-    .header-contact {
-        max-width: 52%;
+    .logo .subtitle {
+        font-size: 0.7rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
     .reserve-btn {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.6rem;
-        min-width: 65px;
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
     }
 
     .phone a {
-        font-size: 0.65rem;
-        padding: 0.3rem 0.6rem;
-        min-width: 55px;
+        font-size: 0.7rem;
     }
-}
 }
 
 @media (max-width: 375px) {
@@ -1903,42 +1945,40 @@ section {
     body {
         font-size: 0.85rem;
         line-height: 1.4;
+        padding-top: 100px;
+    }
+
+    .header {
+        padding: 0.7rem 0;
     }
 
     .header .container {
         padding: 0 8px;
     }
 
-    .header-content {
-        gap: 0.3rem;
-    }
-
-    .logo {
-        max-width: 45%;
-    }
-
-    .header-contact {
-        max-width: 55%;
-    }
-
     .logo h1 {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
     .logo .subtitle {
         font-size: 0.65rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
     .reserve-btn {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.5rem;
-        min-width: 60px;
+        font-size: 0.65rem;
+        padding: 0.35rem 0.7rem;
     }
 
     .phone a {
-        font-size: 0.6rem;
-        padding: 0.25rem 0.5rem;
-        min-width: 50px;
+        font-size: 0.65rem;
     }
 
     .about-content {
@@ -1960,42 +2000,40 @@ section {
     body {
         font-size: 0.8rem;
         line-height: 1.3;
+        padding-top: 90px;
+    }
+
+    .header {
+        padding: 0.6rem 0;
     }
 
     .header .container {
         padding: 0 5px;
     }
 
-    .header-content {
-        gap: 0.2rem;
-    }
-
-    .logo {
-        max-width: 42%;
-    }
-
-    .header-contact {
-        max-width: 58%;
-    }
-
     .logo h1 {
-        font-size: 0.9rem;
+        font-size: 1rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
     .logo .subtitle {
         font-size: 0.6rem;
+        overflow: visible !important;
+        max-width: none !important;
+        color: white !important;
+        display: block !important;
     }
 
     .reserve-btn {
-        font-size: 0.55rem;
-        padding: 0.2rem 0.4rem;
-        min-width: 55px;
+        font-size: 0.6rem;
+        padding: 0.3rem 0.6rem;
     }
 
     .phone a {
-        font-size: 0.55rem;
-        padding: 0.2rem 0.4rem;
-        min-width: 45px;
+        font-size: 0.6rem;
     }
 
     .about-content {
@@ -2007,4 +2045,25 @@ section {
         grid-template-columns: 1fr;
         gap: 0.8rem;
     }
+}
+
+/* 画像読み込み最適化 - デザイン保持 */
+img {
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* 画像遅延読み込み効果（既存デザイン保持） */
+img[loading="lazy"] {
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"]:not([src]) {
+    opacity: 0;
+}
+
+/* 画像読み込み完了時の効果 */
+img.loaded {
+    opacity: 1;
 }
