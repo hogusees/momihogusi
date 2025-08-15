@@ -285,3 +285,5 @@ window.trackEvent = trackEvent;
 window.generateWeeklyReport = generateWeeklyReport;
 window.initializeSampleData = initializeSampleData;
 
+
+
