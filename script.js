@@ -169,6 +169,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 管理画面からの更新通知を監視
     setupBlogUpdateListener();
+    
+    // カテゴリスタイルを追加
+    addCategoryStyles();
 });
 
 // 管理画面からの更新通知を監視する機能
@@ -307,10 +310,7 @@ function addCategoryStyles() {
     document.head.appendChild(style);
 }
 
-// ページ読み込み時にスタイルを追加
-document.addEventListener('DOMContentLoaded', function() {
-    addCategoryStyles();
-});
+
 
 // 画像読み込み最適化（デザイン保持）
 function optimizeImageLoading() {
@@ -359,11 +359,3 @@ function optimizeImageLoading() {
     });
 }
 
-// 外部から呼び出し可能な更新関数（管理画面から利用）
-function refreshInfoData() {
-    console.log('Info data refresh requested');
-    loadInfoData();
-}
-
-// グローバルに公開（管理画面から呼び出し可能にする）
-window.refreshInfoData = refreshInfoData;
