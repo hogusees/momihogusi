@@ -305,7 +305,7 @@
                 </div>
             </div>
             
-            <form class="blog-form" onsubmit="saveBlogPost(event)">
+            <form class="blog-form" onsubmit="savePost(event)">
                 <div class="form-group">
                     <label for="postTitle">タイトル *</label>
                     <input type="text" id="postTitle" required placeholder="例: デスクワークの肩こりを解消する3つの方法">
@@ -436,63 +436,100 @@
         }
 
         // ブログ投稿の保存
-        function saveBlogPost(event) {
+        async function savePost(event) {
             event.preventDefault();
-
+            
             const title = document.getElementById('postTitle').value;
+            const summary = document.getElementById('postSummary').value;
+            const content = document.getElementById('postContent').value;
+            const category = document.getElementById('postCategory').value;
+            const tags = document.getElementById('postTags').value.split(',').map(tag => tag.trim());
+
+            if (!title || !content) {
+                alert('タイトルと本文は必須です。');
+                return;
+            }
+
             const createdAt = new Date().toISOString();
-            
-            // 記事IDを生成（日本語対応）
-            const articleId = encodeURIComponent(title + createdAt).replace(/[^a-zA-Z0-9]/g, '').substring(0, 10) || 'article_' + Date.now().toString().substring(-6);
-            
-            const postData = {
-                id: articleId,
-                title: title,
-                summary: document.getElementById('postSummary').value,
-                content: document.getElementById('postContent').value,
-                category: document.getElementById('postCategory').value,
-                tags: document.getElementById('postTags').value.split(',').map(tag => tag.trim()),
-                status: 'published',
-                createdAt: createdAt,
-                author: 'ほぐし処スタッフ'
-            };
 
-            // ローカルストレージに保存（実際の実装ではAPIに送信）
-            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
-            posts.unshift(postData);
-            localStorage.setItem('blogPosts', JSON.stringify(posts));
-
-            // フォームをリセット
-            document.querySelector('.blog-form').reset();
-            
-            // 文字数カウンターもリセット
-            document.getElementById('titleCount').textContent = '0';
-            document.getElementById('summaryCount').textContent = '0';
-            document.getElementById('contentCount').textContent = '0';
-
-            // 投稿一覧を更新
-            loadPostsList();
-
-            // 成功メッセージ
-            alert('ブログ記事が投稿されました！LPの最新情報にも反映されます。');
-            
-            // LPの最新情報を更新（複数の方法で試行）
+            // microCMSに直接投稿
             try {
-                // 方法1: 別ウィンドウで開いている場合
-                if (window.opener && !window.opener.closed) {
-                    window.opener.refreshInfoData && window.opener.refreshInfoData();
+                const postData = {
+                    title: title,
+                    summary: summary,
+                    content: content,
+                    category: category,
+                    tags: tags,
+                    status: 'published',
+                    publishedAt: createdAt
+                };
+
+                const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs', {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(postData)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`投稿に失敗しました: ${response.status}`);
                 }
+
+                const result = await response.json();
+                console.log('microCMS投稿成功:', result);
+
+                // 成功時の処理
+                document.querySelector('.blog-form').reset();
                 
-                // 方法2: 同じタブでLPを開いている場合（localStorage使用）
-                localStorage.setItem('blogUpdated', Date.now().toString());
+                // 文字数カウンターもリセット
+                document.getElementById('titleCount').textContent = '0';
+                document.getElementById('summaryCount').textContent = '0';
+                document.getElementById('contentCount').textContent = '0';
+
+                // 投稿一覧を更新
+                loadPostsList();
+
+                // 成功メッセージ
+                alert('ブログ記事がmicroCMSに投稿されました！LPの最新情報にも反映されます。');
                 
-                // 方法3: メインサイトのタブに更新を通知
-                if (typeof BroadcastChannel !== 'undefined') {
-                    const channel = new BroadcastChannel('hogusees_updates');
-                    channel.postMessage({ type: 'blog_updated' });
+                // LPの最新情報を更新
+                try {
+                    localStorage.setItem('blogUpdated', Date.now().toString());
+                    
+                    if (typeof BroadcastChannel !== 'undefined') {
+                        const channel = new BroadcastChannel('hogusees_updates');
+                        channel.postMessage({ type: 'blog_updated' });
+                    }
+                } catch (e) {
+                    console.log('LPの自動更新処理でエラー:', e);
                 }
-            } catch (e) {
-                console.log('LPの自動更新処理でエラー:', e);
+
+            } catch (error) {
+                console.error('microCMS投稿エラー:', error);
+                
+                // エラー時はlocalStorageにバックアップ保存
+                const postData = {
+                    id: 'temp_' + Date.now(),
+                    title: title,
+                    summary: summary,
+                    content: content,
+                    category: category,
+                    tags: tags,
+                    status: 'published',
+                    createdAt: createdAt,
+                    author: 'ほぐし処スタッフ'
+                };
+
+                const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+                posts.unshift(postData);
+                localStorage.setItem('blogPosts', JSON.stringify(posts));
+
+                alert(`microCMSへの投稿に失敗しました。ローカルにバックアップ保存しました。\nエラー: ${error.message}`);
+                
+                // 投稿一覧を更新
+                loadPostsList();
             }
         }
 
@@ -518,41 +555,97 @@
         }
 
         // 投稿一覧の読み込み
-        function loadPostsList() {
-            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
-            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
-            const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        async function loadPostsList() {
+            try {
+                // microCMSから投稿を取得
+                const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs?limit=100', {
+                    headers: {
+                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                        'Content-Type': 'application/json'
+                    }
+                });
 
-            const container = document.getElementById('postsList');
-            
-            if (allPosts.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: #666;">まだ記事がありません。最初の記事を投稿してみましょう！</p>';
-                return;
-            }
+                if (!response.ok) {
+                    throw new Error(`投稿の取得に失敗しました: ${response.status}`);
+                }
 
-            container.innerHTML = allPosts.map(post => `
-                <div class="post-item">
-                    <div class="post-header">
-                        <div>
-                            <div class="post-title">${post.title}</div>
-                            <div class="post-meta">
-                                ${new Date(post.createdAt).toLocaleDateString('ja-JP')} | 
-                                ${post.status === 'published' ? '公開中' : '下書き'} | 
-                                ${post.category}
+                const data = await response.json();
+                const posts = data.contents || [];
+
+                // ローカルストレージの下書きも取得
+                const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+                const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
+
+                const container = document.getElementById('postsList');
+                
+                if (allPosts.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: #666;">まだ記事がありません。最初の記事を投稿してみましょう！</p>';
+                    return;
+                }
+
+                container.innerHTML = allPosts.map(post => `
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div>
+                                <div class="post-title">${post.title}</div>
+                                <div class="post-meta">
+                                    ${new Date(post.publishedAt || post.createdAt).toLocaleDateString('ja-JP')} | 
+                                    ${post.id.startsWith('temp_') ? '下書き' : '公開中'} | 
+                                    ${post.category || '未分類'}
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button class="btn btn-sm btn-secondary" onclick="editPost('${post.id}')">
+                                    <i class="fas fa-edit"></i> 編集
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deletePost('${post.id}')">
+                                    <i class="fas fa-trash"></i> 削除
+                                </button>
                             </div>
                         </div>
-                        <div class="post-actions">
-                            <button class="btn btn-sm btn-secondary" onclick="editPost('${post.id}')">
-                                <i class="fas fa-edit"></i> 編集
-                            </button>
-                            <button class="btn btn-sm btn-danger" onclick="deletePost('${post.id}')">
-                                <i class="fas fa-trash"></i> 削除
-                            </button>
-                        </div>
+                        <div class="post-summary">${post.summary || post.content.substring(0, 100)}...</div>
                     </div>
-                    ${post.summary ? `<p style="color: #666; margin-top: 0.5rem;">${post.summary}</p>` : ''}
-                </div>
-            `).join('');
+                `).join('');
+
+            } catch (error) {
+                console.error('投稿取得エラー:', error);
+                
+                // エラー時はlocalStorageから取得
+                const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+                const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+                const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+                const container = document.getElementById('postsList');
+                
+                if (allPosts.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: #666;">投稿の取得に失敗しました。しばらく時間をおいてから再度お試しください。</p>';
+                    return;
+                }
+
+                container.innerHTML = allPosts.map(post => `
+                    <div class="post-item">
+                        <div class="post-header">
+                            <div>
+                                <div class="post-title">${post.title}</div>
+                                <div class="post-meta">
+                                    ${new Date(post.createdAt).toLocaleDateString('ja-JP')} | 
+                                    ${post.status === 'published' ? '公開中' : '下書き'} | 
+                                    ${post.category}
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <button class="btn btn-sm btn-secondary" onclick="editPost('${post.id}')">
+                                    <i class="fas fa-edit"></i> 編集
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deletePost('${post.id}')">
+                                    <i class="fas fa-trash"></i> 削除
+                                </button>
+                            </div>
+                        </div>
+                        <div class="post-summary">${post.summary || post.content.substring(0, 100)}...</div>
+                    </div>
+                `).join('');
+            }
         }
 
         // 記事編集
@@ -581,25 +674,54 @@
         }
 
         // 記事削除
-        function deletePost(postId, showConfirm = true) {
+        async function deletePost(postId, showConfirm = true) {
             if (showConfirm && !confirm('この記事を削除しますか？')) {
                 return;
             }
 
-            // 公開済み記事から削除
-            let posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
-            posts = posts.filter(p => p.id !== postId);
-            localStorage.setItem('blogPosts', JSON.stringify(posts));
+            try {
+                // microCMSから削除（一時的な投稿でない場合）
+                if (!postId.startsWith('temp_')) {
+                    const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${postId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                            'Content-Type': 'application/json'
+                        }
+                    });
 
-            // 下書きからも削除
-            let drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
-            drafts = drafts.filter(p => p.id !== postId);
-            localStorage.setItem('blogDrafts', JSON.stringify(drafts));
+                    if (!response.ok) {
+                        throw new Error(`削除に失敗しました: ${response.status}`);
+                    }
 
-            loadPostsList();
+                    console.log('microCMSから削除成功:', postId);
+                }
 
-            if (showConfirm) {
-                alert('記事が削除されました。');
+                // ローカルストレージの下書きからも削除
+                let drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+                drafts = drafts.filter(p => p.id !== postId);
+                localStorage.setItem('blogDrafts', JSON.stringify(drafts));
+
+                // 投稿一覧を更新
+                loadPostsList();
+
+                if (showConfirm) {
+                    alert('記事が削除されました。');
+                }
+
+            } catch (error) {
+                console.error('削除エラー:', error);
+                
+                // エラー時はローカルストレージから削除のみ
+                let drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+                drafts = drafts.filter(p => p.id !== postId);
+                localStorage.setItem('blogDrafts', JSON.stringify(drafts));
+
+                loadPostsList();
+
+                if (showConfirm) {
+                    alert(`microCMSからの削除に失敗しました。ローカルからは削除されました。\nエラー: ${error.message}`);
+                }
             }
         }
 

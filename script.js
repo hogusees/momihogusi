@@ -22,7 +22,50 @@ async function loadInfoData() {
         console.log('API Endpoint:', CMS_CONFIG.API_ENDPOINT);
         console.log('API Key:', CMS_CONFIG.API_KEY);
         
-        // まず管理画面のブログ投稿データをチェック
+        // まずmicroCMSから最新のブログ投稿を取得
+        try {
+            const response = await fetch(`${CMS_CONFIG.API_ENDPOINT}?limit=${CMS_CONFIG.POSTS_PER_PAGE}&orders=-publishedAt`, {
+                headers: {
+                    'X-API-KEY': CMS_CONFIG.API_KEY,
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.contents && data.contents.length > 0) {
+                    // microCMSのデータを表示
+                    displayInfoData(data.contents);
+                    
+                    // 成功したデータをlocalStorageにキャッシュとして保存
+                    try {
+                        localStorage.setItem('blogPostsCache', JSON.stringify(data.contents));
+                        localStorage.setItem('blogCacheTimestamp', Date.now().toString());
+                    } catch (e) {
+                        console.log('キャッシュ保存エラー:', e);
+                    }
+                    return;
+                }
+            }
+        } catch (microCMSError) {
+            console.log('microCMS取得エラー:', microCMSError);
+        }
+        
+        // microCMSが失敗した場合、localStorageのキャッシュを確認
+        const cachedPosts = localStorage.getItem('blogPostsCache');
+        const cacheTimestamp = localStorage.getItem('blogCacheTimestamp');
+        
+        if (cachedPosts && cacheTimestamp) {
+            const cacheAge = Date.now() - parseInt(cacheTimestamp);
+            // キャッシュが24時間以内なら使用
+            if (cacheAge < 24 * 60 * 60 * 1000) {
+                const posts = JSON.parse(cachedPosts);
+                displayInfoData(posts);
+                return;
+            }
+        }
+        
+        // 最後の手段：管理画面のブログ投稿データをチェック
         const blogPosts = localStorage.getItem('blogPosts');
         
         if (blogPosts) {
@@ -37,24 +80,16 @@ async function loadInfoData() {
             }
         }
         
-        // ブログデータがない場合はmicroCMSを試行
-        const response = await fetch(`${CMS_CONFIG.API_ENDPOINT}?limit=${CMS_CONFIG.POSTS_PER_PAGE}&orders=-publishedAt`, {
-            headers: {
-                'X-API-KEY': CMS_CONFIG.API_KEY,
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        if (!response.ok) {
-            console.error('Response status:', response.status);
-            console.error('Response text:', await response.text());
-            throw new Error(`APIリクエストに失敗しました: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // データを表示
-        displayInfoData(data.contents);
+        // データがない場合の表示
+        infoList.innerHTML = `
+            <div class="info-item">
+                <div class="info-date">最新情報</div>
+                <div class="info-text">
+                    <h3>現在お知らせはありません</h3>
+                    <p>新しい情報が更新されましたら、こちらに表示されます。</p>
+                </div>
+            </div>
+        `;
         
     } catch (error) {
         console.error('データ取得エラー:', error);
@@ -65,7 +100,7 @@ async function loadInfoData() {
                 <div class="info-text">
                     <h3>情報の読み込みに失敗しました</h3>
                     <p>しばらく時間をおいてから再度お試しください。</p>
-                    <a href="#" class="read-more">更新する</a>
+                    <a href="#" class="read-more" onclick="refreshInfoData()">更新する</a>
                 </div>
             </div>
         `;
