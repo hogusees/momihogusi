@@ -460,7 +460,6 @@
                     content: content,
                     category: category,
                     tags: tags,
-                    status: 'published',
                     publishedAt: createdAt
                 };
 
@@ -474,7 +473,13 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error(`投稿に失敗しました: ${response.status}`);
+                    const errorText = await response.text();
+                    console.error('microCMS API エラー詳細:', {
+                        status: response.status,
+                        statusText: response.statusText,
+                        responseText: errorText
+                    });
+                    throw new Error(`投稿に失敗しました: ${response.status} - ${errorText}`);
                 }
 
                 const result = await response.json();
