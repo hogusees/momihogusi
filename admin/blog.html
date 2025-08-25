@@ -456,14 +456,13 @@
             try {
                 const postData = {
                     title: title,
-                    summary: summary,
                     content: content,
                     category: category,
                     tags: tags,
                     publishedAt: createdAt
                 };
 
-                const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs', {
+                const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blog', {
                     method: 'POST',
                     headers: {
                         'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
