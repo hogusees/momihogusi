@@ -536,7 +536,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="logo.png" alt="ほぐし処 HoguSeeS ロゴ" class="logo-image">
+                    <img src="logo.png" alt="ほぐし処 HoguSeeS" class="logo-image">
                     <p class="subtitle">武豊町の隠れ家癒し処 ほぐしーず</p>
                 </div>
                 <div class="header-contact">
@@ -1009,6 +1009,30 @@
 
     <link rel="preload" href="script.js?v=20250814-1" as="script">
 <script src="script.js?v=20250814-1" defer></script>
+
+    <!-- ロゴ画像読み込み確認用スクリプト -->
+    <script>
+        // ロゴ画像の読み込み状況を確認
+        window.addEventListener('load', function() {
+            const logoImg = document.querySelector('.logo-image');
+            if (logoImg) {
+                console.log('ロゴ画像要素を発見:', logoImg);
+                
+                // 画像の読み込み状況を確認
+                logoImg.addEventListener('load', function() {
+                    console.log('ロゴ画像が正常に読み込まれました');
+                    this.style.display = 'block';
+                });
+                
+                logoImg.addEventListener('error', function() {
+                    console.error('ロゴ画像の読み込みエラー');
+                    this.style.display = 'none';
+                });
+            } else {
+                console.error('ロゴ画像要素が見つかりません');
+            }
+        });
+    </script>
     
     <!-- 管理画面用トラッキング -->
     <script>

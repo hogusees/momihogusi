@@ -82,27 +82,32 @@ body {
 .logo-image {
     max-height: 60px;
     width: auto;
-    display: block;
+    display: block !important;
     margin-bottom: 0.5rem;
     transition: transform 0.3s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+    outline: none !important;
+    pointer-events: none; /* クリックを無効化 */
 }
 
 .logo-image:hover {
     transform: scale(1.05);
 }
 
+/* ロゴ画像が読み込めない場合のフォールバック */
 .logo h1 {
     font-size: 1.6rem;
     font-weight: 800;
     margin-bottom: 0.2rem;
     color: white;
-    display: block;
+    display: none; /* デフォルトでは非表示 */
     line-height: 1.2;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
     max-width: 100%;
-    overflow: visible;  /* PC版でロゴテキストを表示 */
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     letter-spacing: 0.5px;
 }
