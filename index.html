@@ -47,6 +47,15 @@
     
 
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <!-- 重要な画像のプリロード -->
     <link rel="preload" as="image" href="logo.png">
     <link rel="preload" as="image" href="header-bg.jpg">
@@ -1072,6 +1081,14 @@
                 
                 // データを保存
                 localStorage.setItem(storageKey, JSON.stringify(todayData));
+                
+                // Google Analyticsにも送信（設定されている場合）
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', eventType, {
+                        event_category: 'engagement',
+                        event_label: data.label || 'user_action'
+                    });
+                }
             } catch (error) {
                 console.error('Tracking error:', error);
             }
@@ -1087,9 +1104,9 @@
             const target = event.target.closest('a');
             if (target) {
                 if (target.href && target.href.includes('line.me')) {
-                    trackAdminEvent('reservation_click');
+                    trackAdminEvent('reservation_click', {label: 'reserve_button'});
                 } else if (target.href && target.href.startsWith('tel:')) {
-                    trackAdminEvent('phone_call');
+                    trackAdminEvent('phone_call', {label: 'phone_button'});
                 }
             }
         });

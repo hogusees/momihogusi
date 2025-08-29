@@ -17,7 +17,7 @@ Disallow: /test/
 Disallow: /temp/
 
 # サイトマップの場所
-Sitemap: https://hogusees.com/sitemap.xml
+Sitemap: https://hogusees.github.io/momihogusi/sitemap.xml
 
 # クロール頻度の調整
 Crawl-delay: 1
