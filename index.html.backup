@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
-    <title>武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島、E/title>
+    <title>武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島】</title>
     <!-- Cache Buster: 20250813c -->
-    <meta name="description" content="武豊町駁E��歩3刁E�E完�E個室リラクゼーションサロン。もみほぐし3,850冁E��、オイルマッサージ、足つぼ、タイ古式で肩こり・腰痛を根本改喁E��駐車場完備で知多半島からアクセス良好、E>
-    <meta name="keywords" content="武豊町,マッサージ,もみほぐし,知多半島,愛知省Eリラクゼーション,肩こり,腰痁E個室,駐車場完備">
+    <meta name="description" content="武豊町駅徒歩3分の完全個室リラクゼーションサロン。もみほぐし3,850円～、オイルマッサージ、足つぼ、タイ古式で肩こり・腰痛を根本改善。駐車場完備で知多半島からアクセス良好。">
+    <meta name="keywords" content="武豊町,マッサージ,もみほぐし,知多半島,愛知県,リラクゼーション,肩こり,腰痛,個室,駐車場完備">
     <meta name="geo.region" content="JP-23">
     <meta name="geo.placename" content="武豊町">
     <meta name="geo.position" content="34.85013702518231;136.91258907440613">
@@ -24,10 +24,10 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <!-- OGP�E�Epen Graph Protocol�E�E->
+    <!-- OGP（Open Graph Protocol）-->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島、E>
-    <meta property="og:description" content="武豊町駁E��歩3刁E�E完�E個室リラクゼーションサロン。もみほぐし3,850冁E��、オイルマッサージ、足つぼ、タイ古式で肩こり・腰痛を根本改喁E��駐車場完備で知多半島からアクセス良好、E>
+    <meta property="og:title" content="武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島】">
+    <meta property="og:description" content="武豊町駅徒歩3分の完全個室リラクゼーションサロン。もみほぐし3,850円～、オイルマッサージ、足つぼ、タイ古式で肩こり・腰痛を根本改善。駐車場完備で知多半島からアクセス良好。">
     <meta property="og:url" content="https://hogusees.github.io/momihogusi/">
     <meta property="og:image" content="https://hogusees.github.io/momihogusi/header-bg.jpg">
     <meta property="og:site_name" content="ほぐし処 HoguSeeS">
@@ -35,8 +35,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島、E>
-    <meta name="twitter:description" content="武豊町駁E��歩3刁E�E完�E個室リラクゼーションサロン。経験豊富なスタチE��によるもみほぐし、オイルマッサージで忁E��の疲れを癒します、E>
+    <meta name="twitter:title" content="武豊町のマッサージ・もみほぐし専門店｜ほぐし処 HoguSeeS【知多半島】">
+    <meta name="twitter:description" content="武豊町駅徒歩3分の完全個室リラクゼーションサロン。経験豊富なスタッフによるもみほぐし、オイルマッサージで心身の疲れを癒します。">
     <meta name="twitter:image" content="https://hogusees.github.io/momihogusi/header-bg.jpg">
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -48,15 +48,15 @@
 
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N6B5NFVZJ3"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-N6B5NFVZJ3');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
     
-    <!-- 重要な画像�EプリローチE-->
+    <!-- 重要な画像のプリロード -->
     <link rel="preload" as="image" href="logo.png">
     <link rel="preload" as="image" href="header-bg.jpg">
     <link rel="preload" as="image" href="haruka-momi.jpg">
@@ -67,8 +67,8 @@
         "@context": "https://schema.org",
         "@type": "HealthAndBeautyBusiness",
         "name": "ほぐし処 HoguSeeS",
-        "alternateName": "ほぐしーぁE,
-        "description": "武豊町の完�E個室リラクゼーションサロン。もみほぐし、オイルマッサージ、足つぼ、タイ古式ストレチE��で忁E��の疲れを癒します、E,
+        "alternateName": "ほぐしーず",
+        "description": "武豊町の完全個室リラクゼーションサロン。もみほぐし、オイルマッサージ、足つぼ、タイ古式ストレッチで心身の疲れを癒します。",
         "url": "https://hogusees.github.io/momihogusi",
         "telephone": "0569-84-2515",
         "priceRange": "¥¥",
@@ -77,9 +77,9 @@
         "acceptsReservations": true,
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "道崁E6-7 ほほえみビル3F",
+            "streetAddress": "道崎26-7 ほほえみビル3F",
             "addressLocality": "武豊町",
-            "addressRegion": "愛知省E,
+            "addressRegion": "愛知県",
             "postalCode": "470-2347",
             "addressCountry": "JP"
         },
@@ -116,7 +116,7 @@
                     "itemOffered": {
                         "@type": "Service",
                         "name": "もみほぐし",
-                        "description": "経験豊富なスタチE��による本格もみほぐし。肩こり・腰痛�E慢性疲労に効果的、E
+                        "description": "経験豊富なスタッフによる本格もみほぐし。肩こり・腰痛・慢性疲労に効果的。"
                     },
                     "price": "3850",
                     "priceCurrency": "JPY",
@@ -126,8 +126,8 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "オイルリンパ�EチE��ージ",
-                        "description": "アロマオイルを使用したリンパ�EチE��ージ。デトックス効果とリラクゼーション、E
+                        "name": "オイルリンパマッサージ",
+                        "description": "アロマオイルを使用したリンパマッサージ。デトックス効果とリラクゼーション。"
                     },
                     "price": "4850",
                     "priceCurrency": "JPY",
@@ -138,7 +138,7 @@
                     "itemOffered": {
                         "@type": "Service",
                         "name": "足つぼマッサージ",
-                        "description": "足裏�E反封E��を刺激し、�E身の血行俁E��と疲労回復を俁E��、E
+                        "description": "足裏の反射区を刺激し、全身の血行促進と疲労回復を促進。"
                     },
                     "price": "2750",
                     "priceCurrency": "JPY",
@@ -148,8 +148,8 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "タイ古式ストレチE��",
-                        "description": "タイ伝統の古式�EチE��ージ。ストレチE��と持E��で柔軟性向上、E
+                        "name": "タイ古式ストレッチ",
+                        "description": "タイ伝統の古式マッサージ。ストレッチと指圧で柔軟性向上。"
                     },
                     "price": "2200",
                     "priceCurrency": "JPY",
@@ -159,8 +159,8 @@
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "ドライヘッドスチE,
-                        "description": "頭皮マッサージによる疲労回復とリラクゼーション。眼精疲労にも効果的、E
+                        "name": "ドライヘッドスパ",
+                        "description": "頭皮マッサージによる疲労回復とリラクゼーション。眼精疲労にも効果的。"
                     },
                     "price": "1100",
                     "priceCurrency": "JPY",
@@ -171,7 +171,7 @@
         "amenityFeature": [
             {
                 "@type": "LocationFeatureSpecification",
-                "name": "完�E個室",
+                "name": "完全個室",
                 "value": true
             },
             {
@@ -181,16 +181,16 @@
             },
             {
                 "@type": "LocationFeatureSpecification",
-                "name": "駁E��歩3刁E,
+                "name": "駅徒歩3分",
                 "value": true
             }
         ]
     }
     </script>
     
-    <!-- 趁E��力：確実にロゴを表示 -->
+    <!-- 超強力：確実にロゴを表示 -->
     <style>
-        /* 最優先でロゴチE��ストを強制表示 */
+        /* 最優先でロゴテキストを強制表示 */
         .logo h1 {
             color: white !important;
             display: block !important;
@@ -245,7 +245,7 @@
         
         /* モバイル版調整 */
         @media (max-width: 768px) {
-            /* ヘッダー全体�Eパディング調整 */
+            /* ヘッダー全体のパディング調整 */
             .header {
                 padding: 0.6rem 0 !important;
             }
@@ -264,7 +264,7 @@
                 padding: 0 !important;
             }
             
-            /* 予紁E�Eタンと電話アイコンのサイズ統一 */
+            /* 予約ボタンと電話アイコンのサイズ統一 */
             .reserve-btn {
                 padding: 0.35rem 0.7rem !important;
                 font-size: 0.65rem !important;
@@ -311,14 +311,14 @@
                 margin-top: 0 !important;
             }
             
-            /* モバイル版でもハンバ�Eガーメニューを非表示にして横一列メニューを表示 */
+            /* モバイル版でもハンバーガーメニューを非表示にして横一列メニューを表示 */
             .nav-toggle {
                 display: none !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
             }
             
-            /* モバイル版�E横一列メニュー */
+            /* モバイル版の横一列メニュー */
             .nav-menu {
                 display: flex !important;
                 position: static !important;
@@ -389,7 +389,7 @@
             }
         }
         
-        /* PC版�Eヘッダー要素を最優先で強制表示 */
+        /* PC版のヘッダー要素を最優先で強制表示 */
         @media (min-width: 769px) {
             .header .header-content .header-contact {
                 overflow: visible !important;
@@ -529,7 +529,7 @@
                 box-shadow: 0 2px 8px rgba(255,107,53,0.3) !important;
             }
             
-            /* ハンバ�EガーメニューボタンをPC版で非表示 */
+            /* ハンバーガーメニューボタンをPC版で非表示 */
             .header .nav .nav-toggle {
                 display: none !important;
                 visibility: hidden !important;
@@ -547,7 +547,7 @@
                 <div class="logo">
                     <img src="logo.png" alt="ほぐし処 HoguSeeS" class="logo-image">
                     <div class="logo-text">
-                        <p class="subtitle">武豊町の隠れ家癒し処 ほぐしーぁE/p>
+                        <p class="subtitle">武豊町の隠れ家癒し処 ほぐしーず</p>
                         <h2 class="brand-name">HoguSeeS</h2>
                     </div>
                 </div>
@@ -558,7 +558,7 @@
                     </div>
                     <a href="https://line.me/R/ti/p/@hogusees" class="reserve-btn" target="_blank">
                         <i class="fab fa-line"></i>
-                        <span class="reserve-text">予紁E/span>
+                        <span class="reserve-text">予約</span>
                     </a>
                 </div>
             </div>
@@ -567,10 +567,10 @@
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#info">最新惁E��</a></li>
-                    <li><a href="#about">店�E紹仁E/a></li>
-                    <li><a href="#staff">スタチE��</a></li>
-                    <li><a href="#menu">料��表</a></li>
+                    <li><a href="#info">最新情報</a></li>
+                    <li><a href="#about">店舗紹介</a></li>
+                    <li><a href="#staff">スタッフ</a></li>
+                    <li><a href="#menu">料金表</a></li>
                     <li><a href="#access">アクセス</a></li>
                 </ul>
             </nav>
@@ -581,11 +581,12 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>忁E��の疲れを癒す<br>武豊町の隠れ家</h2>
-                <p>日、E�E疲れを優しくほぐし、忁E��体もリフレチE��ュ</p>
+                <h2>心身の疲れを癒す<br>武豊町の隠れ家</h2>
+                <p>日々の疲れを優しくほぐし、心も体もリフレッシュ</p>
                 <a href="https://line.me/R/ti/p/@hogusees" class="cta-btn" target="_blank">
                     <i class="fab fa-line"></i>
-                    今すぐ予紁E��めE                </a>
+                    今すぐ予約する
+                </a>
             </div>
         </div>
     </section>
@@ -593,31 +594,31 @@
     <!-- info -->
     <section id="info" class="info">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.8rem;"><span style="font-weight: 300; font-size: 0.75em;">武豊町ほぐし処の</span><br>最新惁E��・お知らせ</h2>
+            <h2 class="section-title" style="font-size: 1.8rem;"><span style="font-weight: 300; font-size: 0.75em;">武豊町ほぐし処の</span><br>最新情報・お知らせ</h2>
             <div class="info-content">
                 <div class="info-list" id="info-list">
-                    <!-- CMSから取得したデータがここに表示されまぁE-->
+                    <!-- CMSから取得したデータがここに表示されます -->
                     <div class="info-loading">
-                        <p>惁E��を読み込み中...</p>
+                        <p>情報を読み込み中...</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 店�E紹仁E-->
+    <!-- 店舗紹介 -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.8rem;"><span style="font-weight: 300; font-size: 0.75em;">武豊町・知多半島の</span><br>リラクゼーション専門庁E/h2>
+            <h2 class="section-title" style="font-size: 1.8rem;"><span style="font-weight: 300; font-size: 0.75em;">武豊町・知多半島の</span><br>リラクゼーション専門店</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3 style="font-size: 1.4rem;">愛知県知多郡・武豊町の<br>リラクゼーションサロン「ほぐしーず、E/h3>
-                    <p style="font-size: 0.9rem;">愛知県知多半島・武豊町のリラクゼーションサロン「ほぐし処 HoguSeeS」�E、完�E個室の落ち着ぁE��空間で忁E��の癒しをご提供します。肩こり・腰痛�E慢性皁E��疲労にお悩みの方に最適なもみほぐし、オイルトリートメント、足つぼ、ストレチE��など多彩なメニューを用意し、一人ひとり�Eお悩みに丁寧に対応いたします、E/p>
-                    <p>個室ならではのプライベ�Eトなひと時で、日、E�EストレスめE��れを根本からリセチE��。知多半島冁E��も口コミ評価の高い施術と、E��いめE��ぁE��地�E�知多武豊駁E��り徒歩3刁E���E駐車場完備で、リラチE��スと回復の時間を紁E��します、E0刁E��めE20刁E��で、お好みの時間でお選びぁE��だけます、E/p>
+                    <h3 style="font-size: 1.4rem;">愛知県知多郡・武豊町の<br>リラクゼーションサロン「ほぐしーず」</h3>
+                    <p style="font-size: 0.9rem;">愛知県知多半島・武豊町のリラクゼーションサロン「ほぐし処 HoguSeeS」は、完全個室の落ち着いた空間で心身の癒しをご提供します。肩こり・腰痛・慢性的な疲労にお悩みの方に最適なもみほぐし、オイルトリートメント、足つぼ、ストレッチなど多彩なメニューを用意し、一人ひとりのお悩みに丁寧に対応いたします。</p>
+                    <p>個室ならではのプライベートなひと時で、日々のストレスや疲れを根本からリセット。知多半島内でも口コミ評価の高い施術と、通いやすい立地（知多武豊駅より徒歩3分）・駐車場完備で、リラックスと回復の時間を約束します。10分から120分まで、お好みの時間でお選びいただけます。</p>
 
                 </div>
                 <div class="about-image">
-                    <img src="haruka-momi.jpg" alt="ほぐし処HoguSeeS店�E - 武豊町の完�E個室リラクゼーションサロンでの施術風景" loading="lazy" decoding="async" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; background: none !important; background-color: transparent !important; background-image: none !important; object-position: center top; display: block; margin: 0 auto;" />
+                    <img src="haruka-momi.jpg" alt="ほぐし処HoguSeeS店内 - 武豊町の完全個室リラクゼーションサロンでの施術風景" loading="lazy" decoding="async" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; background: none !important; background-color: transparent !important; background-image: none !important; object-position: center top; display: block; margin: 0 auto;" />
                 </div>
             </div>
         </div>
@@ -629,26 +630,26 @@
             <div class="features">
                 <div class="feature">
                     <i class="fas fa-spa"></i>
-                    <h4>癒しの空閁E/h4>
+                    <h4>癒しの空間</h4>
                     <p style="text-align:center;">
-                        落ち着ぁE��雰囲気で、Ebr>お客様だけ�Eプライベ�Eトで<br>リラチE��スした空間づくりに<br>徹底してぁE��ぁEbr>
+                        落ち着いた雰囲気で、<br>お客様だけのプライベートで<br>リラックスした空間づくりに<br>徹底しています<br>
                         <span style="font-size:0.9em; color:#8B4513;">個室完備</span><br>
                         <span style="font-size:0.8em; color:#666;">知多半島・武豊町</span>
                     </p>
                 </div>
                 <div class="feature">
                     <i class="fas fa-hands"></i>
-                    <h4>熟練スタチE��</h4>
+                    <h4>熟練スタッフ</h4>
                     <p style="text-align:center;">
-                        肩こり、E��の張り、�E痛、Ebr>足のだるみ、柔軟な身体づくりの<br>サポ�EトをさせてぁE��だきまぁEbr>
-                        <span style="font-size:0.8em; color:#666;">肩こり・腰痛対忁E/span>
+                        肩こり、頭の張り、腰痛、<br>足のだるみ、柔軟な身体づくりの<br>サポートをさせていただきます<br>
+                        <span style="font-size:0.8em; color:#666;">肩こり・腰痛対応</span>
                     </p>
                 </div>
                 <div class="feature">
                     <i class="fas fa-clock"></i>
                     <h4>柔軟な時間</h4>
                     <p style="text-align:center;">
-                        �E�０�E�E�Ebr>お好みのお時閁Ebr>
+                        １０分～<br>お好みのお時間<br>
                         <span style="font-size:0.8em; color:#666;">駐車場完備</span>
                     </p>
                 </div>
@@ -656,71 +657,71 @@
         </div>
     </section>
 
-    <!-- 店�E画僁Eつ横並び�E�大きめの枠�E�E-->
+    <!-- 店舗画像3つ横並び（大きめの枠） -->
     <div class="shop-images-row" style="display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap;">
       <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
-        <img src="lamp.jpg" alt="ほぐし処HoguSeeS店�E照昁E- 武豊町の癒し空間を演�EするリラチE��ス照昁E loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
+        <img src="lamp.jpg" alt="ほぐし処HoguSeeS店内照明 - 武豊町の癒し空間を演出するリラックス照明" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
       </div>
       <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
-        <img src="tenpo2.jpg" alt="ほぐし処HoguSeeS施術室 - 武豊町の完�E個室マッサージルーム冁E��E loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
+        <img src="tenpo2.jpg" alt="ほぐし処HoguSeeS施術室 - 武豊町の完全個室マッサージルーム内装" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
       </div>
       <div style="width:300px; height:200px; background:#f5f5f5; border-radius:16px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.10); display:flex; align-items:center; justify-content:center;">
-        <img src="tenpo3.jpg" alt="ほぐし処HoguSeeS受付�E征E��スペ�Eス - 武豊町知多半島の隠れ家サロン入口" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
+        <img src="tenpo3.jpg" alt="ほぐし処HoguSeeS受付・待合スペース - 武豊町知多半島の隠れ家サロン入口" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;" />
       </div>
     </div>
 
-    <!-- スタチE��紹仁E-->
+    <!-- スタッフ紹介 -->
     <section id="staff" class="staff">
         <div class="container">
-            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊町駁E��歩3刁E�E</span><br>経験豊富なスタチE��紹仁E/h2>
+            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊町駅徒歩3分の</span><br>経験豊富なスタッフ紹介</h2>
             <div class="staff-content">
                 <!-- 1人目 -->
                 <div class="staff-member">
                     <div class="staff-image">
-                        <img src="tanaka_haruka.jpg.jpg" alt="ほぐし処HoguSeeS店長 田中春馁E- 施術歴7年の経験豊富なもみほぐし・オイルマッサージ専門セラピスト（武豊町�E�E loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                        <img src="tanaka_haruka.jpg.jpg" alt="ほぐし処HoguSeeS店長 田中春香 - 施術歴7年の経験豊富なもみほぐし・オイルマッサージ専門セラピスト（武豊町）" loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
                     </div>
                     <div class="staff-info">
-                        <h3>店長 田中春馁E<span class="experience">施術歴7年</span></h3>
-                        <p><strong>対応可能な施術！E/strong>もみほぐし、オイルマッサージ、タイ古式整体ストレチE��、足つぼ、ドライヘッドスチEbr>
-                        <strong>趣味・特技�E�E/strong>子育てに奮闘しながら仕事が趣味です！Ebr>
-                        <strong>接客のモチE��ー�E�E/strong>お客様に合った力加減、体調の具合にあわせ力ぁE��ぱぁE��術させてぁE��だきます！E/p>
+                        <h3>店長 田中春香 <span class="experience">施術歴7年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、タイ古式整体ストレッチ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>子育てに奮闘しながら仕事が趣味です！<br>
+                        <strong>接客のモットー：</strong>お客様に合った力加減、体調の具合にあわせ力いっぱい施術させていただきます！</p>
                     </div>
                 </div>
                 <!-- 2人目 -->
                 <div class="staff-member">
                     <div class="staff-image">
-                        <img src="kishigami_ayaka.jpg" alt="ほぐし処HoguSeeS セラピスト岸上亜弥馁E- 施術歴3年のもみほぐし・オイルマッサージ・足つぼ専門技術老E��武豊町�E�E loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                        <img src="kishigami_ayaka.jpg" alt="ほぐし処HoguSeeS セラピスト岸上亜弥香 - 施術歴3年のもみほぐし・オイルマッサージ・足つぼ専門技術者（武豊町）" loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
                     </div>
                     <div class="staff-info">
-                        <h3>岸上亜弥馁E<span class="experience">施術歴3年</span></h3>
-                        <p><strong>対応可能な施術！E/strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスチEbr>
-                        <strong>趣味・特技�E�E/strong>お菓子作り、色、E��掁E��をすること<br>
-                        <strong>接客のモチE��ー�E�E/strong>とにかく忁E��ともに楽になってほしいです。なかなか不器用な性格ですが、私なり�E精一杯で施術と接客を提供したいでぁE/p>
+                        <h3>岸上亜弥香 <span class="experience">施術歴3年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>お菓子作り、色々な掃除をすること<br>
+                        <strong>接客のモットー：</strong>とにかく心身ともに楽になってほしいです。なかなか不器用な性格ですが、私なりの精一杯で施術と接客を提供したいです</p>
                     </div>
                 </div>
                 <!-- 3人目 -->
                 <div class="staff-member">
                     <div class="staff-image">
-                        <img src="chie.jpg" alt="ほぐし処HoguSeeS セラピスチEhie - 施術歴3年の凁E��護師賁E��保有老E�Eアロマオイルリンパ�EチE��ージ専門�E�武豊町�E�E loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                        <img src="chie.jpg" alt="ほぐし処HoguSeeS セラピストChie - 施術歴3年の准看護師資格保有者・アロマオイルリンパマッサージ専門（武豊町）" loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
                     </div>
                     <div class="staff-info">
                         <h3>Chie <span class="experience">施術歴3年</span></h3>
-                        <p><strong>対応可能な施術！E/strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスチEbr>
-                        <strong>趣味・特技�E�E/strong>ワンちめE��とネコちめE��のお世話を基本してぁE��す！Ebr>
-                        <strong>賁E��・受賞歴�E�E/strong>凁E��護師・レイキヒ�Eリング・クォンタムタチE��ヒ�Eリングレベル�E�アクセスバ�Eズ・優整体師<br>
-                        <strong>接客のモチE��ー�E�E/strong>お客様に合った施術を忁E��け、�E刁E�E身で持ってぁE��知識を生かして行ってぁE��ます。アロマオイルリンパ�EチE��ージ・足つぼなどを得意刁E��にしてぁE��ぁE/p>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、オイルマッサージ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>ワンちゃんとネコちゃんのお世話を基本しています！<br>
+                        <strong>資格・受賞歴：</strong>准看護師・レイキヒーリング・クォンタムタッチヒーリングレベル１アクセスバーズ・優整体師<br>
+                        <strong>接客のモットー：</strong>お客様に合った施術を心がけ、自分自身で持っている知識を生かして行っていきます。アロマオイルリンパマッサージ・足つぼなどを得意分野にしています</p>
                     </div>
                 </div>
                 <!-- 4人目 -->
                 <div class="staff-member">
                     <div class="staff-image">
-                        <img src="amano.jpg" alt="ほぐし処HoguSeeS セラピスト天釁E- 施術歴5年のもみほぐし・タイ古式整体ストレチE��・足つぼ専門技術老E��武豊町�E�E loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
+                        <img src="amano.jpg" alt="ほぐし処HoguSeeS セラピスト天野 - 施術歴5年のもみほぐし・タイ古式整体ストレッチ・足つぼ専門技術者（武豊町）" loading="lazy" decoding="async" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; background: #D2B48C; object-position: center top; margin-top: 16px;" />
                     </div>
                     <div class="staff-info">
-                        <h3>天釁E<span class="experience">施術歴5年</span></h3>
-                        <p><strong>対応可能な施術！E/strong>もみほぐし、タイ古式整体ストレチE��、足つぼ、ドライヘッドスチEbr>
-                        <strong>趣味・特技�E�E/strong>人のぁE��所、悪ぁE��を見抜く！Ebr>
-                        <strong>接客のモチE��ー�E�E/strong>真忁E��めて施術します。真面目が取り柄の天野でぁE/p>
+                        <h3>天野 <span class="experience">施術歴5年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、タイ古式整体ストレッチ、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>人のいい所、悪い所を見抜く！<br>
+                        <strong>接客のモットー：</strong>真心こめて施術します。真面目が取り柄の天野です</p>
                     </div>
                 </div>
                 <!-- 5人目 -->
@@ -731,54 +732,54 @@
                         </div>
                     </div>
                     <div class="staff-info">
-                        <h3>ちぁE<span class="experience">施術歴1年</span></h3>
-                        <p><strong>対応可能な施術！E/strong>もみほぐし、足つぼ、ドライヘッドスチEbr>
-                        <strong>趣味・特技�E�E/strong>ダンス講師、生成AI講師<br>
-                        <strong>接客のモチE��ー�E�E/strong>お客様�Eご要望に応えられる施術を忁E��けてぁE��す。長年フィチE��ネス業界に携わってぁE��ので、足りなぁE��肉の鍛え方、姿勢改喁E��どお答えぁE��します！E/p>
+                        <h3>ちか <span class="experience">施術歴1年</span></h3>
+                        <p><strong>対応可能な施術：</strong>もみほぐし、足つぼ、ドライヘッドスパ<br>
+                        <strong>趣味・特技：</strong>ダンス講師、生成AI講師<br>
+                        <strong>接客のモットー：</strong>お客様のご要望に応えられる施術を心がけています。長年フィットネス業界に携わっているので、足りない筋肉の鍛え方、姿勢改善などお答えいたします！</p>
                     </div>
                 </div>
                 <!-- 6人目 -->
-                <!-- 澤田亜希子�E枠を削除 -->
+                <!-- 澤田亜希子の枠を削除 -->
             </div>
-            <!-- 店�E画僁Eつ横並び�E�大きめの枠�E�E-->
+            <!-- 店舗画像3つ横並び（大きめの枠） -->
             <div class="shop-images-row" style="display:flex; justify-content:center; gap:2rem; margin-bottom:2rem; flex-wrap:wrap;">
-              <!-- 店�E画像�E削除 -->
+              <!-- 店舗画像は削除 -->
             </div>
         </div>
     </section>
 
-    <!-- メニュー・料�� -->
+    <!-- メニュー・料金 -->
     <section id="menu" class="menu">
         <div class="container">
-            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊町で人気�E</span><br>マッサージ・もみほぐし料��表</h2>
+            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊町で人気の</span><br>マッサージ・もみほぐし料金表</h2>
             <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
-                <!-- お得なセチE��メニュー -->
+                <!-- お得なセットメニュー -->
                 <div id="set-menu" style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:280px; flex:1 1 280px; max-width:320px; scroll-margin-top:120px;">
-                    <h3 style="color:#d32f2f; text-align:center; margin-bottom:1rem; font-size:1.1em;">お得なセチE��メニュー</h3>
+                    <h3 style="color:#d32f2f; text-align:center; margin-bottom:1rem; font-size:1.1em;">お得なセットメニュー</h3>
                     <ul style="list-style:none; padding:0; margin:0;">
                         <li style="padding:8px 0; border-bottom:1px solid #eee; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60刁E��ストレチE��30刁E/div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,050冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60分＋ストレッチ30分</div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,050円</div>
                         </li>
                         <li style="padding:8px 0; border-bottom:1px solid #eee; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60刁E��足つぼ30刁E/div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,600冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60分＋足つぼ30分</div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,600円</div>
                         </li>
                         <li style="padding:8px 0; border-bottom:1px solid #eee; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60刁E��ドライヘッドスチE0刁E/div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">7,150冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし60分＋ドライヘッドスパ30分</div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">7,150円</div>
                         </li>
                         <li style="padding:8px 0; border-bottom:1px solid #eee; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし50刁E��足つぼ30刁E��ドライヘッドスチE0刁E/div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">7,150冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">もみほぐし50分＋足つぼ30分＋ドライヘッドスパ10分</div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">7,150円</div>
                         </li>
                         <li style="padding:8px 0; border-bottom:1px solid #eee; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">よくばりメニュー120刁E/div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">9,350冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">よくばりメニュー120分</div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">9,350円</div>
                         </li>
                         <li style="padding:8px 0; font-size:0.9em;">
-                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">足の贁E��ケア90刁Ebr><span style="font-size:0.8em; color:#666;">(角質ケア�E�足つぼ�E�足パック)</span></div>
-                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,050冁E/div>
+                            <div style="margin-bottom:4px; font-weight:600; color:#8B4513;">足の贅沢ケア90分<br><span style="font-size:0.8em; color:#666;">(角質ケア＋足つぼ＋足パック)</span></div>
+                            <div style="text-align:right; font-size:1.1em; font-weight:bold; color:#d32f2f;">6,050円</div>
                         </li>
                     </ul>
                 </div>
@@ -786,25 +787,25 @@
                 <div id="momihogusi" style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px; scroll-margin-top:120px;">
                     <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">もみほぐし</h3>
                     <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10刁E<span>1,100</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20刁E<span>1,650</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30刁E<span>2,200</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40刁E<span>2,750</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50刁E<span>3,300</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60刁E<span style='color:#d32f2f; font-weight:bold;'>3,850</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">70刁E<span>4,400</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">80刁E<span>4,950</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">90刁E<span style='color:#d32f2f; font-weight:bold;'>5,500</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">100刁E<span>6,050</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">110刁E<span>6,600</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0;">120刁E<span>7,150</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10分 <span>1,100</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20分 <span>1,650</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30分 <span>2,200</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40分 <span>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50分 <span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60分 <span style='color:#d32f2f; font-weight:bold;'>3,850</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">70分 <span>4,400</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">80分 <span>4,950</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">90分 <span style='color:#d32f2f; font-weight:bold;'>5,500</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">100分 <span>6,050</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">110分 <span>6,600</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">120分 <span>7,150</span></li>
                     </ul>
                 </div>
-                <!-- オイルリンパトリートメンチE-->
+                <!-- オイルリンパトリートメント -->
                 <div id="oil-massage" style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px; scroll-margin-top:120px;">
-                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem; font-size:0.85em; white-space:nowrap;">オイルリンパトリートメンチE/h3>
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem; font-size:0.85em; white-space:nowrap;">オイルリンパトリートメント</h3>
                     <ul style="list-style:none; padding:0; margin:0;">
-                        <!-- 60刁E-->
+                        <!-- 60分 -->
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:0.97em; font-weight:bold; color:#8B4513; text-align:center;'>
                             <span style='flex:1;'></span>
@@ -812,50 +813,50 @@
                             <span style='flex:1;'>男性</span>
                           </div>
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>60刁E/span>
+                            <span style='flex:1;'>60分</span>
                             <span style='flex:1;'>4,850</span>
                             <span style='flex:1;'>6,350</span>
                           </div>
                         </li>
-                        <!-- 70刁E��陁E-->
+                        <!-- 70分以降 -->
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>70刁E/span>
+                            <span style='flex:1;'>70分</span>
                             <span style='flex:1;'>5,400</span>
                             <span style='flex:1;'>6,900</span>
                           </div>
                         </li>
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>80刁E/span>
+                            <span style='flex:1;'>80分</span>
                             <span style='flex:1;'>5,950</span>
                             <span style='flex:1;'>7,450</span>
                           </div>
                         </li>
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>90刁E/span>
+                            <span style='flex:1;'>90分</span>
                             <span style='flex:1; color:#d32f2f; font-weight:bold;'>6,500</span>
                             <span style='flex:1; color:#d32f2f; font-weight:bold;'>8,000</span>
                           </div>
                         </li>
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>100刁E/span>
+                            <span style='flex:1;'>100分</span>
                             <span style='flex:1;'>7,050</span>
                             <span style='flex:1;'>8,550</span>
                           </div>
                         </li>
                         <li style="padding:6px 0; border-bottom:1px solid #eee;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>110刁E/span>
+                            <span style='flex:1;'>110分</span>
                             <span style='flex:1;'>7,600</span>
                             <span style='flex:1;'>9,100</span>
                           </div>
                         </li>
                         <li style="padding:6px 0;">
                           <div style='display:flex; justify-content:space-between; font-size:1.05em; text-align:center;'>
-                            <span style='flex:1;'>120刁E/span>
+                            <span style='flex:1;'>120分</span>
                             <span style='flex:1;'>8,150</span>
                             <span style='flex:1;'>9,650</span>
                           </div>
@@ -867,30 +868,30 @@
                 <div id="foot-reflexology" style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px; scroll-margin-top:120px;">
                     <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">足つぼ</h3>
                     <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30刁E<span style='color:#d32f2f; font-weight:bold;'>2,750</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40刁E<span>3,300</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50刁E<span>3,850</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60刁E<span>4,400</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0;">角質ケア60刁E<span style='color:#d32f2f; font-weight:bold;'>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">30分 <span style='color:#d32f2f; font-weight:bold;'>2,750</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">40分 <span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">50分 <span>3,850</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">60分 <span>4,400</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">角質ケア60分 <span style='color:#d32f2f; font-weight:bold;'>2,750</span></li>
                     </ul>
                 </div>
-                <!-- ドライヘッドスチE-->
+                <!-- ドライヘッドスパ -->
                 <div id="dry-head-spa" style="background:#fff; border-radius:15px; box-shadow:0 2px 10px rgba(0,0,0,0.07); padding:2rem; min-width:220px; flex:1 1 220px; max-width:260px; margin-top:2rem; scroll-margin-top:120px;">
-                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">ドライヘッドスチE/h3>
+                    <h3 style="color:#8B4513; text-align:center; margin-bottom:1rem;">ドライヘッドスパ</h3>
                     <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10刁E<span>1,100</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20刁E<span>2,200</span></li>
-                        <li style="display:flex; justify-content:space-between; padding:6px 0;">30刁E<span>3,300</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">10分 <span>1,100</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid #eee;">20分 <span>2,200</span></li>
+                        <li style="display:flex; justify-content:space-between; padding:6px 0;">30分 <span>3,300</span></li>
                     </ul>
                 </div>
             </div>
             <div style="margin-top:1em; font-size:1em; color:#8B4513; text-align:center;" class="additional-charges">
                 <div class="charge-row">
-                    <span style="margin-right:1.5em;">個人持E���E�E220</span>
-                    <span style="margin-right:1.5em;">男女持E���E�E110</span>
+                    <span style="margin-right:1.5em;">個人指名：+220</span>
+                    <span style="margin-right:1.5em;">男女指名：+110</span>
                 </div>
                 <div class="charge-row">
-                    <span>ネックオイル�E�E550</span>
+                    <span>ネックオイル：+550</span>
                 </div>
             </div>
         </div>
@@ -899,20 +900,20 @@
     <!-- アクセス -->
     <section id="access" class="access">
         <div class="container">
-            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊駁E��歩3刁E�E</span><br>アクセス</h2>
+            <h2 class="section-title"><span style="font-weight: 300; font-size: 0.75em;">武豊駅徒歩3分の</span><br>アクセス</h2>
             <div class="access-content">
                 <div class="access-info">
-                    <h3>店�E惁E��</h3>
+                    <h3>店舗情報</h3>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
                             <strong>住所</strong>
-                            <p>、E70-2347<br>愛知県知多郡武豊町道崁E6-7 ほほえみビル3F</p>
+                            <p>〒470-2347<br>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
                             <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
-                                <strong>詳細アクセス�E�E/strong><br>
-                                ・知多武豊駁E��り徒歩3刁Ebr>
+                                <strong>詳細アクセス：</strong><br>
+                                ・知多武豊駅より徒歩3分<br>
 
-                                ・半田市�E常滑市�E美浜町からもアクセス良好
+                                ・半田市・常滑市・美浜町からもアクセス良好
                             </p>
                         </div>
                     </div>
@@ -927,23 +928,23 @@
                         <i class="fas fa-clock"></i>
                         <div>
                             <strong>営業時間</strong>
-                            <p>10:00、E1:15�E�最終受仁E0:00�E�Ebr>
-                            <span style="font-size: 0.85rem; color: #666;">相諁E�ELINE,TELから</span></p>
+                            <p>10:00〜21:15（最終受付20:00）<br>
+                            <span style="font-size: 0.85rem; color: #666;">相談はLINE,TELから</span></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-calendar"></i>
                         <div>
                             <strong>定休日</strong>
-                            <p>不定休（事前にご確認ください�E�E/p>
+                            <p>不定休（事前にご確認ください）</p>
                         </div>
                     </div>
                     
-                    <!-- 予紁E�E支払い方法詳細 -->
+                    <!-- 予約・支払い方法詳細 -->
                     <div class="info-item">
                         <i class="fas fa-credit-card"></i>
                         <div>
-                            <strong>お支払い方況E/strong>
+                            <strong>お支払い方法</strong>
                             <p>現金、PayPay</p>
                         </div>
                     </div>
@@ -951,9 +952,9 @@
                     <div class="info-item">
                         <i class="fas fa-calendar-check"></i>
                         <div>
-                            <strong>ご予紁E��況E/strong>
-                            <p>お電話・LINE・Web予紁E��付中<br>
-                            <span style="font-size: 0.85rem; color: #666;">当日予紁E��可能�E�空き状況により�E�E/span></p>
+                            <strong>ご予約方法</strong>
+                            <p>お電話・LINE・Web予約受付中<br>
+                            <span style="font-size: 0.85rem; color: #666;">当日予約も可能（空き状況により）</span></p>
                         </div>
                     </div>
                     
@@ -981,25 +982,25 @@
                 <div class="footer-section">
                     <h3>ほぐし処 HoguSeeS</h3>
                     <p>武豊町の隠れ家癒し処</p>
-                    <p>愛知県知多郡武豊町道崁E6-7 ほほえみビル3F</p>
+                    <p>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
                     <p>TEL: <a href="tel:0569-84-2515">0569-84-2515</a></p>
                 </div>
                 <div class="footer-section">
                     <h4>武豊町の施術メニュー</h4>
                     <ul>
-                        <li><a href="#set-menu">お得なセチE��メニュー</a></li>
+                        <li><a href="#set-menu">お得なセットメニュー</a></li>
                         <li><a href="#momihogusi">武豊町のもみほぐし</a></li>
-                        <li><a href="#oil-massage">オイルリンパ�EチE��ージ</a></li>
+                        <li><a href="#oil-massage">オイルリンパマッサージ</a></li>
                         <li><a href="#foot-reflexology">足つぼマッサージ・角質ケア</a></li>
-                        <li><a href="#dry-head-spa">ドライヘッドスチE/a></li>
+                        <li><a href="#dry-head-spa">ドライヘッドスパ</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>お問ぁE��わせ</h4>
+                    <h4>お問い合わせ</h4>
                     <div class="social-links">
                         <a href="https://line.me/R/ti/p/@hogusees" target="_blank" class="social-link line-link">
                             <i class="fab fa-line"></i>
-                            <span>LINEで予紁E/span>
+                            <span>LINEで予約</span>
                         </a>
                         <a href="https://www.instagram.com/hogusees?igsh=MTVmdHo3bXViNzBrMg==" target="_blank" class="social-link instagram-link">
                             <i class="fab fa-instagram"></i>
@@ -1011,7 +1012,7 @@
             <div class="footer-bottom">
                 <div class="footer-links">
                     <a href="privacy.html">プライバシーポリシー</a>
-                    <a href="terms.html">利用規紁E/a>
+                    <a href="terms.html">利用規約</a>
                 </div>
                 <p>&copy; 2024 ほぐし処 HoguSeeS. All rights reserved.</p>
             </div>
@@ -1023,18 +1024,20 @@
 
     <!-- ロゴ画像読み込み確認用スクリプト -->
     <script>
-        // ロゴ画像�E読み込み状況を確誁E        window.addEventListener('load', function() {
+        // ロゴ画像の読み込み状況を確認
+        window.addEventListener('load', function() {
             const logoImg = document.querySelector('.logo-image');
             if (logoImg) {
-                console.log('ロゴ画像要素を発要E', logoImg);
+                console.log('ロゴ画像要素を発見:', logoImg);
                 
-                // 画像�E読み込み状況を確誁E                logoImg.addEventListener('load', function() {
+                // 画像の読み込み状況を確認
+                logoImg.addEventListener('load', function() {
                     console.log('ロゴ画像が正常に読み込まれました');
                     this.style.display = 'block';
                 });
                 
                 logoImg.addEventListener('error', function() {
-                    console.error('ロゴ画像�E読み込みエラー');
+                    console.error('ロゴ画像の読み込みエラー');
                     this.style.display = 'none';
                 });
             } else {
@@ -1043,9 +1046,10 @@
         });
     </script>
     
-    <!-- 管琁E��面用トラチE��ング -->
+    <!-- 管理画面用トラッキング -->
     <script>
-        // 簡易アクセストラチE��ング�E�管琁E��面連携用�E�E        function trackAdminEvent(eventType, data = {}) {
+        // 簡易アクセストラッキング（管理画面連携用）
+        function trackAdminEvent(eventType, data = {}) {
             try {
                 const today = new Date().toISOString().split('T')[0];
                 const storageKey = `analytics_${today}`;
@@ -1075,9 +1079,11 @@
                         break;
                 }
                 
-                // チE�Eタを保孁E                localStorage.setItem(storageKey, JSON.stringify(todayData));
+                // データを保存
+                localStorage.setItem(storageKey, JSON.stringify(todayData));
                 
-                // Google Analyticsにも送信�E�設定されてぁE��場合！E                if (typeof gtag !== 'undefined') {
+                // Google Analyticsにも送信（設定されている場合）
+                if (typeof gtag !== 'undefined') {
                     gtag('event', eventType, {
                         event_category: 'engagement',
                         event_label: data.label || 'user_action'
@@ -1088,11 +1094,12 @@
             }
         }
         
-        // ペ�Eジ読み込み時に訪問老E��カウンチE        window.addEventListener('load', function() {
+        // ページ読み込み時に訪問者をカウント
+        window.addEventListener('load', function() {
             trackAdminEvent('page_view');
         });
         
-        // 予紁E�EタンのクリチE��を追跡
+        // 予約ボタンのクリックを追跡
         document.addEventListener('click', function(event) {
             const target = event.target.closest('a');
             if (target) {
@@ -1105,10 +1112,11 @@
         });
     </script>
     
-    <!-- ハンバ�Eガーメニュー趁E��力修正 -->
+    <!-- ハンバーガーメニュー超強力修正 -->
     <script>
-        // 褁E��のタイミングで初期化を試衁E        function initHamburgerMenu() {
-            console.log('ハンバ�Eガーメニュー初期化開姁E);
+        // 複数のタイミングで初期化を試行
+        function initHamburgerMenu() {
+            console.log('ハンバーガーメニュー初期化開始');
             
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
@@ -1118,18 +1126,18 @@
                 console.log('navToggle:', navToggle);
                 console.log('navMenu:', navMenu);
                 
-                // 全ての既存イベントリスナ�Eをクリア
+                // 全ての既存イベントリスナーをクリア
                 const newNavToggle = navToggle.cloneNode(true);
                 navToggle.parentNode.replaceChild(newNavToggle, navToggle);
                 
                 const finalNavToggle = document.getElementById('nav-toggle');
                 const finalNavMenu = document.getElementById('nav-menu');
                 
-                // モバイル版専用の強化されたトグル機�E
+                // モバイル版専用の強化されたトグル機能
                 function toggleMenu(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('メニュートグル実衁E- 画面幁E', window.innerWidth);
+                    console.log('メニュートグル実行 - 画面幅:', window.innerWidth);
                     
                     const isActive = finalNavToggle.classList.contains('active');
                     
@@ -1141,7 +1149,8 @@
                         document.body.style.overflow = 'auto';
                         console.log('メニューを閉じました');
                     } else {
-                        // メニューを開ぁE                        finalNavToggle.classList.add('active');
+                        // メニューを開く
+                        finalNavToggle.classList.add('active');
                         finalNavMenu.classList.add('active');
                         finalNavMenu.style.cssText = `
                             display: block !important;
@@ -1167,17 +1176,18 @@
                     console.log('navMenu.active:', finalNavMenu.classList.contains('active'));
                 }
                 
-                // 褁E��のイベントタイプで対忁E                finalNavToggle.addEventListener('click', toggleMenu);
+                // 複数のイベントタイプで対応
+                finalNavToggle.addEventListener('click', toggleMenu);
                 finalNavToggle.addEventListener('touchstart', toggleMenu);
                 
-                // メニューの背景をクリチE��した時にメニューを閉じる
+                // メニューの背景をクリックした時にメニューを閉じる
                 finalNavMenu.addEventListener('click', function(e) {
                     if (e.target === finalNavMenu) {
                         toggleMenu(e);
                     }
                 });
                 
-                // メニューリンクをクリチE��した時にメニューを閉じる
+                // メニューリンクをクリックした時にメニューを閉じる
                 const menuLinks = finalNavMenu.querySelectorAll('a');
                 menuLinks.forEach(link => {
                     link.addEventListener('click', function(e) {
@@ -1185,24 +1195,24 @@
                         finalNavMenu.classList.remove('active');
                         finalNavMenu.style.cssText = 'display: none !important;';
                         document.body.style.overflow = 'auto';
-                        console.log('メニューリンククリチE��でメニューを閉じました');
+                        console.log('メニューリンククリックでメニューを閉じました');
                     });
                 });
                 
-                console.log('ハンバ�Eガーメニュー初期化完亁E);
+                console.log('ハンバーガーメニュー初期化完了');
                 return true;
             } else {
-                console.error('ハンバ�Eガーメニュー要素が見つかりません');
+                console.error('ハンバーガーメニュー要素が見つかりません');
                 console.log('navToggle:', navToggle);
                 console.log('navMenu:', navMenu);
                 return false;
             }
         }
         
-        // PC版�EチE��ー要素を動皁E��強制表示
+        // PC版ヘッダー要素を動的に強制表示
         function forceShowPCHeader() {
             if (window.innerWidth >= 769) {
-                console.log('PC版�EチE��ー要素を強制表示中...');
+                console.log('PC版ヘッダー要素を強制表示中...');
                 
                 const headerContact = document.querySelector('.header-contact');
                 const phone = document.querySelector('.phone');
@@ -1416,10 +1426,10 @@
                     `;
                 }
                 
-                console.log('モバイル版ナビゲーションメニュー表示完亁E);
+                console.log('モバイル版ナビゲーションメニュー表示完了');
             }
                 
-            console.log('PC版�EチE��ー要素の強制表示完亁E);
+            console.log('PC版ヘッダー要素の強制表示完了');
         }
         
         // DOMContentLoaded
@@ -1428,9 +1438,11 @@
             forceShowPCHeader();
         });
         
-        // ペ�Eジ完�E読み込み征E        window.addEventListener('load', forceShowPCHeader);
+        // ページ完全読み込み後
+        window.addEventListener('load', forceShowPCHeader);
         
-        // 念のため褁E��回実衁E        setTimeout(function() {
+        // 念のため複数回実行
+        setTimeout(function() {
             initHamburgerMenu();
             forceShowPCHeader();
         }, 100);
@@ -1442,7 +1454,7 @@
         
         setTimeout(forceShowPCHeader, 1000);
         
-        // スムーズスクロール機�Eを追加
+        // スムーズスクロール機能を追加
         function addSmoothScroll() {
             const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
             
@@ -1454,22 +1466,24 @@
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
-                        // ヘッダーの高さを老E�Eしてスクロール位置を調整
+                        // ヘッダーの高さを考慮してスクロール位置を調整
                         const headerHeight = document.querySelector('.header').offsetHeight || 80;
                         
-                        // ドライヘッドスパ�E場合�Eより大きなマ�Eジンを設宁E                        let extraMargin = 20;
+                        // ドライヘッドスパの場合はより大きなマージンを設定
+                        let extraMargin = 20;
                         if (targetId === '#dry-head-spa') {
-                            extraMargin = 80; // ドライヘッドスパ専用の大きなマ�Eジン
+                            extraMargin = 80; // ドライヘッドスパ専用の大きなマージン
                         }
                         
                         const targetPosition = targetSection.offsetTop - headerHeight - extraMargin;
                         
                         window.scrollTo({
-                            top: Math.max(0, targetPosition), // 負の値にならなぁE��ぁE��整
+                            top: Math.max(0, targetPosition), // 負の値にならないよう調整
                             behavior: 'smooth'
                         });
                         
-                        // スクロール後にメニュー表示を確実に維持E                        setTimeout(function() {
+                        // スクロール後にメニュー表示を確実に維持
+                        setTimeout(function() {
                             forceShowPCHeader();
                         }, 300);
                         
@@ -1478,7 +1492,7 @@
                 });
             });
             
-            console.log('スムーズスクロール機�Eを追加完亁E);
+            console.log('スムーズスクロール機能を追加完了');
         }
         
         // DOMContentLoaded と同時にスムーズスクロールも追加
@@ -1488,12 +1502,14 @@
             addSmoothScroll();
         });
         
-        // ペ�Eジ完�E読み込み後にも実衁E        window.addEventListener('load', function() {
+        // ページ完全読み込み後にも実行
+        window.addEventListener('load', function() {
             forceShowPCHeader();
             addSmoothScroll();
         });
         
-        // 念のため褁E��回実衁E        setTimeout(function() {
+        // 念のため複数回実行
+        setTimeout(function() {
             initHamburgerMenu();
             forceShowPCHeader();
             addSmoothScroll();
@@ -1510,7 +1526,7 @@
             addSmoothScroll();
         }, 1000);
         
-        // スクロール後にメニュー表示を維持するため�Eイベントリスナ�E
+        // スクロール後にメニュー表示を維持するためのイベントリスナー
         let scrollTimeout;
         window.addEventListener('scroll', function() {
             clearTimeout(scrollTimeout);
@@ -1519,7 +1535,8 @@
             }, 100);
         });
         
-        // リサイズ時もメニュー表示を維持E        window.addEventListener('resize', function() {
+        // リサイズ時もメニュー表示を維持
+        window.addEventListener('resize', function() {
             setTimeout(forceShowPCHeader, 100);
         });
     </script>
