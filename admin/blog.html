@@ -694,7 +694,7 @@
                                 <div class="post-meta">
                                     ${new Date(post.createdAt).toLocaleDateString('ja-JP')} | 
                                     ${post.status === 'published' ? '公開中' : '下書き'} | 
-                                    ${post.category}
+                                    ${post.category} | ID: ${post.id}
                                 </div>
                             </div>
                             <div class="post-actions">
@@ -935,6 +935,8 @@
                 // microCMSから削除（一時的な投稿でない場合）
                 if (!postId.startsWith('temp_')) {
                     console.log('microCMSから記事を削除中:', postId);
+                    console.log('削除対象の記事ID:', postId);
+                    console.log('削除APIエンドポイント:', `https://hogusees-blog.microcms.io/api/v1/blogs/${postId}`);
                     
                     const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${postId}`, {
                         method: 'DELETE',
@@ -949,7 +951,18 @@
                         console.error('削除エラー詳細:', response.status, errorText);
                         
                         if (response.status === 400) {
-                            throw new Error(`削除に失敗しました: リクエストの形式が正しくありません (${response.status})`);
+                            // 400エラーの場合は、記事IDの形式を確認
+                            console.warn('400エラーが発生。記事IDの形式を確認:', postId);
+                            console.warn('記事IDの長さ:', postId.length);
+                            console.warn('記事IDの文字種:', /^[a-zA-Z0-9_-]+$/.test(postId) ? '有効' : '無効');
+                            
+                            // 記事IDが無効な場合は、ローカルからの削除のみ実行
+                            if (postId.length < 10 || !/^[a-zA-Z0-9_-]+$/.test(postId)) {
+                                console.warn('記事IDが無効な形式です。ローカルからの削除のみ実行します。');
+                                return; // エラーを投げずに処理を続行
+                            }
+                            
+                            throw new Error(`削除に失敗しました: リクエストの形式が正しくありません (${response.status})\n記事ID: ${postId}`);
                         } else if (response.status === 403) {
                             throw new Error(`削除に失敗しました: 権限がありません (${response.status})`);
                         } else if (response.status === 404) {
@@ -990,10 +1003,20 @@
                     let errorMessage = `microCMSからの削除に失敗しました。\n`;
                     errorMessage += `ローカルからは削除されました。\n\n`;
                     errorMessage += `エラー詳細: ${error.message}\n\n`;
-                    errorMessage += `対処方法:\n`;
-                    errorMessage += `1. ページを再読み込みして再試行\n`;
-                    errorMessage += `2. しばらく時間をおいてから再試行\n`;
-                    errorMessage += `3. 問題が続く場合は管理者に連絡`;
+                    
+                    // 400エラーの場合は特別な対処方法を提示
+                    if (error.message.includes('400')) {
+                        errorMessage += `400エラーの対処方法:\n`;
+                        errorMessage += `1. ブラウザの開発者ツール（F12）でコンソールを確認\n`;
+                        errorMessage += `2. 記事IDの形式を確認\n`;
+                        errorMessage += `3. ページを再読み込みして再試行\n`;
+                        errorMessage += `4. 問題が続く場合は管理者に連絡`;
+                    } else {
+                        errorMessage += `対処方法:\n`;
+                        errorMessage += `1. ページを再読み込みして再試行\n`;
+                        errorMessage += `2. しばらく時間をおいてから再試行\n`;
+                        errorMessage += `3. 問題が続く場合は管理者に連絡`;
+                    }
                     
                     alert(errorMessage);
                 }
