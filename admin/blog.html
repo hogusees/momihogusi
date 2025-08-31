@@ -207,6 +207,8 @@
             border: 1px solid #dee2e6;
             border-radius: 8px;
             padding: 1rem;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .post-header {
@@ -214,27 +216,34 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
+            gap: 1rem;
         }
 
         .post-title {
             font-weight: bold;
             color: #333;
             margin-bottom: 0.3rem;
+            word-break: break-word;
+            min-width: 0;
         }
 
         .post-meta {
             color: #666;
             font-size: 0.9rem;
+            word-break: break-word;
+            min-width: 0;
         }
 
         .post-actions {
             display: flex;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .btn-sm {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
+            padding: 0.3rem 0.6rem;
+            font-size: 0.75rem;
+            white-space: nowrap;
         }
 
         .btn-danger {
@@ -274,6 +283,16 @@
 
             .post-actions {
                 justify-content: flex-start;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .post-header {
+                align-items: center;
+            }
+            
+            .post-actions {
+                margin-left: auto;
             }
         }
     </style>
