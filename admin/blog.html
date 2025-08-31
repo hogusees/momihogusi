@@ -305,7 +305,7 @@
                 <a href="index.html"><i class="fas fa-tachometer-alt"></i> ダッシュボード</a>
                 <a href="blog.html"><i class="fas fa-edit"></i> ブログ管理</a>
                 <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> サイト確認</a>
-                <a href="#" onclick="checkMicroCMSSchema()"><i class="fas fa-database"></i> スキーマ確認</a>
+                <a href="#" onclick="checkMicroCMSSchema()" id="schemaCheckBtn"><i class="fas fa-database"></i> スキーマ確認</a>
                 <a href="#" onclick="debugStorage()"><i class="fas fa-bug"></i> デバッグ</a>
                 <span class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> ログアウト</span>
             </nav>
@@ -403,7 +403,17 @@
 
         // microCMSのスキーマを確認
         async function checkMicroCMSSchema() {
+            const btn = document.getElementById('schemaCheckBtn');
+            const originalText = btn.innerHTML;
+            
             try {
+                // ボタンを無効化してローディング表示
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 確認中...';
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.6';
+                
+                console.log('スキーマ確認開始...');
+                
                 const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs', {
                     method: 'GET',
                     headers: {
@@ -412,8 +422,12 @@
                     }
                 });
 
+                console.log('APIレスポンス:', response.status, response.statusText);
+
                 if (!response.ok) {
-                    throw new Error(`スキーマ確認に失敗しました: ${response.status}`);
+                    const errorText = await response.text();
+                    console.error('APIエラー詳細:', errorText);
+                    throw new Error(`スキーマ確認に失敗しました: ${response.status} ${response.statusText}`);
                 }
 
                 const data = await response.json();
@@ -423,14 +437,35 @@
                 if (data.contents && data.contents.length > 0) {
                     const firstPost = data.contents[0];
                     console.log('既存記事のフィールド構造:', Object.keys(firstPost));
-                    alert(`microCMSのスキーマ確認完了。\n利用可能なフィールド: ${Object.keys(firstPost).join(', ')}`);
+                    
+                    // より詳細な情報を表示
+                    const fieldInfo = Object.keys(firstPost).map(field => {
+                        const value = firstPost[field];
+                        const type = typeof value;
+                        return `${field} (${type})`;
+                    }).join('\n');
+                    
+                    alert(`microCMSのスキーマ確認完了。\n\n利用可能なフィールド:\n${fieldInfo}`);
                 } else {
                     alert('microCMSに記事がありません。新規投稿でスキーマを確認してください。');
                 }
 
             } catch (error) {
                 console.error('スキーマ確認エラー:', error);
-                alert(`スキーマ確認に失敗しました: ${error.message}`);
+                
+                // より詳細なエラー情報を表示
+                let errorMessage = `スキーマ確認に失敗しました。\n\nエラー: ${error.message}`;
+                
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    errorMessage += '\n\nネットワークエラーの可能性があります。\nインターネット接続とmicroCMSの設定を確認してください。';
+                }
+                
+                alert(errorMessage);
+            } finally {
+                // ボタンを元の状態に戻す
+                btn.innerHTML = originalText;
+                btn.style.pointerEvents = 'auto';
+                btn.style.opacity = '1';
             }
         }
 
