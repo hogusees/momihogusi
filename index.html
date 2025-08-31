@@ -1743,13 +1743,20 @@
             
             // カテゴリ機能無効化後のキャッシュクリア
             console.log('LP側のキャッシュクリア実行');
+            
+            // より強力なキャッシュクリア
             localStorage.removeItem('blogPosts');
             localStorage.removeItem('blogDrafts');
+            localStorage.removeItem('deletedPostIds');
+            localStorage.removeItem('lastDeletedPostId');
             
-            // 記事表示を再読み込み
+            // 即座に記事表示を再読み込み
+            loadBlogPosts();
+            
+            // さらに確実にするため、数秒後に再実行
             setTimeout(() => {
                 loadBlogPosts();
-            }, 1000);
+            }, 2000);
         });
         
         // 念のため複数回実行
