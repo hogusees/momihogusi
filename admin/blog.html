@@ -520,9 +520,7 @@
                 };
 
                 // スキーマに存在するフィールドのみを送信
-                if (summary) {
-                    postData.summary = summary;
-                }
+                // summaryフィールドはスキーマに存在しないため削除
 
                 const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs', {
                     method: 'POST',
@@ -762,12 +760,11 @@
             }
 
             try {
-                // 更新データのログ出力
+                // 更新データのログ出力（スキーマに存在するフィールドのみ）
                 const updateData = {
                     title: title,
                     content: content,
                     category: category,
-                    summary: summary,
                     publishedAt: new Date().toISOString()
                 };
                 console.log('更新データ:', updateData);
@@ -806,6 +803,15 @@
                     console.error('新規投稿エラー詳細:', createResponse.status, errorText);
                     
                     if (createResponse.status === 400) {
+                        // スキーマエラーの詳細を解析
+                        try {
+                            const errorData = JSON.parse(errorText);
+                            if (errorData.message && errorData.message.includes('unexpected key')) {
+                                throw new Error(`新規投稿に失敗しました: スキーマに存在しないフィールドが含まれています。\n詳細: ${errorData.message}`);
+                            }
+                        } catch (e) {
+                            // JSON解析に失敗した場合は通常のエラーメッセージ
+                        }
                         throw new Error(`新規投稿に失敗しました: リクエストの形式が正しくありません。\n詳細: ${errorText}`);
                     } else if (createResponse.status === 403) {
                         throw new Error(`新規投稿に失敗しました: 権限がありません。APIキーを確認してください。`);
