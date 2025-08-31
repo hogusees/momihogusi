@@ -762,6 +762,17 @@
             }
 
             try {
+                // 更新データのログ出力
+                const updateData = {
+                    title: title,
+                    content: content,
+                    category: category,
+                    summary: summary,
+                    publishedAt: new Date().toISOString()
+                };
+                console.log('更新データ:', updateData);
+                console.log('更新対象記事ID:', editId);
+
                 // microCMSの記事を更新
                 const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${editId}`, {
                     method: 'PATCH',
@@ -773,13 +784,19 @@
                         title: title,
                         content: content,
                         category: category,
-                        summary: summary
+                        summary: summary,
+                        publishedAt: new Date().toISOString()
                     })
                 });
 
                 if (!response.ok) {
-                    throw new Error(`更新に失敗しました: ${response.status}`);
+                    const errorText = await response.text();
+                    throw new Error(`更新に失敗しました: ${response.status} - ${errorText}`);
                 }
+
+                // 更新成功のログ出力
+                const result = await response.json();
+                console.log('更新成功:', result);
 
                 // フォームをリセット
                 form.reset();
