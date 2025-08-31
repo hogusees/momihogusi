@@ -841,25 +841,15 @@ section {
     color: #4a4a4a;
 }
 
+/* 記事表示用の基本スタイル（既存デザインには影響なし） */
 .info-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
     padding: 1rem;
     background: #f9f9f9;
     border-radius: 8px;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: #D2691E;
-    width: 30px;
-}
-
-.info-item strong {
-    font-weight: 600;
-    color: #4a4a4a;
 }
 
 .info-item a {
@@ -933,9 +923,22 @@ section {
         max-height: 100px;
     }
     
+    /* モバイル版専用：日時とタイトルを同じ行に、カテゴリをタイトルの下に配置 */
+    .info-item {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.8rem;
+        min-height: 100px;
+        max-height: 100px;
+    }
+    
     .post-left {
-        width: 50px;
+        display: flex;
+        flex-direction: column;
         gap: 0.2rem;
+        flex-shrink: 0;
+        width: 50px;
     }
     
     .post-date {
@@ -947,48 +950,6 @@ section {
         padding: 0.1rem 0.25rem;
     }
     
-    .post-title {
-        font-size: 0.7rem;
-        margin: 0;
-        line-height: 1.1;
-        max-height: 2.2em;
-        -webkit-line-clamp: 2;
-        white-space: normal;
-        word-break: break-word;
-        align-self: flex-start;
-    }
-    
-    .post-excerpt {
-        font-size: 0.55rem;
-        -webkit-line-clamp: 2;
-        line-height: 1.1;
-        max-height: 2.2em;
-        margin-top: 0.3rem;
-    }
-    
-    .info-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        height: auto;
-    }
-    
-    /* モバイル版専用：日時とタイトルを同じ行に、カテゴリをタイトルの下に配置 */
-    .info-item {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 0.8rem;
-    }
-    
-    .post-left {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        flex-shrink: 0;
-        width: 50px;
-    }
-    
     .info-content {
         display: flex;
         flex-direction: column;
@@ -998,6 +959,7 @@ section {
     }
     
     .post-title {
+        font-size: 0.7rem;
         margin: 0;
         padding: 0;
         line-height: 1.1;
@@ -1015,10 +977,11 @@ section {
     }
     
     .post-excerpt {
-        margin-top: 0.3rem;
+        font-size: 0.55rem;
         -webkit-line-clamp: 2;
         line-height: 1.1;
         max-height: 2.2em;
+        margin-top: 0.3rem;
         width: 100%;
     }
 }
