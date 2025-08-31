@@ -862,12 +862,11 @@ section {
 }
 
 /* 記事表示用の新しいクラス（既存デザインには影響なし） */
-.post-left {
+.post-header {
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    flex-shrink: 0;
-    width: 60px;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .post-date {
@@ -888,14 +887,16 @@ section {
     text-align: center;
 }
 
+.post-body {
+    width: 100%;
+}
+
 .post-title {
     font-weight: 600;
     color: #333;
     font-size: 1rem;
     margin-bottom: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    line-height: 1.3;
 }
 
 .post-excerpt {
@@ -909,11 +910,6 @@ section {
     -webkit-box-orient: vertical;
 }
 
-.info-content {
-    width: 100%;
-    flex: 1;
-}
-
 /* モバイル版のみの調整（PC版には一切影響なし） */
 @media (max-width: 768px) {
     .info-item {
@@ -923,22 +919,20 @@ section {
         max-height: 100px;
     }
     
-    /* モバイル版専用：日時とタイトルを同じ行に、カテゴリをタイトルの下に配置 */
+    /* モバイル版専用：新しいレイアウト対応 */
     .info-item {
         display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 0.8rem;
-        min-height: 100px;
-        max-height: 100px;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-height: auto;
+        max-height: none;
     }
     
-    .post-left {
+    .post-header {
         display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        flex-shrink: 0;
-        width: 50px;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.3rem;
     }
     
     .post-date {
@@ -950,30 +944,17 @@ section {
         padding: 0.1rem 0.25rem;
     }
     
-    .info-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        gap: 0.2rem;
-        align-items: flex-start;
+    .post-body {
+        width: 100%;
     }
     
     .post-title {
         font-size: 0.7rem;
-        margin: 0;
-        padding: 0;
-        line-height: 1.1;
-        max-height: 2.2em;
+        margin: 0 0 0.3rem 0;
+        line-height: 1.2;
         -webkit-line-clamp: 2;
         white-space: normal;
         word-break: break-word;
-        width: 100%;
-    }
-    
-    .post-category {
-        margin-top: 0.1rem;
-        align-self: flex-start;
-        width: auto;
     }
     
     .post-excerpt {
@@ -981,8 +962,7 @@ section {
         -webkit-line-clamp: 2;
         line-height: 1.1;
         max-height: 2.2em;
-        margin-top: 0.3rem;
-        width: 100%;
+        margin-top: 0;
     }
 }
 
