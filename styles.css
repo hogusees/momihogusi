@@ -843,13 +843,13 @@ section {
 
 /* 記事表示用の基本スタイル（既存デザインには影響なし） */
 .info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 8px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
+    margin-bottom: 1rem !important;
+    padding: 1rem !important;
+    background: #f9f9f9 !important;
+    border-radius: 8px !important;
 }
 
 .info-item a {
@@ -911,14 +911,6 @@ section {
 
 /* モバイル版のみの調整（PC版には一切影響なし） */
 @media (max-width: 768px) {
-    .info-item {
-        align-items: flex-start;
-        gap: 0.8rem;
-        min-height: 100px;
-        max-height: 100px;
-    }
-    
-    /* モバイル版専用：新しいレイアウト対応 */
     .info-item {
         gap: 0.6rem;
         padding: 0.8rem;
