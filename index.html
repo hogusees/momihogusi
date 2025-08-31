@@ -1492,17 +1492,33 @@
                     return;
                 }
 
-                container.innerHTML = filteredPosts.map(post => `
+                // 最新記事3つのみ表示
+                const latestPosts = filteredPosts.slice(0, 3);
+                
+                let html = latestPosts.map(post => `
                     <div class="info-item">
-                        <div class="info-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '.')}</div>
+                        <i class="fas fa-newspaper"></i>
                         <div class="info-content">
-                            <div class="info-title">${post.title}</div>
-                            <div class="info-text">${post.summary || post.content.substring(0, 50)}...</div>
+                            <strong>${post.title}</strong>
+                            <div>${post.summary || post.content.substring(0, 100)}...</div>
                         </div>
                     </div>
                 `).join('');
+                
+                // 「過去記事を読む」リンクを追加
+                if (filteredPosts.length > 3) {
+                    html += `
+                        <div class="info-item" style="text-align: center; justify-content: center;">
+                            <a href="admin/blog.html" target="_blank" style="color: #D2691E; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #D2691E; border-radius: 20px; transition: all 0.3s ease;">
+                                <i class="fas fa-archive"></i> 過去記事を読む
+                            </a>
+                        </div>
+                    `;
+                }
 
-                console.log('LP側の記事表示完了');
+                container.innerHTML = html;
+
+                console.log('LP側の記事表示完了（最新3件）');
 
             } catch (error) {
                 console.error('LP側の記事取得エラー:', error);
@@ -1519,17 +1535,33 @@
                     return;
                 }
 
-                container.innerHTML = filteredPosts.map(post => `
+                // 最新記事3つのみ表示
+                const latestPosts = filteredPosts.slice(0, 3);
+                
+                let html = latestPosts.map(post => `
                     <div class="info-item">
-                        <div class="info-date">${new Date(post.createdAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '.')}</div>
+                        <i class="fas fa-newspaper"></i>
                         <div class="info-content">
-                            <div class="info-title">${post.title}</div>
-                            <div class="info-text">${post.summary || post.content.substring(0, 50)}...</div>
+                            <strong>${post.title}</strong>
+                            <div>${post.summary || post.content.substring(0, 100)}...</div>
                         </div>
                     </div>
                 `).join('');
                 
-                console.log('LP側の記事表示完了（localStorageから）');
+                // 「過去記事を読む」リンクを追加
+                if (filteredPosts.length > 3) {
+                    html += `
+                        <div class="info-item" style="text-align: center; justify-content: center;">
+                            <a href="admin/blog.html" target="_blank" style="color: #D2691E; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #D2691E; border-radius: 20px; transition: all 0.3s ease;">
+                                <i class="fas fa-archive"></i> 過去記事を読む
+                            </a>
+                        </div>
+                    `;
+                }
+
+                container.innerHTML = html;
+                
+                console.log('LP側の記事表示完了（最新3件、localStorageから）');
             }
         }
 
