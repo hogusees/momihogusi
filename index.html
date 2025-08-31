@@ -1661,10 +1661,9 @@
                     const excerpt = post.summary || post.content.substring(0, 80);
                     
                     return `
-                        <div class="info-item" onclick="showFullArticle('${post.id}', '${post.title}', '${post.summary || post.content}', '${post.category || 'お知らせ'}')">
+                        <div class="info-item" onclick="showFullArticle('${post.id}', '${post.title}', '${post.summary || post.content}', 'お知らせ')">
                             <div class="post-header">
                                 <div class="post-date">${postDate}</div>
-                                <div class="post-category">${post.category || 'お知らせ'}</div>
                             </div>
                             <div class="post-body">
                                 <div class="post-title">${title}</div>

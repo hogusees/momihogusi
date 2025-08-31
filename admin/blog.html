@@ -351,21 +351,9 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="postCategory">カテゴリ</label>
-                    <select id="postCategory">
-                        <option value="massage">マッサージ技術</option>
-                        <option value="health">健康情報</option>
-                        <option value="selfcare">セルフケア</option>
-                        <option value="store">店舗情報</option>
-                        <option value="staff">スタッフブログ</option>
-                    </select>
-                </div>
 
-                <div class="form-group">
-                    <label for="postTags">タグ（カンマ区切り）</label>
-                    <input type="text" id="postTags" placeholder="肩こり, デスクワーク, 武豊町">
-                </div>
+
+
 
                 <div class="form-actions">
                     <button type="button" class="btn btn-secondary" onclick="saveDraft()">
@@ -534,9 +522,6 @@
             const title = document.getElementById('postTitle').value;
             const summary = document.getElementById('postSummary').value;
             const content = document.getElementById('postContent').value;
-            const category = document.getElementById('postCategory').value;
-            // tagsフィールドを一時的にコメントアウト
-            // const tags = document.getElementById('postTags').value.split(',').map(tag => tag.trim());
 
             if (!title || !content) {
                 alert('タイトルと本文は必須です。');
@@ -550,8 +535,6 @@
                 const postData = {
                     title: title,
                     content: content,
-                    category: category,
-                    // tags: tags, // スキーマに存在しないため一時的に削除
                     publishedAt: createdAt
                 };
 
@@ -615,8 +598,6 @@
                     title: title,
                     summary: summary,
                     content: content,
-                    category: category,
-                    // tags: tags, // スキーマに存在しないため一時的に削除
                     status: 'published',
                     createdAt: createdAt,
                     author: 'ほぐし処スタッフ'
@@ -640,8 +621,7 @@
                 title: document.getElementById('postTitle').value,
                 summary: document.getElementById('postSummary').value,
                 content: document.getElementById('postContent').value,
-                category: document.getElementById('postCategory').value,
-                // tags: document.getElementById('postTags').value.split(',').map(tag => tag.trim()), // スキーマに存在しないため一時的に削除
+
                 status: 'draft',
                 createdAt: new Date().toISOString(),
                 author: 'ほぐし処スタッフ'
@@ -697,7 +677,7 @@
                                 <div class="post-meta">
                                     ${new Date(post.publishedAt || post.createdAt).toLocaleDateString('ja-JP')} | 
                                     ${post.id.startsWith('temp_') ? '下書き' : '公開中'} | 
-                                    ${post.category || '未分類'}
+                                    公開済み
                                 </div>
                             </div>
                             <div class="post-actions">
@@ -800,7 +780,6 @@
             const title = document.getElementById('postTitle').value;
             const summary = document.getElementById('postSummary').value;
             const content = document.getElementById('postContent').value;
-            const category = document.getElementById('postCategory').value;
 
             if (!title || !content) {
                 alert('タイトルと本文は必須です。');
@@ -812,7 +791,6 @@
                 const updateData = {
                     title: title,
                     content: content,
-                    category: category,
                     publishedAt: new Date().toISOString()
                 };
                 console.log('更新データ:', updateData);
@@ -933,7 +911,7 @@
                     document.getElementById('postTitle').value = post.title;
                     document.getElementById('postSummary').value = post.summary || '';
                     document.getElementById('postContent').value = post.content;
-                    document.getElementById('postCategory').value = post.category || 'massage';
+
 
                     // 文字数カウンターを更新
                     document.getElementById('titleCount').textContent = post.title.length;
