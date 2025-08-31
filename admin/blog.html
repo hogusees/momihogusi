@@ -306,6 +306,7 @@
                 <a href="blog.html"><i class="fas fa-edit"></i> ブログ管理</a>
                 <a href="../index.html" target="_blank"><i class="fas fa-external-link-alt"></i> サイト確認</a>
                 <a href="#" onclick="checkMicroCMSSchema()"><i class="fas fa-database"></i> スキーマ確認</a>
+                <a href="#" onclick="debugStorage()"><i class="fas fa-bug"></i> デバッグ</a>
                 <span class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> ログアウト</span>
             </nav>
         </div>
@@ -638,7 +639,13 @@
 
                 // ローカルストレージの下書きも取得
                 const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
-                const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
+                const deletedPostIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+                
+                // 削除された記事を除外
+                const filteredPosts = posts.filter(post => !deletedPostIds.includes(post.id));
+                const filteredDrafts = drafts.filter(draft => !deletedPostIds.includes(draft.id));
+                
+                const allPosts = [...filteredPosts, ...filteredDrafts].sort((a, b) => new Date(b.publishedAt || b.createdAt) - new Date(a.publishedAt || a.createdAt));
 
                 const container = document.getElementById('postsList');
                 
@@ -677,7 +684,13 @@
                 // エラー時はlocalStorageから取得
                 const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
                 const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
-                const allPosts = [...posts, ...drafts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                const deletedPostIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+                
+                // 削除された記事を除外
+                const filteredPosts = posts.filter(post => !deletedPostIds.includes(post.id));
+                const filteredDrafts = drafts.filter(draft => !deletedPostIds.includes(draft.id));
+                
+                const allPosts = [...filteredPosts, ...filteredDrafts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
                 const container = document.getElementById('postsList');
                 
@@ -995,8 +1008,19 @@
                 localStorage.setItem('blogPosts', JSON.stringify(posts));
                 console.log(`投稿済み記事から削除: ${originalPostsLength} → ${posts.length}`);
 
-                // 投稿一覧を更新
-                loadPostsList();
+                // 削除された記事IDを記録
+                let deletedPosts = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+                if (!deletedPosts.includes(postId)) {
+                    deletedPosts.push(postId);
+                    localStorage.setItem('deletedPostIds', JSON.stringify(deletedPosts));
+                    console.log('削除された記事IDを記録:', postId);
+                }
+
+                // 投稿一覧を強制的に更新
+                await loadPostsList();
+                
+                // 削除完了の確認
+                console.log('削除処理完了。記事一覧を再読み込みしました。');
 
                 if (showConfirm) {
                     alert('記事が削除されました。');
@@ -1047,6 +1071,25 @@
                     
                     alert(errorMessage);
                 }
+            }
+        }
+
+        // デバッグ用：現在のストレージ状態を確認
+        function debugStorage() {
+            console.log('=== ストレージ状態デバッグ ===');
+            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+            const deletedIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+            
+            console.log('投稿済み記事:', posts.length, '件');
+            console.log('下書き:', drafts.length, '件');
+            console.log('削除済みID:', deletedIds);
+            
+            if (posts.length > 0) {
+                console.log('投稿済み記事のID:', posts.map(p => p.id));
+            }
+            if (drafts.length > 0) {
+                console.log('下書きのID:', drafts.map(d => d.id));
             }
         }
 
