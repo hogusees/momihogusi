@@ -1610,11 +1610,11 @@
                     
                     return `
                         <div class="info-item" onclick="showFullArticle('${post.id}', '${post.title}', '${post.summary || post.content}', '${post.category || 'お知らせ'}')">
-                            <div class="post-left">
+                            <div class="post-header">
                                 <div class="post-date">${postDate}</div>
                                 <div class="post-category">${post.category || 'お知らせ'}</div>
                             </div>
-                            <div class="info-content">
+                            <div class="post-body">
                                 <div class="post-title">${title}</div>
                                 <div class="post-excerpt">${excerpt}...</div>
                             </div>
