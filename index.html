@@ -1609,10 +1609,9 @@
                     const excerpt = post.summary || post.content.substring(0, 80);
                     
                     return `
-                        <div class="info-item" onclick="showFullArticle('${post.id}', '${post.title}', '${post.summary || post.content}', '${post.category || 'お知らせ'}')">
+                        <div class="info-item" onclick="showFullArticle('${post.id}', '${post.title}', '${post.summary || post.content}', 'お知らせ')">
                             <div class="post-header">
                                 <div class="post-date">${postDate}</div>
-                                <div class="post-category">${post.category || 'お知らせ'}</div>
                             </div>
                             <div class="post-body">
                                 <div class="post-title">${title}</div>
@@ -1741,6 +1740,16 @@
         window.addEventListener('load', function() {
             forceShowPCHeader();
             addSmoothScroll();
+            
+            // カテゴリ機能無効化後のキャッシュクリア
+            console.log('LP側のキャッシュクリア実行');
+            localStorage.removeItem('blogPosts');
+            localStorage.removeItem('blogDrafts');
+            
+            // 記事表示を再読み込み
+            setTimeout(() => {
+                loadBlogPosts();
+            }, 1000);
         });
         
         // 念のため複数回実行
