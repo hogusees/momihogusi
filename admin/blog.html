@@ -351,6 +351,9 @@
                     <button type="button" class="btn btn-secondary" onclick="saveDraft()">
                         <i class="fas fa-save"></i> 下書き保存
                     </button>
+                    <button type="button" class="btn btn-outline" onclick="cancelEdit()" id="cancelEditBtn" style="display: none;">
+                        <i class="fas fa-times"></i> 編集キャンセル
+                    </button>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> 投稿する
                     </button>
@@ -692,29 +695,164 @@
             }
         }
 
+        // 編集キャンセル
+        function cancelEdit() {
+            const form = document.querySelector('.blog-form');
+            
+            // フォームをリセット
+            form.reset();
+            form.removeAttribute('data-edit-mode');
+            form.removeAttribute('data-edit-id');
+
+            // ボタンを元に戻す
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> 投稿する';
+            submitBtn.onclick = savePost;
+
+            // キャンセルボタンを非表示
+            document.getElementById('cancelEditBtn').style.display = 'none';
+
+            // 文字数カウンターをリセット
+            document.getElementById('titleCount').textContent = '0';
+            document.getElementById('summaryCount').textContent = '0';
+            document.getElementById('contentCount').textContent = '0';
+
+            alert('編集をキャンセルしました。新規投稿モードに戻りました。');
+        }
+
+        // 記事更新
+        async function updatePost(event) {
+            event.preventDefault();
+            
+            const form = document.querySelector('.blog-form');
+            const editId = form.getAttribute('data-edit-id');
+            
+            if (!editId) {
+                alert('編集モードではありません。');
+                return;
+            }
+
+            const title = document.getElementById('postTitle').value;
+            const summary = document.getElementById('postSummary').value;
+            const content = document.getElementById('postContent').value;
+            const category = document.getElementById('postCategory').value;
+
+            if (!title || !content) {
+                alert('タイトルと本文は必須です。');
+                return;
+            }
+
+            try {
+                // microCMSの記事を更新
+                const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${editId}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        content: content,
+                        category: category,
+                        summary: summary
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`更新に失敗しました: ${response.status}`);
+                }
+
+                // フォームをリセット
+                form.reset();
+                form.removeAttribute('data-edit-mode');
+                form.removeAttribute('data-edit-id');
+
+                // ボタンを元に戻す
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> 投稿する';
+                submitBtn.onclick = savePost;
+
+                // キャンセルボタンを非表示
+                document.getElementById('cancelEditBtn').style.display = 'none';
+
+                // 文字数カウンターをリセット
+                document.getElementById('titleCount').textContent = '0';
+                document.getElementById('summaryCount').textContent = '0';
+                document.getElementById('contentCount').textContent = '0';
+
+                // 投稿一覧を更新
+                loadPostsList();
+
+                alert('記事が正常に更新されました！');
+
+            } catch (error) {
+                console.error('更新エラー:', error);
+                alert(`記事の更新に失敗しました: ${error.message}`);
+            }
+        }
+
         // 記事編集
-        function editPost(postId) {
-            const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
-            const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
-            const post = [...posts, ...drafts].find(p => p.id === postId);
+        async function editPost(postId) {
+            try {
+                let post;
+                
+                // microCMSの記事かローカルの記事かを判定
+                if (!postId.startsWith('temp_')) {
+                    // microCMSの記事を取得
+                    const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${postId}`, {
+                        headers: {
+                            'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                            'Content-Type': 'application/json'
+                    }
+                    });
 
-            if (post) {
-                document.getElementById('postTitle').value = post.title;
-                document.getElementById('postSummary').value = post.summary || '';
-                document.getElementById('postContent').value = post.content;
-                document.getElementById('postCategory').value = post.category;
-                // tagsフィールドの処理を一時的に削除
-                // document.getElementById('postTags').value = post.tags.join(', ');
+                    if (!response.ok) {
+                        throw new Error(`記事の取得に失敗しました: ${response.status}`);
+                    }
 
-                // 文字数カウンターを更新
-                document.getElementById('titleCount').textContent = post.title.length;
-                document.getElementById('summaryCount').textContent = (post.summary || '').length;
-                document.getElementById('contentCount').textContent = post.content.length;
+                    post = await response.json();
+                } else {
+                    // ローカルの下書き記事
+                    const drafts = JSON.parse(localStorage.getItem('blogDrafts') || '[]');
+                    post = drafts.find(p => p.id === postId);
+                }
 
-                // 元の記事を削除
-                deletePost(postId, false);
+                if (post) {
+                    // フォームに記事データを設定
+                    document.getElementById('postTitle').value = post.title;
+                    document.getElementById('postSummary').value = post.summary || '';
+                    document.getElementById('postContent').value = post.content;
+                    document.getElementById('postCategory').value = post.category || 'massage';
 
-                alert('記事を編集モードで読み込みました。修正後に再度投稿してください。');
+                    // 文字数カウンターを更新
+                    document.getElementById('titleCount').textContent = post.title.length;
+                    document.getElementById('summaryCount').textContent = (post.summary || '').length;
+                    document.getElementById('contentCount').textContent = post.content.length;
+
+                    // 編集モードの設定
+                    const form = document.querySelector('.blog-form');
+                    form.setAttribute('data-edit-mode', 'true');
+                    form.setAttribute('data-edit-id', postId);
+
+                    // ボタンのテキストを変更
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    submitBtn.innerHTML = '<i class="fas fa-save"></i> 更新する';
+                    submitBtn.onclick = updatePost;
+
+                    // キャンセルボタンを表示
+                    document.getElementById('cancelEditBtn').style.display = 'inline-block';
+
+                    // フォームを上部にスクロール
+                    form.scrollIntoView({ behavior: 'smooth' });
+
+                    alert('記事を編集モードで読み込みました。修正後に「更新する」ボタンを押してください。');
+                } else {
+                    alert('記事が見つかりませんでした。');
+                }
+
+            } catch (error) {
+                console.error('記事編集エラー:', error);
+                alert(`記事の編集に失敗しました: ${error.message}`);
             }
         }
 
