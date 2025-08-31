@@ -921,13 +921,21 @@
 
         // 記事削除
         async function deletePost(postId, showConfirm = true) {
-            if (showConfirm && !confirm('この記事を削除しますか？')) {
+            if (showConfirm && !confirm('この記事を削除しますか？\n\n削除すると元に戻すことはできません。')) {
+                return;
+            }
+
+            // 記事IDの検証
+            if (!postId || postId === '') {
+                alert('記事IDが無効です。');
                 return;
             }
 
             try {
                 // microCMSから削除（一時的な投稿でない場合）
                 if (!postId.startsWith('temp_')) {
+                    console.log('microCMSから記事を削除中:', postId);
+                    
                     const response = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${postId}`, {
                         method: 'DELETE',
                         headers: {
@@ -937,7 +945,18 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error(`削除に失敗しました: ${response.status}`);
+                        const errorText = await response.text();
+                        console.error('削除エラー詳細:', response.status, errorText);
+                        
+                        if (response.status === 400) {
+                            throw new Error(`削除に失敗しました: リクエストの形式が正しくありません (${response.status})`);
+                        } else if (response.status === 403) {
+                            throw new Error(`削除に失敗しました: 権限がありません (${response.status})`);
+                        } else if (response.status === 404) {
+                            throw new Error(`削除に失敗しました: 記事が見つかりません (${response.status})`);
+                        } else {
+                            throw new Error(`削除に失敗しました: ${response.status} - ${errorText}`);
+                        }
                     }
 
                     console.log('microCMSから削除成功:', postId);
@@ -963,10 +982,20 @@
                 drafts = drafts.filter(p => p.id !== postId);
                 localStorage.setItem('blogDrafts', JSON.stringify(drafts));
 
+                // 投稿一覧を更新
                 loadPostsList();
 
                 if (showConfirm) {
-                    alert(`microCMSからの削除に失敗しました。ローカルからは削除されました。\nエラー: ${error.message}`);
+                    // より詳細なエラー情報を表示
+                    let errorMessage = `microCMSからの削除に失敗しました。\n`;
+                    errorMessage += `ローカルからは削除されました。\n\n`;
+                    errorMessage += `エラー詳細: ${error.message}\n\n`;
+                    errorMessage += `対処方法:\n`;
+                    errorMessage += `1. ページを再読み込みして再試行\n`;
+                    errorMessage += `2. しばらく時間をおいてから再試行\n`;
+                    errorMessage += `3. 問題が続く場合は管理者に連絡`;
+                    
+                    alert(errorMessage);
                 }
             }
         }
