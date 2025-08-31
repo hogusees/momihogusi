@@ -1541,17 +1541,12 @@
         // スタイルをheadに追加
         document.head.insertAdjacentHTML('beforeend', modalStyles);
         
-        // 記事レイアウトのスタイル
-        const articleStyles = `
+        // 記事のホバー効果のみ追加
+        const articleHoverStyles = `
             <style>
                 .info-item {
                     cursor: pointer;
                     transition: all 0.3s ease;
-                    position: relative;
-                    min-height: 120px;
-                    display: flex;
-                    align-items: flex-start;
-                    gap: 1rem;
                 }
                 
                 .info-item:hover {
@@ -1559,135 +1554,10 @@
                     transform: translateY(-2px);
                     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 }
-                
-                .post-left {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.3rem;
-                    flex-shrink: 0;
-                    width: 60px;
-                    justify-content: flex-start;
-                }
-                
-                .post-date {
-                    font-size: 0.7rem;
-                    color: #999;
-                    font-weight: 500;
-                    text-align: center;
-                }
-                
-                .post-category {
-                    font-size: 0.65rem;
-                    color: #D2691E;
-                    background: rgba(210, 105, 30, 0.1);
-                    padding: 0.15rem 0.3rem;
-                    border-radius: 8px;
-                    white-space: nowrap;
-                    font-weight: 500;
-                    text-align: center;
-                }
-                
-                .post-title {
-                    font-weight: 600;
-                    color: #333;
-                    font-size: 1rem;
-                    margin-bottom: 0.5rem;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    margin-top: 0;
-                }
-                
-                .post-excerpt {
-                    color: #666;
-                    font-size: 0.9rem;
-                    line-height: 1.4;
-                    text-align: left;
-                    overflow: hidden;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                }
-                
-                .info-content {
-                    width: 100%;
-                    flex: 1;
-                }
-                
-                /* PC版：枠の高さを統一 */
-                @media (min-width: 769px) {
-                    .info-item {
-                        min-height: 140px;
-                        max-height: 140px;
-                    }
-                    
-                    .post-excerpt {
-                        -webkit-line-clamp: 4;
-                    }
-                }
-                
-                /* モバイル版：本文を60文字前後（3列）に制限 */
-                @media (max-width: 768px) {
-                    .info-item {
-                        min-height: 100px;
-                        max-height: 100px;
-                        gap: 0.8rem;
-                        align-items: flex-start;
-                    }
-                    
-                    .post-left {
-                        width: 50px;
-                        gap: 0.2rem;
-                        flex-shrink: 0;
-                    }
-                    
-                    .post-date {
-                        font-size: 0.6rem;
-                    }
-                    
-                    .post-category {
-                        font-size: 0.55rem;
-                        padding: 0.1rem 0.25rem;
-                    }
-                    
-                    .post-title {
-                        font-size: 0.7rem;
-                        margin: 0;
-                        line-height: 1.1;
-                        max-height: 2.2em;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-line-clamp: 2;
-                        -webkit-box-orient: vertical;
-                        white-space: normal;
-                        word-break: break-word;
-                        align-self: flex-start;
-                    }
-                    
-                    .post-excerpt {
-                        font-size: 0.55rem;
-                        -webkit-line-clamp: 2;
-                        line-height: 1.1;
-                        max-height: 2.2em;
-                        overflow: hidden;
-                        display: -webkit-box;
-                        -webkit-box-orient: vertical;
-                        margin-top: 0.3rem;
-                    }
-                    
-                    .info-content {
-                        flex: 1;
-                        min-width: 0;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        height: auto;
-                    }
-                }
             </style>
         `;
         
-        document.head.insertAdjacentHTML('beforeend', articleStyles);
+        document.head.insertAdjacentHTML('beforeend', articleHoverStyles);
         
         setTimeout(function() {
             initHamburgerMenu();
