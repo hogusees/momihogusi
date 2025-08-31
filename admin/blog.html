@@ -770,23 +770,6 @@
                 console.log('更新データ:', updateData);
                 console.log('更新対象記事ID:', editId);
 
-                // 既存記事を削除
-                console.log('既存記事を削除中...');
-                const deleteResponse = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${editId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!deleteResponse.ok) {
-                    console.warn('既存記事の削除に失敗:', deleteResponse.status);
-                    // 削除に失敗しても続行
-                } else {
-                    console.log('既存記事の削除完了');
-                }
-
                 // 修正した内容で新規投稿を作成
                 console.log('新規投稿を作成中...');
                 const createResponse = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs', {
@@ -823,6 +806,24 @@
                 // 新規投稿成功のログ出力
                 const result = await createResponse.json();
                 console.log('新規投稿成功:', result);
+
+                // 新規投稿が成功したら、既存記事を削除
+                console.log('既存記事を削除中...');
+                const deleteResponse = await fetch(`https://hogusees-blog.microcms.io/api/v1/blogs/${editId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!deleteResponse.ok) {
+                    console.error('既存記事の削除に失敗:', deleteResponse.status);
+                    // 削除に失敗しても新規投稿は成功しているので警告のみ
+                    console.warn('既存記事の削除に失敗しましたが、新規投稿は成功しています。');
+                } else {
+                    console.log('既存記事の削除完了');
+                }
 
                 // フォームをリセット
                 form.reset();
