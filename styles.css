@@ -871,6 +871,109 @@ section {
     text-decoration: underline;
 }
 
+/* 記事表示用の新しいクラス（既存デザインには影響なし） */
+.post-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex-shrink: 0;
+    width: 60px;
+}
+
+.post-date {
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 500;
+    text-align: center;
+}
+
+.post-category {
+    font-size: 0.65rem;
+    color: #D2691E;
+    background: rgba(210, 105, 30, 0.1);
+    padding: 0.15rem 0.3rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-weight: 500;
+    text-align: center;
+}
+
+.post-title {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-excerpt {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.info-content {
+    width: 100%;
+    flex: 1;
+}
+
+/* モバイル版のみの調整（PC版には一切影響なし） */
+@media (max-width: 768px) {
+    .info-item {
+        align-items: flex-start;
+        gap: 0.8rem;
+        min-height: 100px;
+        max-height: 100px;
+    }
+    
+    .post-left {
+        width: 50px;
+        gap: 0.2rem;
+    }
+    
+    .post-date {
+        font-size: 0.6rem;
+    }
+    
+    .post-category {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.25rem;
+    }
+    
+    .post-title {
+        font-size: 0.7rem;
+        margin: 0;
+        line-height: 1.1;
+        max-height: 2.2em;
+        -webkit-line-clamp: 2;
+        white-space: normal;
+        word-break: break-word;
+        align-self: flex-start;
+    }
+    
+    .post-excerpt {
+        font-size: 0.55rem;
+        -webkit-line-clamp: 2;
+        line-height: 1.1;
+        max-height: 2.2em;
+        margin-top: 0.3rem;
+    }
+    
+    .info-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+    }
+}
+
 .map-container {
     width: 100%;
     height: 400px;
