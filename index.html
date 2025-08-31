@@ -1436,10 +1436,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             initHamburgerMenu();
             forceShowPCHeader();
+            loadBlogPosts(); // ブログ記事を読み込み
         });
         
         // ページ完全読み込み後
-        window.addEventListener('load', forceShowPCHeader);
+        window.addEventListener('load', function() {
+            forceShowPCHeader();
+            loadBlogPosts(); // ブログ記事を読み込み
+        });
         
         // 念のため複数回実行
         setTimeout(function() {
@@ -1454,6 +1458,81 @@
         
         setTimeout(forceShowPCHeader, 1000);
         
+        // ブログ記事の読み込みと表示
+        async function loadBlogPosts() {
+            try {
+                console.log('LP側でブログ記事を読み込み中...');
+                
+                // microCMSから投稿を取得
+                const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs?limit=10', {
+                    headers: {
+                        'X-API-KEY': 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`投稿の取得に失敗しました: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const posts = data.contents || [];
+                
+                // 削除された記事IDを除外
+                const deletedPostIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+                const filteredPosts = posts.filter(post => !deletedPostIds.includes(post.id));
+                
+                console.log(`記事取得: ${posts.length}件 → 削除済み除外後: ${filteredPosts.length}件`);
+                console.log('削除済みID:', deletedPostIds);
+
+                const container = document.getElementById('info-list');
+                
+                if (filteredPosts.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: #666;">現在、お知らせはありません。</p>';
+                    return;
+                }
+
+                container.innerHTML = filteredPosts.map(post => `
+                    <div class="info-item">
+                        <div class="info-date">${new Date(post.publishedAt || post.createdAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '.')}</div>
+                        <div class="info-content">
+                            <div class="info-title">${post.title}</div>
+                            <div class="info-text">${post.summary || post.content.substring(0, 50)}...</div>
+                        </div>
+                    </div>
+                `).join('');
+
+                console.log('LP側の記事表示完了');
+
+            } catch (error) {
+                console.error('LP側の記事取得エラー:', error);
+                
+                // エラー時はlocalStorageから取得
+                const posts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+                const deletedPostIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');
+                const filteredPosts = posts.filter(post => !deletedPostIds.includes(post.id));
+                
+                const container = document.getElementById('info-list');
+                
+                if (filteredPosts.length === 0) {
+                    container.innerHTML = '<p style="text-align: center; color: #666;">現在、お知らせはありません。</p>';
+                    return;
+                }
+
+                container.innerHTML = filteredPosts.map(post => `
+                    <div class="info-item">
+                        <div class="info-date">${new Date(post.createdAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '.')}</div>
+                        <div class="info-content">
+                            <div class="info-title">${post.title}</div>
+                            <div class="info-text">${post.summary || post.content.substring(0, 50)}...</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                console.log('LP側の記事表示完了（localStorageから）');
+            }
+        }
+
         // スムーズスクロール機能を追加
         function addSmoothScroll() {
             const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
@@ -1539,6 +1618,28 @@
         window.addEventListener('resize', function() {
             setTimeout(forceShowPCHeader, 100);
         });
+        
+        // 管理画面からの削除通知を検知
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'BLOG_POST_DELETED') {
+                console.log('管理画面から削除通知を受信:', event.data.postId);
+                // 記事一覧を再読み込み
+                setTimeout(loadBlogPosts, 500);
+            }
+        });
+        
+        // localStorageの変更を監視（削除通知用）
+        let lastDeletedTimestamp = localStorage.getItem('lastDeletedTimestamp') || '0';
+        setInterval(function() {
+            const currentTimestamp = localStorage.getItem('lastDeletedTimestamp') || '0';
+            if (currentTimestamp !== lastDeletedTimestamp) {
+                lastDeletedTimestamp = currentTimestamp;
+                const deletedPostId = localStorage.getItem('lastDeletedPostId');
+                console.log('削除通知を検知:', deletedPostId);
+                // 記事一覧を再読み込み
+                setTimeout(loadBlogPosts, 500);
+            }
+        }, 1000);
     </script>
 </body>
 </html> 

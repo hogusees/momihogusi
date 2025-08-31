@@ -1019,6 +1019,22 @@
                 // 投稿一覧を強制的に更新
                 await loadPostsList();
                 
+                // LP側も更新（同じドメインの場合）
+                try {
+                    if (window.opener && !window.opener.closed) {
+                        // 管理画面がポップアップで開かれている場合
+                        window.opener.postMessage({ type: 'BLOG_POST_DELETED', postId: postId }, '*');
+                        console.log('LP側に削除通知を送信:', postId);
+                    } else {
+                        // 同じウィンドウで開いている場合、localStorageの変更を検知
+                        localStorage.setItem('lastDeletedPostId', postId);
+                        localStorage.setItem('lastDeletedTimestamp', Date.now().toString());
+                        console.log('削除情報をlocalStorageに記録:', postId);
+                    }
+                } catch (error) {
+                    console.warn('LP側の更新通知に失敗:', error);
+                }
+                
                 // 削除完了の確認
                 console.log('削除処理完了。記事一覧を再読み込みしました。');
 
