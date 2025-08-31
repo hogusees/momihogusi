@@ -1541,8 +1541,8 @@
         // スタイルをheadに追加
         document.head.insertAdjacentHTML('beforeend', modalStyles);
         
-        // 記事のホバー効果のみ追加
-        const articleHoverStyles = `
+        // 記事のレイアウトとホバー効果
+        const articleStyles = `
             <style>
                 .info-item {
                     cursor: pointer;
@@ -1554,10 +1554,80 @@
                     transform: translateY(-2px);
                     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 }
+                
+                /* モバイル版のみの修正 */
+                @media (max-width: 768px) {
+                    .info-item {
+                        align-items: flex-start !important;
+                        gap: 0.8rem !important;
+                        min-height: 100px !important;
+                        max-height: 100px !important;
+                    }
+                    
+                    .info-item .post-left {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        gap: 0.2rem !important;
+                        flex-shrink: 0 !important;
+                        width: 50px !important;
+                    }
+                    
+                    .info-item .post-date {
+                        font-size: 0.6rem !important;
+                        color: #999 !important;
+                        font-weight: 500 !important;
+                        text-align: center !important;
+                    }
+                    
+                    .info-item .post-category {
+                        font-size: 0.55rem !important;
+                        color: #D2691E !important;
+                        background: rgba(210, 105, 30, 0.1) !important;
+                        padding: 0.1rem 0.25rem !important;
+                        border-radius: 8px !important;
+                        white-space: nowrap !important;
+                        font-weight: 500 !important;
+                        text-align: center !important;
+                    }
+                    
+                    .info-item .post-title {
+                        font-size: 0.7rem !important;
+                        margin: 0 !important;
+                        line-height: 1.1 !important;
+                        max-height: 2.2em !important;
+                        overflow: hidden !important;
+                        display: -webkit-box !important;
+                        -webkit-line-clamp: 2 !important;
+                        -webkit-box-orient: vertical !important;
+                        white-space: normal !important;
+                        word-break: break-word !important;
+                        align-self: flex-start !important;
+                    }
+                    
+                    .info-item .post-excerpt {
+                        font-size: 0.55rem !important;
+                        -webkit-line-clamp: 2 !important;
+                        line-height: 1.1 !important;
+                        max-height: 2.2em !important;
+                        overflow: hidden !important;
+                        display: -webkit-box !important;
+                        -webkit-box-orient: vertical !important;
+                        margin-top: 0.3rem !important;
+                    }
+                    
+                    .info-item .info-content {
+                        flex: 1 !important;
+                        min-width: 0 !important;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: flex-start !important;
+                        height: auto !important;
+                    }
+                }
             </style>
         `;
         
-        document.head.insertAdjacentHTML('beforeend', articleHoverStyles);
+        document.head.insertAdjacentHTML('beforeend', articleStyles);
         
         setTimeout(function() {
             initHamburgerMenu();
