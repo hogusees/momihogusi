@@ -241,7 +241,23 @@
             color: #CD853F;
         }
         
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D2691E;
+            margin: 0;
+        }
+        
         @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
             .blog-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -262,6 +278,11 @@
 
     <!-- メインコンテンツ -->
     <main class="blog-container">
+        <!-- ページタイトル -->
+        <div class="page-title">
+            <h1>過去記事アーカイブ</h1>
+        </div>
+        
         <!-- 戻るリンク -->
         <a href="index.html" class="back-to-home">
             <i class="fas fa-arrow-left"></i>
