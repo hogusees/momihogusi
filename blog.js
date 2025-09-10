@@ -40,8 +40,9 @@ async function loadBlogPosts() {
         
         // microCMSから投稿を取得
         const response = await fetch(`${BLOG_CONFIG.API_ENDPOINT}?limit=100&orders=-publishedAt`, {
+            method: 'GET',
             headers: {
-                'X-API-KEY': BLOG_CONFIG.API_KEY,
+                'X-MICROCMS-API-KEY': BLOG_CONFIG.API_KEY,
                 'Content-Type': 'application/json'
             }
         });

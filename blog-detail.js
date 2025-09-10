@@ -51,8 +51,9 @@ async function loadArticleDetail(articleId) {
         
         // microCMSから記事を取得
         const response = await fetch(`${BLOG_DETAIL_CONFIG.API_ENDPOINT}/${articleId}`, {
+            method: 'GET',
             headers: {
-                'X-API-KEY': BLOG_DETAIL_CONFIG.API_KEY,
+                'X-MICROCMS-API-KEY': BLOG_DETAIL_CONFIG.API_KEY,
                 'Content-Type': 'application/json'
             }
         });
@@ -122,8 +123,9 @@ function displayArticle(article) {
 async function loadAllArticles() {
     try {
         const response = await fetch(`${BLOG_DETAIL_CONFIG.API_ENDPOINT}?limit=100&orders=-publishedAt`, {
+            method: 'GET',
             headers: {
-                'X-API-KEY': BLOG_DETAIL_CONFIG.API_KEY,
+                'X-MICROCMS-API-KEY': BLOG_DETAIL_CONFIG.API_KEY,
                 'Content-Type': 'application/json'
             }
         });
