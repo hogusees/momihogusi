@@ -333,6 +333,9 @@ body {
 /* 画像の読み込み最適化 */
 img {
     transition: opacity 0.3s ease-in-out;
+    /* 初期状態で適切なアスペクト比を維持 */
+    aspect-ratio: attr(width) / attr(height);
+    object-fit: cover;
 }
 
 img[loading="lazy"] {
@@ -341,6 +344,42 @@ img[loading="lazy"] {
 
 img[loading="lazy"].loaded {
     opacity: 1;
+}
+
+/* 特定の画像のアスペクト比を固定 */
+.hero {
+    background: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 28vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    min-height: 250px;
+    /* 縦画像の表示を防ぐ */
+    background-attachment: scroll;
+}
+
+/* ロゴ画像の初期表示制御 */
+.logo-image {
+    max-height: 55px;
+    width: auto;
+    display: block !important;
+    margin-bottom: 0;
+    transition: transform 0.3s ease;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+    outline: none !important;
+    pointer-events: none;
+    flex-shrink: 0;
+    /* 縦画像の表示を防ぐ */
+    object-fit: contain;
+    object-position: center;
+    aspect-ratio: 200/55;
 }
 
 .nav a {

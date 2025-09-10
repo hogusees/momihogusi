@@ -349,6 +349,30 @@ function addCategoryStyles() {
 
 // 画像読み込み最適化（デザイン保持）
 function optimizeImageLoading() {
+    // ロゴ画像の優先読み込み
+    const logoImg = document.querySelector('.logo-image');
+    if (logoImg) {
+        // ロゴ画像を最優先で読み込み
+        logoImg.style.opacity = '0';
+        logoImg.style.transition = 'opacity 0.3s ease';
+        
+        if (logoImg.complete) {
+            logoImg.style.opacity = '1';
+        } else {
+            logoImg.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+            logoImg.addEventListener('error', function() {
+                // ロゴ読み込みエラー時はテキストロゴを表示
+                this.style.display = 'none';
+                const logoText = document.querySelector('.logo h1');
+                if (logoText) {
+                    logoText.style.display = 'block';
+                }
+            });
+        }
+    }
+    
     // 遅延読み込み画像の処理
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
     
@@ -378,11 +402,17 @@ function optimizeImageLoading() {
     // 画像読み込み完了時の処理
     const allImages = document.querySelectorAll('img');
     allImages.forEach(img => {
+        // 縦画像の表示を防ぐためのスタイル設定
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = 'center';
+        
         if (img.complete) {
             img.classList.add('loaded');
         } else {
             img.addEventListener('load', function() {
                 this.classList.add('loaded');
+                // 読み込み完了後にアスペクト比を調整
+                this.style.aspectRatio = 'auto';
             });
             img.addEventListener('error', function() {
                 // エラー時の処理（デザインを崩さない）
