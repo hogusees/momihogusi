@@ -303,7 +303,3 @@ window.initializeSampleData = initializeSampleData;
 window.deleteData = deleteData;
 
 
-
-
-
-
