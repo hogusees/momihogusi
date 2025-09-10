@@ -280,10 +280,28 @@ function initializeSampleData() {
     console.log('サンプルデータを30日分生成しました');
 }
 
+// データ削除機能
+function deleteData() {
+    if (confirm('すべてのデータを削除しますか？この操作は取り消せません。')) {
+        // すべてのアナリティクスデータを削除
+        const keys = Object.keys(localStorage);
+        keys.forEach(key => {
+            if (key.startsWith('analytics_')) {
+                localStorage.removeItem(key);
+            }
+        });
+        
+        showMessage('データを削除しました', 'success');
+        loadDashboardData();
+    }
+}
+
 // エクスポート用の関数をグローバルに公開
 window.trackEvent = trackEvent;
 window.generateWeeklyReport = generateWeeklyReport;
 window.initializeSampleData = initializeSampleData;
+window.deleteData = deleteData;
+
 
 
 
