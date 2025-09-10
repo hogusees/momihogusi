@@ -51,18 +51,10 @@
     
     <!-- 記事詳細専用スタイル -->
     <style>
-        .article-hero {
-            background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            margin-top: 120px;
-        }
-        
         .article-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 1rem 20px;
         }
         
         .article-meta {
@@ -74,14 +66,16 @@
         }
         
         .article-date {
-            background: rgba(255,255,255,0.2);
+            background: #D2691E;
+            color: white;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.9rem;
         }
         
         .article-category {
-            background: rgba(255,255,255,0.2);
+            background: #f0f0f0;
+            color: #666;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.9rem;
@@ -99,9 +93,10 @@
         .article-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #4a4a4a;
+            color: #D2691E;
             margin-bottom: 1rem;
             line-height: 1.4;
+            text-align: center;
         }
         
         .article-body {
@@ -176,12 +171,24 @@
             color: #D2691E;
             text-decoration: none;
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             transition: color 0.3s ease;
         }
         
         .back-to-blog:hover {
             color: #CD853F;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #D2691E;
+            margin: 0;
         }
         
         .article-loading {
@@ -235,6 +242,10 @@
         }
         
         @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
             .article-title {
                 font-size: 1.5rem;
             }
@@ -251,62 +262,28 @@
     </style>
 </head>
 <body>
-    <!-- ヘッダー（LPと同じ） -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="logo.png" alt="ほぐし処 HoguSeeS" class="logo-image" width="200" height="55" style="aspect-ratio: 200/55; object-fit: contain;">
-                    <div class="logo-text">
-                        <p class="subtitle">武豊町の隠れ家癒し処 ほぐしーず</p>
-                        <h2 class="brand-name">HoguSeeS</h2>
-                    </div>
-                </div>
-                <div class="header-contact">
-                    <div class="phone">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:0569-84-2515" class="phone-text">電話</a>
-                    </div>
-                    <a href="https://line.me/R/ti/p/@hogusees" class="reserve-btn" target="_blank">
-                        <i class="fab fa-line"></i>
-                        <span class="reserve-text">予約</span>
-                    </a>
-                </div>
-            </div>
-            <nav class="nav">
-                <button class="nav-toggle" id="nav-toggle">
-                    <span class="hamburger"></span>
-                </button>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html#info">最新情報</a></li>
-                    <li><a href="index.html#about">店舗紹介</a></li>
-                    <li><a href="index.html#staff">スタッフ</a></li>
-                    <li><a href="index.html#menu">料金表</a></li>
-                    <li><a href="index.html#access">アクセス</a></li>
-                    <li><a href="blog.html" class="active">ブログ</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- 記事ヒーローセクション -->
-    <section class="article-hero">
-        <div class="article-container">
-            <div class="article-meta" id="article-meta">
-                <div class="article-date" id="article-date">読み込み中...</div>
-                <div class="article-category" id="article-category">読み込み中...</div>
-            </div>
-            <h1 id="article-title">記事を読み込み中...</h1>
-        </div>
-    </section>
 
     <!-- メインコンテンツ -->
     <main class="article-container">
+        <!-- ページタイトル -->
+        <div class="page-title">
+            <h1>過去記事アーカイブ</h1>
+        </div>
+        
         <!-- 戻るリンク -->
         <a href="blog.html" class="back-to-blog">
             <i class="fas fa-arrow-left"></i>
             ブログ一覧に戻る
         </a>
+
+        <!-- 記事メタ情報 -->
+        <div class="article-meta" id="article-meta" style="display: none;">
+            <div class="article-date" id="article-date"></div>
+            <div class="article-category" id="article-category"></div>
+        </div>
+
+        <!-- 記事タイトル -->
+        <h2 class="article-title" id="article-title" style="display: none;"></h2>
 
         <!-- 記事内容 -->
         <article class="article-content" id="article-content">
@@ -348,49 +325,6 @@
         </div>
     </main>
 
-    <!-- フッター（LPと同じ） -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ほぐし処 HoguSeeS</h3>
-                    <p>武豊町の隠れ家癒し処</p>
-                    <p>愛知県知多郡武豊町道崎26-7 ほほえみビル3F</p>
-                    <p>TEL: <a href="tel:0569-84-2515">0569-84-2515</a></p>
-                </div>
-                <div class="footer-section">
-                    <h4>武豊町の施術メニュー</h4>
-                    <ul>
-                        <li><a href="index.html#set-menu">お得なセットメニュー</a></li>
-                        <li><a href="index.html#momihogusi">武豊町のもみほぐし</a></li>
-                        <li><a href="index.html#oil-massage">オイルリンパマッサージ</a></li>
-                        <li><a href="index.html#foot-reflexology">足つぼマッサージ・角質ケア</a></li>
-                        <li><a href="index.html#dry-head-spa">ドライヘッドスパ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>お問い合わせ</h4>
-                    <div class="social-links">
-                        <a href="https://line.me/R/ti/p/@hogusees" target="_blank" class="social-link line-link">
-                            <i class="fab fa-line"></i>
-                            <span>LINEで予約</span>
-                        </a>
-                        <a href="https://www.instagram.com/hogusees?igsh=MTVmdHo3bXViNzBrMg==" target="_blank" class="social-link instagram-link">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="privacy.html">プライバシーポリシー</a>
-                    <a href="terms.html">利用規約</a>
-                </div>
-                <p>&copy; 2024 ほぐし処 HoguSeeS. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="script.js?v=20250814-1" defer></script>
     <script src="blog-detail.js?v=20250814-1" defer></script>
