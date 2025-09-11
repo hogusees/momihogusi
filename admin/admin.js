@@ -144,47 +144,6 @@ function loadSEOKeywords() {
     }
 }
 
-// 最近のアクティビティの読み込み
-function loadRecentActivity() {
-    const activities = [
-        {
-            time: '10分前',
-            action: '予約ボタンがクリックされました',
-            icon: 'fas fa-mouse-pointer'
-        },
-        {
-            time: '25分前', 
-            action: 'メニューページが閲覧されました',
-            icon: 'fas fa-eye'
-        },
-        {
-            time: '1時間前',
-            action: '電話番号がタップされました',
-            icon: 'fas fa-phone'
-        },
-        {
-            time: '2時間前',
-            action: 'スタッフ紹介ページが閲覧されました',
-            icon: 'fas fa-users'
-        },
-        {
-            time: '3時間前',
-            action: 'アクセス情報が確認されました',
-            icon: 'fas fa-map-marker-alt'
-        }
-    ];
-    
-    const container = document.getElementById('recentActivity');
-    if (container) {
-        container.innerHTML = activities.map(activity => `
-            <li>
-                <i class="${activity.icon}" style="color: #8B4513; margin-right: 0.5rem;"></i>
-                ${activity.action}
-                <div class="activity-time">${activity.time}</div>
-            </li>
-        `).join('');
-    }
-}
 
 // イベントトラッキング関数（メインサイトから呼び出される）
 function trackEvent(eventType, data = {}) {

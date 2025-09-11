@@ -195,23 +195,6 @@
             color: #666;
         }
 
-        .recent-activity {
-            list-style: none;
-        }
-
-        .recent-activity li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .recent-activity li:last-child {
-            border-bottom: none;
-        }
-
-        .activity-time {
-            color: #666;
-            font-size: 0.8rem;
-        }
 
         @media (max-width: 768px) {
             .header-content {
@@ -309,13 +292,6 @@
             </div>
         </div>
 
-        <!-- 最近のアクティビティ -->
-        <div class="section">
-            <h2 class="section-title">最近のアクティビティ</h2>
-            <ul class="recent-activity" id="recentActivity">
-                <!-- JavaScriptで動的生成 -->
-            </ul>
-        </div>
     </main>
 
     <script src="admin.js"></script>
@@ -400,7 +376,6 @@
             if (checkAuth()) {
                 loadDashboardData();
                 loadSEOKeywords();
-                loadRecentActivity();
             }
         });
     </script>
