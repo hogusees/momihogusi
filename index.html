@@ -1587,6 +1587,7 @@
                 
                 // microCMSから投稿を取得
                 const response = await fetch('https://hogusees-blog.microcms.io/api/v1/blogs?limit=10', {
+                    method: 'GET',
                     headers: {
                         'X-MICROCMS-API-KEY': 'y33nqinuS0kqnnWaqQ15lUfDzQBiLnc1rvlP',
                         'Content-Type': 'application/json'
