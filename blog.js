@@ -39,6 +39,10 @@ async function loadBlogPosts() {
         blogGrid.innerHTML = '<div class="blog-loading"><p>記事を読み込み中...</p></div>';
         
         // microCMSから投稿を取得
+        console.log('=== ブログ記事取得デバッグ ===');
+        console.log('APIエンドポイント:', BLOG_CONFIG.API_ENDPOINT);
+        console.log('APIキー:', BLOG_CONFIG.API_KEY);
+        
         const response = await fetch(`${BLOG_CONFIG.API_ENDPOINT}?limit=100&orders=-publishedAt`, {
             method: 'GET',
             headers: {
@@ -47,12 +51,20 @@ async function loadBlogPosts() {
             }
         });
 
+        console.log('レスポンスステータス:', response.status);
+        console.log('レスポンスOK:', response.ok);
+
         if (!response.ok) {
-            throw new Error(`投稿の取得に失敗しました: ${response.status}`);
+            const errorText = await response.text();
+            console.error('APIエラーレスポンス:', errorText);
+            throw new Error(`投稿の取得に失敗しました: ${response.status} - ${errorText}`);
         }
 
         const data = await response.json();
         const posts = data.contents || [];
+        
+        console.log('取得したデータ:', data);
+        console.log('記事数:', posts.length);
         
         // 削除された記事IDを除外
         const deletedPostIds = JSON.parse(localStorage.getItem('deletedPostIds') || '[]');

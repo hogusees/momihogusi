@@ -11,9 +11,38 @@ let allArticles = [];
 
 // ページ読み込み時に実行
 document.addEventListener('DOMContentLoaded', function() {
+    // APIキーのテスト
+    testAPIKey();
     initializeArticleDetail();
     setupEventListeners();
 });
+
+// APIキーのテスト
+async function testAPIKey() {
+    try {
+        console.log('=== APIキーテスト ===');
+        const testResponse = await fetch(`${BLOG_DETAIL_CONFIG.API_ENDPOINT}?limit=1`, {
+            method: 'GET',
+            headers: {
+                'X-MICROCMS-API-KEY': BLOG_DETAIL_CONFIG.API_KEY,
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        console.log('テストレスポンスステータス:', testResponse.status);
+        console.log('テストレスポンスOK:', testResponse.ok);
+        
+        if (testResponse.ok) {
+            const testData = await testResponse.json();
+            console.log('テスト成功 - 記事数:', testData.contents?.length || 0);
+        } else {
+            const errorText = await testResponse.text();
+            console.error('APIキーテスト失敗:', errorText);
+        }
+    } catch (error) {
+        console.error('APIキーテストエラー:', error);
+    }
+}
 
 // 記事詳細の初期化
 async function initializeArticleDetail() {
@@ -30,7 +59,6 @@ async function initializeArticleDetail() {
         await loadArticleDetail(articleId);
         await loadAllArticles(); // 前後の記事用
         setupNavigation();
-        setupSocialShare();
         
     } catch (error) {
         console.error('記事詳細初期化エラー:', error);
@@ -50,8 +78,10 @@ async function loadArticleDetail(articleId) {
         articleContent.innerHTML = '<div class="article-loading"><p>記事を読み込み中...</p></div>';
         
         // microCMSから記事を取得
+        console.log('=== 記事詳細取得デバッグ ===');
         console.log('APIエンドポイント:', `${BLOG_DETAIL_CONFIG.API_ENDPOINT}/${articleId}`);
         console.log('APIキー:', BLOG_DETAIL_CONFIG.API_KEY);
+        console.log('記事ID:', articleId);
         
         const response = await fetch(`${BLOG_DETAIL_CONFIG.API_ENDPOINT}/${articleId}`, {
             method: 'GET',
@@ -63,12 +93,16 @@ async function loadArticleDetail(articleId) {
         
         console.log('レスポンスステータス:', response.status);
         console.log('レスポンスOK:', response.ok);
+        console.log('レスポンスヘッダー:', Object.fromEntries(response.headers.entries()));
 
         if (!response.ok) {
-            throw new Error(`記事の取得に失敗しました: ${response.status}`);
+            const errorText = await response.text();
+            console.error('APIエラーレスポンス:', errorText);
+            throw new Error(`記事の取得に失敗しました: ${response.status} - ${errorText}`);
         }
 
         const article = await response.json();
+        console.log('取得した記事データ:', article);
         currentArticle = article;
         
         // 記事情報を表示
@@ -120,8 +154,7 @@ function displayArticle(article) {
     const content = article.content || article.summary || '内容がありません。';
     articleContent.innerHTML = `<div class="article-body">${content}</div>`;
     
-    // ソーシャルシェアとナビゲーションを表示
-    document.getElementById('social-share').style.display = 'flex';
+    // ナビゲーションを表示
     document.getElementById('article-navigation').style.display = 'flex';
 }
 
@@ -174,26 +207,7 @@ function setupNavigation() {
     }
 }
 
-// ソーシャルシェアの設定
-function setupSocialShare() {
-    if (!currentArticle) return;
-    
-    const title = encodeURIComponent(currentArticle.title || '');
-    const url = encodeURIComponent(window.location.href);
-    const text = encodeURIComponent(currentArticle.summary || currentArticle.title || '');
-    
-    // Twitter
-    const twitterBtn = document.getElementById('share-twitter');
-    twitterBtn.href = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-    
-    // Facebook
-    const facebookBtn = document.getElementById('share-facebook');
-    facebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    
-    // LINE
-    const lineBtn = document.getElementById('share-line');
-    lineBtn.href = `https://social-plugins.line.me/lineit/share?url=${url}&text=${title}`;
-}
+// ソーシャルシェア機能は削除済み
 
 // OGPメタタグの更新
 function updateOGPTags(article) {
