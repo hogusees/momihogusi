@@ -1,7 +1,7 @@
 // ブログ専用JavaScript
 const BLOG_CONFIG = {
     // CMS連携設定（LPと同じ）
-    API_KEY: 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+    API_KEY: 'y33nqinuS0kqnnWaqQ15lUfDzQBiLnc1rvlP',
     API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/blogs',
     POSTS_PER_PAGE: 6
 };

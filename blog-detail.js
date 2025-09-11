@@ -1,7 +1,7 @@
 // 記事詳細ページ専用JavaScript
 const BLOG_DETAIL_CONFIG = {
     // CMS連携設定（LPと同じ）
-    API_KEY: 'vdklHLdPlKkoI0O5I68A8qDeRTSJnDyazTWn',
+    API_KEY: 'y33nqinuS0kqnnWaqQ15lUfDzQBiLnc1rvlP',
     API_ENDPOINT: 'https://hogusees-blog.microcms.io/api/v1/blogs'
 };
 
@@ -50,6 +50,9 @@ async function loadArticleDetail(articleId) {
         articleContent.innerHTML = '<div class="article-loading"><p>記事を読み込み中...</p></div>';
         
         // microCMSから記事を取得
+        console.log('APIエンドポイント:', `${BLOG_DETAIL_CONFIG.API_ENDPOINT}/${articleId}`);
+        console.log('APIキー:', BLOG_DETAIL_CONFIG.API_KEY);
+        
         const response = await fetch(`${BLOG_DETAIL_CONFIG.API_ENDPOINT}/${articleId}`, {
             method: 'GET',
             headers: {
@@ -57,6 +60,9 @@ async function loadArticleDetail(articleId) {
                 'Content-Type': 'application/json'
             }
         });
+        
+        console.log('レスポンスステータス:', response.status);
+        console.log('レスポンスOK:', response.ok);
 
         if (!response.ok) {
             throw new Error(`記事の取得に失敗しました: ${response.status}`);
