@@ -212,19 +212,26 @@ function setupNavigation() {
 // OGPメタタグの更新
 function updateOGPTags(article) {
     const title = article.title || '記事詳細';
-    const description = article.summary || article.content.substring(0, 160) + '...';
+    const description = article.summary || (article.content ? article.content.substring(0, 160) + '...' : '記事詳細');
     const url = window.location.href;
     
-    // タイトル
-    document.querySelector('meta[property="og:title"]').content = title;
-    document.querySelector('meta[name="twitter:title"]').content = title;
+    // タイトル（要素が存在する場合のみ更新）
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = title;
     
-    // 説明
-    document.querySelector('meta[property="og:description"]').content = description;
-    document.querySelector('meta[name="twitter:description"]').content = description;
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.content = title;
     
-    // URL
-    document.querySelector('meta[property="og:url"]').content = url;
+    // 説明（要素が存在する場合のみ更新）
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) ogDescription.content = description;
+    
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) twitterDescription.content = description;
+    
+    // URL（要素が存在する場合のみ更新）
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.content = url;
 }
 
 // カテゴリIDをテキストに変換
