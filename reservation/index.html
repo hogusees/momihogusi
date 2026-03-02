@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>レッスン予約 - dancestudioVANZ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js"></script>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">dancestudioVANZ</h1>
+            <h2 class="header-title">レッスン予約</h2>
+        </div>
+    </header>
+
+    <!-- レッスン選択セクション -->
+    <section id="lessons" class="lessons-section">
+        <div class="container">
+            <h2 class="section-title">レッスンを選択してください</h2>
+            <div class="lessons-grid">
+                <div class="lesson-card" data-target="kids-dance">
+                    <h3 class="lesson-title">キッズダンス</h3>
+                    <p class="lesson-description">お子様の年齢に合わせたダンスレッスン</p>
+                </div>
+                
+                
+                <div class="lesson-card" data-target="aerobics">
+                    <h3 class="lesson-title">エアロビクス</h3>
+                    <p class="lesson-description">楽しく体を動かして健康に</p>
+                </div>
+                
+                <div class="lesson-card" data-target="yoga">
+                    <h3 class="lesson-title">癒しのヨガ</h3>
+                    <p class="lesson-description">心と体をリラックスさせるヨガレッスン</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- キッズダンス予約セクション -->
+    <section id="kids-dance" class="booking-section">
+        <div class="container">
+            <h2 class="section-title">キッズダンス予約</h2>
+            <form class="booking-form" id="kids-dance-form">
+                <!-- クラス選択 -->
+                <div class="form-group">
+                    <label class="form-label">クラスを選択してください</label>
+                    <div class="class-options">
+                        <label class="class-option">
+                            <input type="radio" name="dance-class" value="preschool" data-days="3,5" data-time="16:00-16:50" required>
+                            <span class="class-label">
+                                <strong>幼児クラス（3-6歳）</strong><br>
+                                <small>水曜・金曜 16:00-16:50</small>
+                            </span>
+                        </label>
+                        <label class="class-option">
+                            <input type="radio" name="dance-class" value="elementary-low" data-days="5" data-time="17:00-18:00" required>
+                            <span class="class-label">
+                                <strong>低学年クラス（1-3年生）</strong><br>
+                                <small>金曜 17:00-18:00</small>
+                            </span>
+                        </label>
+                        <label class="class-option">
+                            <input type="radio" name="dance-class" value="elementary-high" data-days="3,5" data-time="18:30-19:30" required>
+                            <span class="class-label">
+                                <strong>高学年クラス（4-6年生）</strong><br>
+                                <small>水曜・金曜 18:30-19:30</small>
+                            </span>
+                        </label>
+                        <label class="class-option">
+                            <input type="radio" name="dance-class" value="junior-high" data-days="3,5" data-time="19:40-20:40" required>
+                            <span class="class-label">
+                                <strong>中学生クラス（1-3年生）</strong><br>
+                                <small>水曜・金曜 19:40-20:40</small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 日時選択 -->
+                <div class="form-group">
+                    <label class="form-label" for="kids-date">希望日</label>
+                    <input type="date" id="kids-date" name="date" class="form-input" required>
+                    <div id="selected-class-info" class="class-info" style="display: none;">
+                        <p><strong>選択されたクラス:</strong> <span id="selected-class-name"></span></p>
+                        <p><strong>レッスン時間:</strong> <span id="selected-class-time"></span></p>
+                        <p><strong>対象曜日:</strong> <span id="selected-class-days"></span></p>
+                    </div>
+                </div>
+
+                <!-- 人数・参加者情報 -->
+                <div class="form-group">
+                    <label class="form-label" for="kids-participants">参加者数</label>
+                    <select id="kids-participants" name="participants" class="form-select" required>
+                        <option value="">選択してください</option>
+                        <option value="1">1名</option>
+                        <option value="2">2名</option>
+                        <option value="3">3名</option>
+                        <option value="4">4名</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="kids-names">参加者名</label>
+                    <input type="text" id="kids-names" name="names" class="form-input" placeholder="例: 田中太郎" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="kids-grade">学年</label>
+                    <input type="text" id="kids-grade" name="grade" class="form-input" placeholder="例: 小学2年生" required>
+                </div>
+
+                <button type="submit" class="submit-btn">予約をLINEに送信</button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- エアロビクス予約セクション -->
+    <section id="aerobics" class="booking-section">
+        <div class="container">
+            <h2 class="section-title">エアロビクス予約</h2>
+            <form class="booking-form" id="aerobics-form">
+                <!-- 日時選択 -->
+                <div class="form-group">
+                    <label class="form-label" for="aerobics-date">希望日</label>
+                    <input type="date" id="aerobics-date" name="date" class="form-input" required>
+                    <div class="class-info">
+                        <p><strong>レッスン時間:</strong> 10:00-11:00</p>
+                        <p><strong>対象曜日:</strong> 水曜</p>
+                    </div>
+                </div>
+
+                <!-- 人数・参加者情報 -->
+                <div class="form-group">
+                    <label class="form-label" for="aerobics-participants">参加者数</label>
+                    <select id="aerobics-participants" name="participants" class="form-select" required>
+                        <option value="">選択してください</option>
+                        <option value="1">1名</option>
+                        <option value="2">2名</option>
+                        <option value="3">3名</option>
+                        <option value="4">4名</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="aerobics-names">参加者名</label>
+                    <input type="text" id="aerobics-names" name="names" class="form-input" placeholder="例: 佐藤美香" required>
+                </div>
+
+                <button type="submit" class="submit-btn">予約をLINEに送信</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 癒しのヨガ予約セクション -->
+    <section id="yoga" class="booking-section">
+        <div class="container">
+            <h2 class="section-title">癒しのヨガ予約</h2>
+            <form class="booking-form" id="yoga-form">
+                <!-- 日時選択 -->
+                <div class="form-group">
+                    <label class="form-label" for="yoga-date">希望日</label>
+                    <input type="date" id="yoga-date" name="date" class="form-input" required>
+                    <div class="class-info">
+                        <p><strong>レッスン時間:</strong> 9:00-10:00</p>
+                        <p><strong>対象曜日:</strong> 月曜</p>
+                    </div>
+                </div>
+
+                <!-- 人数・参加者情報 -->
+                <div class="form-group">
+                    <label class="form-label" for="yoga-participants">参加者数</label>
+                    <select id="yoga-participants" name="participants" class="form-select" required>
+                        <option value="">選択してください</option>
+                        <option value="1">1名</option>
+                        <option value="2">2名</option>
+                        <option value="3">3名</option>
+                        <option value="4">4名</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="yoga-names">参加者名</label>
+                    <input type="text" id="yoga-names" name="names" class="form-input" placeholder="例: 山田リラックス" required>
+                </div>
+
+                <button type="submit" class="submit-btn">予約をLINEに送信</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 dancestudioVANZ. All rights reserved.</p>
+            <p>お問い合わせ: info@dancestudiovanz.com</p>
+        </div>
+    </footer>
+
+    <!-- ページトップボタン -->
+    <button id="scroll-top" class="scroll-top-btn">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

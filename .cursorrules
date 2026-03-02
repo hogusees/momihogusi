@@ -1,0 +1,19 @@
+# Cursor MCP設定 for n8n連携
+
+## MCPサーバー設定
+mcpServers:
+  n8n-mcp:
+    command: node
+    args: ["./mcp-n8n-server.js"]
+    env:
+      N8N_API_URL: "https://your-n8n-instance.hostinger.com"
+      N8N_API_KEY: "your-api-key-here"
+
+## n8n連携のためのルール
+- n8nワークフローの作成、更新、削除はMCPサーバー経由で実行
+- ワークフローの実行状況はn8nのAPI経由で確認
+- エラーハンドリングは適切に行い、ユーザーに分かりやすいメッセージを表示
+
+
+
+
