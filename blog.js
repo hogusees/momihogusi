@@ -43,7 +43,7 @@ async function loadBlogPosts() {
         console.log('APIエンドポイント:', BLOG_CONFIG.API_ENDPOINT);
         console.log('APIキー:', BLOG_CONFIG.API_KEY);
         
-        const response = await fetch(`${BLOG_CONFIG.API_ENDPOINT}?limit=100&orders=-publishedAt`, {
+        const response = await fetch(`${BLOG_CONFIG.API_ENDPOINT}?limit=100&orders=-publishedAt&depth=1`, {
             method: 'GET',
             headers: {
                 'X-MICROCMS-API-KEY': BLOG_CONFIG.API_KEY,
@@ -92,7 +92,7 @@ function applyCategoryFilter() {
     if (currentCategory === 'all') {
         filteredPosts = allPosts;
     } else {
-        filteredPosts = allPosts.filter(post => post.category === currentCategory);
+        filteredPosts = allPosts.filter(post => getPostCategorySlug(post) === currentCategory);
     }
     
     currentPage = 1;
@@ -123,11 +123,11 @@ function renderBlogPosts() {
         
         const title = post.title || 'タイトルなし';
         const excerpt = post.summary || post.content.substring(0, 120) + '...';
-        const category = post.category || 'その他';
+        const category = post.category;
         const categoryText = getCategoryText(category);
         
         return `
-            <article class="blog-card" data-category="${category}">
+            <article class="blog-card" data-category="${getPostCategorySlug(post)}">
                 <div class="blog-card-image">
                     <i class="fas fa-spa"></i>
                 </div>
@@ -150,16 +150,34 @@ function renderBlogPosts() {
     blogGrid.innerHTML = blogHTML;
 }
 
-// カテゴリIDをテキストに変換
+// カテゴリをテキストに変換（配列・関連オブジェクト・文字列対応）
 function getCategoryText(category) {
+    if (Array.isArray(category) && category.length) category = category[0];
+    if (category && typeof category === 'object')
+        return category.title || category.name || category.id || 'お知らせ';
     const categoryMap = {
+        'event': 'イベント実施中',
+        'katahari': '肩こり',
+        'yotsu': '腰痛',
+        'health': '健康',
         'massage': 'マッサージ',
-        'health': '健康情報',
         'selfcare': 'セルフケア',
         'store': '店舗情報',
         'staff': 'スタッフ'
     };
-    return categoryMap[category] || category;
+    return categoryMap[category] || category || 'お知らせ';
+}
+
+// 記事からカテゴリID/スラッグを取得（フィルター用・配列・文字列・関連オブジェクト対応）
+function getPostCategorySlug(post) {
+    let c = post && post.category;
+    if (!c) return '';
+    if (Array.isArray(c) && c.length) c = c[0];
+    const byName = { 'イベント実施中': 'event', '肩こり': 'katahari', '腰痛': 'yotsu', '健康': 'health' };
+    if (typeof c === 'string') return byName[c.trim()] || c.trim() || '';
+    const title = (c.title || c.name || '').trim();
+    const id = (c.id || '').toString();
+    return byName[title] || id || '';
 }
 
 // ページネーションの設定

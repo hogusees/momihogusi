@@ -921,6 +921,24 @@ section {
     min-width: 60px;
 }
 
+.post-category-badge {
+    font-size: 0.65rem;
+    color: #fff;
+    background: #D2691E;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+.post-category-badge.post-category-seo {
+    background: #8B7355;
+}
+
+/* 1段目（イベント実施中）のみ薄オレンジ背景 */
+.info-item.info-item-event {
+    background: #FFC080 !important;
+}
+
 .post-category {
     font-size: 0.65rem;
     color: #D2691E;
