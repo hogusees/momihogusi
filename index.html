@@ -1582,7 +1582,7 @@
         function getLpCategoryLabel(cat) {
             if (Array.isArray(cat) && cat.length) cat = cat[0];
             if (cat && typeof cat === 'object' && (cat.title || cat.name)) return cat.title || cat.name;
-            var map = { event: 'イベント実施中', katahari: '肩こり', yotsu: '腰痛', health: '健康' };
+            var map = { event: 'イベント実施中', katahari: '肩こり', yotsu: '腰痛', health: '健康', store: '店舗紹介' };
             return map[cat] || (typeof cat === 'string' ? cat : '') || 'お知らせ';
         }
         // 記事のカテゴリからスラッグを取得（配列・文字列・関連オブジェクト対応）
@@ -1596,6 +1596,7 @@
                 if (s === '肩こり' || s === 'katahari') return 'katahari';
                 if (s === '腰痛' || s === 'yotsu') return 'yotsu';
                 if (s === '健康' || s === 'health') return 'health';
+                if (s === '店舗紹介' || s === 'store') return 'store';
                 return s;
             }
             var title = (c.title || c.name || '').trim();
@@ -1604,6 +1605,7 @@
             if (title === '肩こり' || id === 'katahari') return 'katahari';
             if (title === '腰痛' || id === 'yotsu') return 'yotsu';
             if (title === '健康' || id === 'health') return 'health';
+            if (title === '店舗紹介' || id === 'store') return 'store';
             return id || '';
         }
 

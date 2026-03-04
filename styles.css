@@ -934,9 +934,17 @@ section {
     background: #8B7355;
 }
 
-/* 1段目（イベント実施中）のみ薄オレンジ背景 */
+/* 1段目（イベント実施中）のみ：左縦＝濃いピンク、背景＝薄ピンク、その他オレンジ箇所は2・3段目と同色 */
 .info-item.info-item-event {
-    background: #FFC080 !important;
+    background: #FFE4EC !important;
+    border-left-color: #C2185B !important;
+}
+.info-item.info-item-event .post-category-badge {
+    background: #C2185B;
+}
+.info-item.info-item-event .post-date {
+    color: #5c4a3d;
+    background: rgba(139, 115, 85, 0.15);
 }
 
 .post-category {

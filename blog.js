@@ -160,6 +160,7 @@ function getCategoryText(category) {
         'katahari': '肩こり',
         'yotsu': '腰痛',
         'health': '健康',
+        'store': '店舗紹介',
         'massage': 'マッサージ',
         'selfcare': 'セルフケア',
         'store': '店舗情報',
@@ -173,7 +174,7 @@ function getPostCategorySlug(post) {
     let c = post && post.category;
     if (!c) return '';
     if (Array.isArray(c) && c.length) c = c[0];
-    const byName = { 'イベント実施中': 'event', '肩こり': 'katahari', '腰痛': 'yotsu', '健康': 'health' };
+    const byName = { 'イベント実施中': 'event', '肩こり': 'katahari', '腰痛': 'yotsu', '健康': 'health', '店舗紹介': 'store' };
     if (typeof c === 'string') return byName[c.trim()] || c.trim() || '';
     const title = (c.title || c.name || '').trim();
     const id = (c.id || '').toString();

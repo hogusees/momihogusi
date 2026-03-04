@@ -362,6 +362,7 @@
                         <option value="肩こり">肩こり（LP 2・3段目にタイトルのみ）</option>
                         <option value="腰痛">腰痛（LP 2・3段目にタイトルのみ）</option>
                         <option value="健康">健康（LP 2・3段目にタイトルのみ）</option>
+                        <option value="店舗紹介">店舗紹介（LP 2・3段目にタイトルのみ）</option>
                     </select>
                     <small style="color:#666;">ブログAPIの「カテゴリ」選択フィールドで保存。カテゴリAPI（Teamプラン）は不要です。</small>
                 </div>
@@ -694,7 +695,7 @@
         function getCategoryLabel(cat) {
             if (Array.isArray(cat) && cat.length) cat = cat[0];
             if (cat && typeof cat === 'object') return cat.title || cat.name || cat.id || '未設定';
-            var map = { event: 'イベント実施中', katahari: '肩こり', yotsu: '腰痛', health: '健康' };
+            var map = { event: 'イベント実施中', katahari: '肩こり', yotsu: '腰痛', health: '健康', store: '店舗紹介' };
             return (typeof cat === 'string' && map[cat]) ? map[cat] : (cat || '未設定');
         }
 
